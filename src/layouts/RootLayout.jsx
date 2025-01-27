@@ -12,7 +12,7 @@ const RootLayout = () => {
     <div className="w-full mx-auto 2xl:container">
       <Nav />
       <Outlet />
-      <footer className="2xl:container px-2 bg-black text-white">
+      <footer className=" bg-black text-white px-4">
         <div className="px-4 py-16 d-none d-md-flex justify-content-between">
           <div className="d-lg-flex d-none gap-2 flex-column justify-content-center">
             <div className="d-flex align-items-center gap-2">
@@ -60,7 +60,7 @@ const RootLayout = () => {
           </div>
         </div>
         {/* small screen */}
-        <div className="d-md-none d-block px-3 py-8">
+        <div className="d-md-none d-block px-2 py-8">
           <div className=" flex-wrap gap-3  d-flex ">
             <div className="d-flex flex-column justify-content-start">
               <h5

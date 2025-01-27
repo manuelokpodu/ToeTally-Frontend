@@ -5,7 +5,7 @@ import ActionButton from "./ActionButton";
 const NewArrival = () => {
   return (
     <>
-      <div className="mx-lg-5 mx-3 p-4 mt-12 d-none d-md-block">
+      <div className="mt-12 d-none d-md-block p-4">
         <h1 className="font-family-3 text-5xl text-black">NEW ARRIVALS</h1>
         <div className="d-flex justify-content-between align-items-center">
           <h2 className="font-family-4 text-4xl">Fresh Looks, New Moves.</h2>
@@ -20,7 +20,7 @@ const NewArrival = () => {
               key={item.id}
               className="flex-shrink-0 border-0 pb-4 hover-brightness"
               style={{
-                width: "24vw",
+                width: "22vw",
                 minHeight: "30vh",
                 backgroundColor: "#B5B5B51A",
               }}

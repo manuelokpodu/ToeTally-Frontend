@@ -50,8 +50,8 @@ const Home = () => {
     <div className="py-lg-5">
       <div className="d-md-flex justify-content-center align-items-center">
         <div
-          className="d-md-flex d-none flex-column mx-lg-5 mx-3 px-4"
-          style={{ maxWidth: "50vw" }}
+          className="d-md-flex d-none flex-column p-4"
+          style={{ maxWidth: "60vw" }}
         >
           <h1 className="font-family-3 text-customVeryDarkBlue text-5xl/[4rem] lg:text-6xl/[6rem]">
             Step into Comfort. Walk with Confidence
@@ -77,8 +77,9 @@ const Home = () => {
             className="font-family-2 rounded-2 lg:w-48 w-32 p-lg-2 p-1"
           />
         </div>
+        <Image src={heroImg} style={{ maxWidth: "50vw" }} className="d-none d-md-block"/>
         {/* hero small screen */}
-        <div className="d-flex flex-column text-center align-items-center p-4 d-md-none d-block">
+        <div className="d-flex flex-column text-center align-items-center p-3 d-md-none d-block">
           <h1 className="font-family-3 text-customVeryDarkBlue text-4xl/[3rem]">
             Step into Comfort. Walk with Confidence
           </h1>
@@ -103,13 +104,13 @@ const Home = () => {
             className="font-family-2 rounded-2 w-32 p-2"
           />
         </div>
-        <Image src={heroImg} style={{ minWidth: "50vw" }} />
+        <Image src={heroImg}  className="d-block d-md-none"/>
       </div>
 
       <div className="bg-customGray p-2 overflow-hidden">
         <div
           ref={imageContainerRef}
-          className=" d-flex justify-content-between  align-items-center"
+          className=" d-flex justify-content-between align-items-center"
         >
           <Image src={nike} className="lg:w-28 md:w-14 w-8" />
           <Image src={fila} className="lg:w-28 md:w-14 w-8" />
@@ -125,7 +126,7 @@ const Home = () => {
 
       <Trending />
 
-      <div className="mx-lg-5 mx-3 d-none d-md-block p-4 mt-14">
+      <div className="d-none d-md-block mt-14 p-4">
         <Row>
           <Col sm={12} md={6} lg={5}>
             <Image

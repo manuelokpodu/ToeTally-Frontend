@@ -6,7 +6,7 @@ import { discountBadge } from "../assets";
 const Discount = () => {
   return (
     <>
-      <div className="mx-lg-5 mx-3 p-4 mt-12 d-none d-md-block">
+      <div className="p-4 mt-12 d-none d-md-block">
         <h1 className="font-family-3 text-5xl text-black">DISCOUNT OFFERS</h1>
         <div className="mt-4 d-flex gap-8 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
           {discountOffer.map((item) => (
@@ -14,7 +14,7 @@ const Discount = () => {
               key={item.id}
               className="flex-shrink-0 border-0 pb-4 hover-brightness position-relative"
               style={{
-                width: "24vw",
+                width: "22vw",
                 minHeight: "30vh",
                 backgroundColor: "#B5B5B51A",
               }}
