@@ -29,6 +29,7 @@ import blackLouboutin from "./black-logo/image 11.png";
 import blackNike from "./black-logo/image 2.png";
 import blackLv from "./black-logo/image 8.png";
 import blackAdidas from "./black-logo/image 14.png";
+import blackNB from "./black-logo/image 323.png"
 import discountBadge from "./image 313.png";
 import discount1 from "./discount-offers/image 312.png";
 import discount2 from "./discount-offers/image 314.png";
@@ -45,7 +46,9 @@ import inspiration4B from "./inspiration/image 37.png";
 import offer1 from "./offers/image 317.png"
 import offer2 from "./offers/image 320.png"
 import offer3 from "./offers/image 321.png"
-import offer4 from "./offers/image 322.png"
+import offer4 from "./offers/image 322 (1).png"
+import offer5 from "./offers/image 324.png"
+import offer6 from "./offers/image 325.png"
 import vector1 from "./vector/Vector (1).png"
 import vector2 from "./vector/Vector (2).png"
 import vector3 from "./vector/Vector (3).png"
@@ -83,6 +86,7 @@ export {
   blackLouboutin,
   blackLv,
   blackNike,
+  blackNB,
   discountBadge,
   discount1,
   discount2,
@@ -100,6 +104,8 @@ export {
   offer2,
   offer3,
   offer4,
+  offer5,
+  offer6,
   vector1,
   vector2,
   vector3,
