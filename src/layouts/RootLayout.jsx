@@ -9,11 +9,11 @@ import { whiteLogo } from "../assets";
 
 const RootLayout = () => {
   return (
-    <div>
+    <div className="w-full mx-auto 2xl:container">
       <Nav />
       <Outlet />
-      <footer className="bg-black text-white">
-        <div className="mx-lg-5 mx-3  px-4 py-16 d-none d-md-flex justify-content-between">
+      <footer className="2xl:container px-2 bg-black text-white">
+        <div className="px-4 py-16 d-none d-md-flex justify-content-between">
           <div className="d-lg-flex d-none gap-2 flex-column justify-content-center">
             <div className="d-flex align-items-center gap-2">
               <Image src={whiteLogo} />
@@ -31,6 +31,7 @@ const RootLayout = () => {
             <p className="mt-4 font-family-2 font-extralight">About Us</p>
             <p className="font-family-2 font-extralight">FAQ</p>
             <p className="font-family-2 font-extralight">Contact</p>
+            <a href="/Login" className="font-family-2 font-extralight">login</a>
           </div>
           <div className="d-flex flex-column justify-content-start">
             <h5 style={{ fontFamily: "Averia Serif Libre" }}>Legal</h5>
