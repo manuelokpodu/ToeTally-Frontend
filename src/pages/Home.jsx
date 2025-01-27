@@ -175,7 +175,6 @@ const Home = () => {
       <div className="d-md-none d-block relative mt-12">
         <Image
           src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nV3rHZ1xzp79iG1f~mTQFSs8~Q~2Y0rVVsZBrcO3drM0NVLTkC0XhgE7wRGllVje8~FPhJ1YlP0jvPlF7h~VbuwJTAuQHMN-egm1Ltyu0-SoZ-LLBV1vmWIEpAWEMBNnwrdovY9y8BTNp6buBr-gAVUKe1HRENvgWBAp0ZQvlIHF3A3WUidxoIi0k~ZHf5cZQZhrTbhYFIWhpmHJudLqT7bpSv5h2YDwshccy~UPxZFRQFG-bQbVZS7dfxdU0~JgABPEr8xWh7oIM-0ysraEVL1S6dBVr3ViEy2WFUApgSAMSmGJDdxTKTe5Q3nv1Adi2FRwBgs5FBmnzC3QsyCQZQ__"
-          className="w-100"
         />
         <div className="d-flex flex-column text-center align-items-center justify-content-center absolute top-0 px-3">
           <Image src={discountBg} className="w-64" />

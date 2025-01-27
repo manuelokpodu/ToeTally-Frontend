@@ -13,16 +13,17 @@ const OfferForYou = () => {
               key={item.id}
               className="flex-shrink-0 border-0 pb-4 hover-brightness"
               style={{
-                width: "22rem",
-                minHeight: "30rem",
+                width: "24vw",
+                minHeight: "30vh",
                 backgroundColor: "#B5B5B51A",
               }}
             >
-              <div style={{ height: "17rem", width: "auto" }}>
+              <div style={{ height: "15rem", width: "auto" }}>
                 <Card.Img
                   variant="top"
                   src={item.image}
-                  className="object-fit-cover p-2"
+                  className="object-fit-contain p-2"
+                  style={{ height: "14rem" }}
                 />
               </div>
               <Card.Body>
@@ -79,11 +80,12 @@ const OfferForYou = () => {
                 backgroundColor: "#B5B5B51A",
               }}
             >
-              <div style={{ height: "8rem", width: "12rem" }}>
+              <div style={{ height: "8rem", width: "auto" }}>
                 <Card.Img
                   variant="top"
                   src={item.image}
                   className="object-fit-contain p-2"
+                  style={{ height: "10rem" }}
                 />
               </div>
               <Card.Body>
