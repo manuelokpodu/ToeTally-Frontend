@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Loader } from "../components";
 import Login from "../components/auth/LogIn";
+import SignUp from "../components/auth/SignUp";
 const RootLayout = lazy(() => import("../layouts/RootLayout"));
 const AboutUs = lazy(() => import("../pages/AboutUs")); // Lazy load AboutUs page
 
@@ -22,7 +23,7 @@ export default function AppRoutes() {
                     element: <Home />,
                 },
                 {
-                    path: "/aboutus", // Define the AboutUs route
+                    path: "/aboutus", 
                     element: (
                         <Suspense fallback={<Loader />}>
                             <AboutUs />
@@ -32,10 +33,18 @@ export default function AppRoutes() {
             ],
         },
         {
-            path: "/login", // Define Login outside RootLayout
+            path: "/login",
             element: (
                 <Suspense fallback={<Loader />}>
                     <Login />
+                </Suspense>
+            ),
+        },
+        {
+            path: "/signup", 
+            element: (
+                <Suspense fallback={<Loader />}>
+                    <SignUp />
                 </Suspense>
             ),
         },
