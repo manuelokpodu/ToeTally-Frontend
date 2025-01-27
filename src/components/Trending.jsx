@@ -33,7 +33,7 @@ const Trending = () => {
 
   return (
     <div>
-      <h1 className="mx-lg-5 mx-3 p-4 d-none d-md-block mt-14 font-family-3 text-5xl text-black">
+      <h1 className="p-4 d-none d-md-block mt-14 font-family-3 text-5xl text-black">
         TRENDING
       </h1>
       <div className="mt-14 md:mt-0">

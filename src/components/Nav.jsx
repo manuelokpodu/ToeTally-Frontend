@@ -52,7 +52,7 @@ const Nav = () => {
               <NavLink to="/cart">
                 <TbShoppingBag className="text-navIcon text-2xl" />
               </NavLink>
-              <NavLink to="/profile">
+              <NavLink to="/signup">
                 <CgProfile className="text-navIcon text-2xl" />
               </NavLink>
             </div>
