@@ -1,4 +1,4 @@
-import { Home } from "../pages";
+import { Cart, Home } from "../pages";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Loader } from "../components";
@@ -39,6 +39,10 @@ export default function AppRoutes() {
                         </Suspense>
                     ),
                 },
+                {
+                    path: "/cart", 
+                    element: <Cart/>
+                },
             ],
         },
         {
@@ -58,7 +62,9 @@ export default function AppRoutes() {
             ),
         },
     ];
+  
+          
 
-    const router = createBrowserRouter(routes);
-    return <RouterProvider router={router} />;
+  const router = createBrowserRouter(routes);
+  return <RouterProvider router={router} />;
 }
