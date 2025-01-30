@@ -15,7 +15,7 @@ const Discount = () => {
               className="flex-shrink-0 border-0 pb-4 hover-brightness position-relative"
               style={{
                 width: "22vw",
-                minHeight: "30vh",
+                 minHeight: "30vh",
                 backgroundColor: "#B5B5B51A",
               }}
             >

@@ -10,7 +10,7 @@ import Drawer from "./Drawer";
 const Nav = () => {
   return (
     <>
-      <header className="outline outline-navOutline px-2 d-none d-md-block">
+      <header className="outline outline-navOutline d-none d-md-block">
         <div className="d-flex justify-content-between  align-items-center p-4 ">
           <NavLink to="/" className="no-underline">
             <div className="d-flex align-items-center gap-2">

@@ -50,7 +50,7 @@ const Home = () => {
     <div className="py-lg-5">
       <div className="d-md-flex justify-content-center align-items-center">
         <div
-          className="d-md-flex d-none flex-column p-4"
+          className="d-md-flex d-none flex-column p-3"
           style={{ maxWidth: "60vw" }}
         >
           <h1 className="font-family-3 text-customVeryDarkBlue text-5xl/[4rem] lg:text-6xl/[6rem]">
