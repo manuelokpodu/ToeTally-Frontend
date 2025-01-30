@@ -7,4 +7,3 @@ const currency_format = new Intl.NumberFormat(undefined, {
   export function formatCurrency(number) {
     return currency_format.format(number);
   }
-  
