@@ -4,6 +4,7 @@ import { lazy, Suspense } from "react";
 import { Loader } from "../components";
 import Login from "../components/auth/LogIn";
 import SignUp from "../components/auth/SignUp";
+import AddToCart from "../components/addToCart/AddToCart";
 const RootLayout = lazy(() => import("../layouts/RootLayout"));
 const AboutUs = lazy(() => import("../pages/AboutUs")); // Lazy load AboutUs page
 
@@ -27,6 +28,14 @@ export default function AppRoutes() {
                     element: (
                         <Suspense fallback={<Loader />}>
                             <AboutUs />
+                        </Suspense>
+                    ),
+                },
+                {
+                    path: "/addToCart", 
+                    element: (
+                        <Suspense fallback={<Loader />}>
+                            <AddToCart/>
                         </Suspense>
                     ),
                 },
