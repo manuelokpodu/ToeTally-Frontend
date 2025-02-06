@@ -10,8 +10,8 @@ import Drawer from "./Drawer";
 const Nav = () => {
   return (
     <>
-      <header className="outline outline-navOutline d-none d-md-block">
-        <div className="d-flex justify-content-between  align-items-center p-4 ">
+      <header className="border-b-2 d-none d-md-block">
+        <div className="d-flex justify-content-between align-items-center md:px-3 lg:px-16 py-4 ">
           <NavLink to="/" className="no-underline">
             <div className="d-flex align-items-center gap-2">
               <Image src={logo} />
@@ -29,7 +29,7 @@ const Nav = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "text-customDarkBlue underline"
-                    : "text-customBlue no-underline"
+                    : "text-customLightGray no-underline"
                 }
               >
                 {item.name}

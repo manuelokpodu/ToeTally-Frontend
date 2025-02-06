@@ -15,10 +15,8 @@ export default {
       colors: {
         customGray: '#323232',
         customLightGray: '#888888',
-        customBlue: '#2C6892',
-        customDarkBlue: '#012D4C',
+        customDarkBlue: '#01497C',
         customVeryDarkBlue: '#021B2D',
-        navOutline: '#B8B7B7',
         navIcon: '#292D32',
         cardBg: '#B5B5B51A'
       },
