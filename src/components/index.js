@@ -8,6 +8,7 @@ import StyleInspirations from "./StyleInspirations";
 import OfferForYou from "./OfferForYou";
 import Drawer from "./Drawer";
 import BrandCarousel from "./BrandCarousel";
+import Subscribe from "./Subscribe";
 
 export {
   Nav,
@@ -19,5 +20,6 @@ export {
   StyleInspirations,
   OfferForYou,
   Drawer,
-  BrandCarousel
+  BrandCarousel,
+  Subscribe
 };
