@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const SignUp = () => {
+  const navigate = useNavigate(); // Initialize navigate
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -30,7 +32,7 @@ const SignUp = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const { firstName, lastName, email, password } = formData;
@@ -44,7 +46,27 @@ const SignUp = () => {
     setErrors(errors);
 
     if (Object.keys(errors).length === 0) {
-      alert("Form submitted successfully");
+      try {
+        const response = await fetch(
+          "https://toetally-backend-1.onrender.com/api/v1/auth/register",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ firstName, lastName, email, password }),
+          }
+        );
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert("Registration successful!");
+          navigate("/"); // Redirect to home page
+        } else {
+          alert(`Error: ${data.message}`);
+        }
+      } catch (error) {
+        alert("Server is unreachable. Try again later.");
+      }
     }
   };
 
@@ -165,14 +187,17 @@ const SignUp = () => {
               </div>
 
               <div>
-                <div className="flex gap-2">
-                  <input type="checkbox" className="mb-10" />
-                  <p className="text-sm lg:text-base">Sign up for emails to get update from Toetally on 
-                  products, offers and your member benefits.</p>
+                <div className="flex gap-2 relative">
+                  <input type="checkbox" className="absolute top-1" />
+                  <p className="text-sm lg:text-base ml-5">
+                    Sign up for emails to get updates from Toetally on products, offers, and your member benefits.
+                  </p>
                 </div>
-                <div className="flex gap-2">
-                <input type="checkbox" className="mb-10" />
-                  <p className="text-sm lg:text-base">I agree to Toetally‘s <span className="font-semibold">Privacy Policy</span> and <span className="font-semibold">Terms of use</span>.</p>
+                <div className="flex gap-2 relative">
+                  <input type="checkbox" className="absolute mt-1" />
+                  <p className="text-sm lg:text-base ml-5">
+                    I agree to Toetally‘s <span className="font-semibold">Privacy Policy</span> and <span className="font-semibold">Terms of use</span>.
+                  </p>
                 </div>
               </div>
 
@@ -187,7 +212,7 @@ const SignUp = () => {
               </div>
 
               <div className="flex gap-2 mt-3">
-                <p>Have an account?</p> <a href="/login" className="text-[#01497C] font-semibold">sign in</a>
+                <p>Have an account?</p> <a href="/login" className="text-[#01497C] font-semibold">Sign in</a>
               </div>
             </form>
           </div>

@@ -35,21 +35,41 @@ const Login = () => {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
+    setEmailError("");
+  
     if (!email) {
       setEmailError("Email is required.");
       return;
     }
-
+  
     if (!validateEmail(email)) {
       setEmailError("Please enter a valid email address.");
       return;
     }
-
-    alert(`Form submitted successfully! Selected Country: ${selectedCountry}`);
+  
+    try {
+      const response = await fetch("https://toetally-backend-1.onrender.com/api/v1/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        alert("Login successful!");
+        localStorage.setItem("token", data.token); // Save token for future requests
+        window.location.href = "/dashboard"; // Redirect user after login
+      } else {
+        setEmailError(data.message || "Invalid credentials. Please try again.");
+      }
+    } catch (error) {
+      setEmailError("Server error. Please try again later.");
+    }
   };
+  
 
   return (
     <>
