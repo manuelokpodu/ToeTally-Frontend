@@ -96,8 +96,8 @@ const Mission = () => {
 
 
       {/* Mission Description Section */}
-      <div className="grid md:grid-cols-2 md:py-8 px-3 lg:px-16">
-        <div className="p-3">
+      <div className="grid md:grid-cols-2 md:py-8 px-3  lg:w-11/12 mx-auto">
+        <div className="py-3">
           <div className="md:p-3">
             <img
               src="/mission.svg"
@@ -106,7 +106,7 @@ const Mission = () => {
             />
           </div>
         </div>
-        <div className="p-3 my-auto lg:w-5/6 lg:mx-auto">
+        <div className="md:p-3 my-auto lg:w-5/6 lg:mx-auto">
           <h1 className="font-family-3 md:mt-4 lg:mt-0">Mission</h1>
           <p className="font-family-2 mt-4">
             At Toetally, our mission is to provide an unparalleled online
@@ -119,7 +119,7 @@ const Mission = () => {
       </div>
 
       {/* Meet the Team Section */}
-      <div className="flex flex-col justify-center items-center px-3 lg:px-16 py-10 md:py-16 ">
+      <div className="flex flex-col justify-center items-center px-3 lg:w-11/12 mx-auto py-10 md:py-16">
         <h1 className="font-family-3 mx-auto mb-4">Meet The Team</h1>
 
         <div

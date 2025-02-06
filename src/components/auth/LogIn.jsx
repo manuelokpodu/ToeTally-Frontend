@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
+
 
 const countries = [
   "Nigeria",
@@ -87,12 +89,10 @@ const Login = () => {
         <div className="lg:w-[45%] py-12 lg:py-0 flex flex-col justify-center items-center md:px-8">
           <div className="w-4/6 font-font-family-2">
             {/* Logo and Title */}
-            <div className="text-center flex gap-2 justify-self-center items-center">
-              <img src="/logo.svg" alt="logo" className="mx-auto w-16 h-16" />
-              <h1 className="font-font-family-1 text-2xl font-bold mt-2">
-                TOETALLY
-              </h1>
-            </div>
+            <Link to="/" className="flex gap-2 items-center text-black no-underline">
+  <img src="/logo.svg" alt="logo" className="w-16 h-16" />
+  <h1 className="font-font-family-1 text-2xl font-bold mt-2">TOETALLY</h1>
+</Link>
 
             {/* Description */}
             <div className="mt-2">
@@ -149,7 +149,7 @@ const Login = () => {
 
             {/* Terms and Conditions */}
             <div className="w-6/6 mx-auto mt-3">
-  <p className="text-[#9F9F9F] font-[400] text-center">
+  <p className="text-[#9F9F9F] font-[400] text-start">
     By continuing, I agree to Toetally’s{" "}
     <a
       className="hover:underline text-[#9F9F9F] decoration-inherit"
@@ -171,7 +171,7 @@ const Login = () => {
               </button>
             </div>
 
-            <div className="flex gap-2 mt-3">
+            <div className="flex justify-center gap-2 mt-3">
                 <p>Don't have an account?</p> <a href="/signup" className="text-[#01497C] font-semibold">sign up</a>
               </div>
           </div>
