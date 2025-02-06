@@ -1,10 +1,8 @@
-
-
 const Cart = () => {
   return (
     <>
       <div style={{ backgroundColor: "#EBEBEB" }}>
-        <div className="p-4 d-flex gap-3">
+        <div className="px-16 py-4 d-flex gap-3">
           <span className="text-customLightGray font-bold font-family-2">
             Home
           </span>

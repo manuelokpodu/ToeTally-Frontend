@@ -7,6 +7,7 @@ import Discount from "./Discount";
 import StyleInspirations from "./StyleInspirations";
 import OfferForYou from "./OfferForYou";
 import Drawer from "./Drawer";
+import BrandCarousel from "./BrandCarousel";
 
 export {
   Nav,
@@ -17,5 +18,6 @@ export {
   Discount,
   StyleInspirations,
   OfferForYou,
-  Drawer
+  Drawer,
+  BrandCarousel
 };

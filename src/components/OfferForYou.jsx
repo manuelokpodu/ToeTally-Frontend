@@ -5,7 +5,7 @@ import ActionButton from "./ActionButton";
 const OfferForYou = () => {
   return (
     <>
-      <div className="p-4 mt-12 d-none d-md-block">
+      <div className="mt-24 d-none d-lg-block pl-16">
         <h1 className="font-family-3 text-5xl text-black">OFFERS FOR YOU</h1>
         <div className="mt-4 d-flex gap-8 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
           {offers.map((item) => (
@@ -13,8 +13,8 @@ const OfferForYou = () => {
               key={item.id}
               className="flex-shrink-0 border-0 pb-4 hover-brightness"
               style={{
-                width: "22vw",
-                minHeight: "30vh",
+                width: "22rem",
+                minHeight: "30rem",
                 backgroundColor: "#B5B5B51A",
               }}
             >
@@ -67,8 +67,8 @@ const OfferForYou = () => {
       </div>
 
       {/* small screen */}
-      <div className="mt-12 p-3 d-block d-md-none">
-        <h1 className="font-family-3 text-3xl text-black">OFFERS FOR YOU</h1>
+      <div className="mt-12 p-3 d-block d-lg-none">
+        <h1 className="font-family-3 text-3xl md:text-4xl text-black">OFFERS FOR YOU</h1>
         <div className="mt-4 d-flex gap-2 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
           {offers.map((item) => (
             <Card

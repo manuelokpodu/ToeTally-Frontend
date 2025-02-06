@@ -5,14 +5,9 @@ import ActionButton from "./ActionButton";
 const NewArrival = () => {
   return (
     <>
-      <div className="mt-12 d-none d-md-block p-4">
+      <div className="mt-24 d-none d-lg-block pl-16">
         <h1 className="font-family-3 text-5xl text-black">NEW ARRIVALS</h1>
-        <div className="d-flex justify-content-between align-items-center">
-          <h2 className="font-family-4 text-4xl">Fresh Looks, New Moves.</h2>
-          <h2 className="font-family-4 text-4xl" style={{ color: "#545454" }}>
-            VIEW ALL
-          </h2>
-        </div>
+        <h2 className="font-family-4 text-4xl">Fresh Looks, New Moves.</h2>
 
         <div className="mt-4 d-flex gap-8 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
           {newArrival.map((item) => (
@@ -20,8 +15,8 @@ const NewArrival = () => {
               key={item.id}
               className="flex-shrink-0 border-0 pb-4 hover-brightness"
               style={{
-                width: "22vw",
-                minHeight: "30vh",
+                width: "22rem",
+                minHeight: "30rem",
                 backgroundColor: "#B5B5B51A",
               }}
             >
@@ -37,7 +32,7 @@ const NewArrival = () => {
                 <div style={{ height: "3rem", width: "auto" }}>
                   <Image src={item.logo} style={item.logoSize} />
                 </div>
-                <div style={{ height: "4rem", width: "auto" }}>
+                <div style={{ height: "3rem", width: "auto" }}>
                   <Card.Text className="font-family-2 fw-bold text-xl">
                     {item.name}
                   </Card.Text>
@@ -66,16 +61,11 @@ const NewArrival = () => {
           ))}
         </div>
       </div>
-      
+
       {/* small screen */}
-      <div className="mt-12 p-3 d-block d-md-none">
-        <h1 className="font-family-3 text-3xl text-black">NEW ARRIVALS</h1>
-        <div className="d-flex justify-content-between align-items-center">
-          <h2 className="font-family-4 text-2xl">Fresh Looks, New Moves.</h2>
-          <h2 className="font-family-4 text-2xl" style={{ color: "#545454" }}>
-            VIEW ALL
-          </h2>
-        </div>
+      <div className="mt-12 p-3 d-block d-lg-none">
+        <h1 className="font-family-3 text-3xl md:text-4xl text-black">NEW ARRIVALS</h1>
+        <h2 className="font-family-4 text-2xl md:text-3xl">Fresh Looks, New Moves.</h2>
 
         <div className="mt-4 d-flex gap-2 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
           {newArrival.map((item) => (
@@ -93,7 +83,7 @@ const NewArrival = () => {
                   variant="top"
                   src={item.image}
                   className="object-fit-contain p-2"
-                  style={{ height: "10rem"}}
+                  style={{ height: "10rem" }}
                 />
               </div>
               <Card.Body>

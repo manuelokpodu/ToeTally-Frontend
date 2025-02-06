@@ -12,10 +12,10 @@ const RootLayout = () => {
     <div className="w-full mx-auto 2xl:container">
       <Nav />
       <Outlet />
-      <footer className=" bg-black text-white px-4">
+      <footer className="bg-black text-white">
         <div className="px-4 py-16 d-none d-md-flex justify-content-between">
-          <div className="d-lg-flex d-none gap-2 flex-column justify-content-center">
-            <div className="d-flex align-items-center gap-2">
+          <div className="d-lg-flex d-none gap-2 flex-column">
+            <div className="d-flex align-items-center justify-content-start gap-2">
               <Image src={whiteLogo} />
               <span className="font-family-1 font-bold fs-5">TOETALLY</span>
             </div>
