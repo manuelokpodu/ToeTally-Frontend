@@ -54,10 +54,10 @@ const StyleInspirations = () => {
   return (
     <>
       <div className="d-md-block d-none">
-        <h1 className="font-family-3 text-center text-black text-5xl mt-14">
+        <h1 className="font-family-3 text-center text-black lg:text-5xl md:text-4xl lg:mt-24 md:mt-14">
           STYLE INSPIRATIONS
         </h1>
-        <div style={gridStyle} className="mt-8">
+        <div style={gridStyle} className="lg:mt-8 md:mt-4">
           {styleInspirations.map((item, index) => (
             <div
               key={item.id}
