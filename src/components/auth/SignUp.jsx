@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
@@ -88,14 +89,14 @@ const SignUp = () => {
         <div className="lg:w-[45%] w-full mx-auto py-12 lg:py-0 flex flex-col justify-center items-center md:px-2">
           <div className="w-4/6 font-font-family-2">
             {/* Logo and Title */}
-            <div className="text-center flex gap-2 justify-self-center items-center">
-              <img src="/logo.svg" alt="logo" className="mx-auto w-16 h-16" />
-              <h1 className="font-font-family-1 text-2xl font-bold mt-2">TOETALLY</h1>
-            </div>
+            <Link to="/" className="flex gap-2 items-center text-black no-underline">
+  <img src="/logo.svg" alt="logo" className="w-16 h-16" />
+  <h1 className="font-font-family-1 text-2xl font-bold mt-2">TOETALLY</h1>
+</Link>
 
             {/* Description */}
             <div className="mt-2">
-              <p className="text-gray-600 text-lg text-center font-semibold font-font-family-2">
+              <p className="text-gray-600 text-lg text-start font-semibold font-font-family-2">
                 Now let’s make you a Toetally member
               </p>
             </div>
@@ -211,7 +212,7 @@ const SignUp = () => {
                 </button>
               </div>
 
-              <div className="flex gap-2 mt-3">
+              <div className="flex gap-2 mt-3 justify-center">
                 <p>Have an account?</p> <a href="/login" className="text-[#01497C] font-semibold">Sign in</a>
               </div>
             </form>
