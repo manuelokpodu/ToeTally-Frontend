@@ -3,7 +3,7 @@ import MapComponent from "../map/MapComponent";
 const FindUs = () => {
     return (
       <>
-        <div className="space-y-10 px-3 lg:px-16">
+        <div className="space-y-10 md:px-3 lg:px-16">
             {/* Row with two sections */}
             <div className="flex flex-col md:flex-row p-6 gap-8 ">
                 {/* Left Section: 1/3 */}
