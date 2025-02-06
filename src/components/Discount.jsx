@@ -6,7 +6,7 @@ import { discountBadge } from "../assets";
 const Discount = () => {
   return (
     <>
-      <div className="p-4 mt-12 d-none d-md-block">
+      <div className="mt-24  d-none d-lg-block pl-16">
         <h1 className="font-family-3 text-5xl text-black">DISCOUNT OFFERS</h1>
         <div className="mt-4 d-flex gap-8 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
           {discountOffer.map((item) => (
@@ -14,8 +14,8 @@ const Discount = () => {
               key={item.id}
               className="flex-shrink-0 border-0 pb-4 hover-brightness position-relative"
               style={{
-                width: "22vw",
-                minHeight: "30vh",
+                width: "22rem",
+                 minHeight: "30rem",
                 backgroundColor: "#B5B5B51A",
               }}
             >
@@ -52,7 +52,7 @@ const Discount = () => {
                 <div style={{ height: "3rem", width: "auto" }}>
                   <Image src={item.logo} style={item.logoSize} />
                 </div>
-                <div style={{ height: "4rem", width: "auto" }}>
+                <div style={{ height: "3rem", width: "auto" }}>
                   <Card.Text className="font-family-2 fw-bold text-xl">
                     {item.name}
                   </Card.Text>
@@ -83,8 +83,8 @@ const Discount = () => {
       </div>
 
       {/* small screen */}
-      <div className="mt-12 p-3 d-block d-md-none">
-        <h1 className="font-family-3 text-3xl text-black">DISCOUNT OFFERS</h1>
+      <div className="mt-12 p-3 d-block d-lg-none">
+        <h1 className="font-family-3 text-3xl md:text-4xl text-black">DISCOUNT OFFERS</h1>
         <div className="mt-4 d-flex gap-3 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
           {discountOffer.map((item) => (
             <Card

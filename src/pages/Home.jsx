@@ -1,6 +1,7 @@
 import { Col, Image, Row } from "react-bootstrap";
 import {
   ActionButton,
+  BrandCarousel,
   Discount,
   NewArrival,
   OfferForYou,
@@ -8,17 +9,8 @@ import {
   Trending,
 } from "../components";
 import {
-  adidas,
-  ballenciaga,
-  champion,
   discountBg,
-  fila,
-  gap,
   heroImg,
-  newBalance,
-  nike,
-  reebok,
-  vans,
   vector1,
   vector2,
   vector3,
@@ -47,16 +39,17 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="py-lg-5">
+    <div className="py-lg-4">
       <div className="d-md-flex justify-content-center align-items-center">
         <div
-          className="d-md-flex d-none flex-column p-4"
-          style={{ maxWidth: "60vw" }}
+          className="d-md-flex d-none gap-lg-3 flex-column md:px-3 lg:px-16"
+          style={{ width: "65vw" }}
         >
-          <h1 className="font-family-3 text-customVeryDarkBlue text-5xl/[4rem] lg:text-6xl/[6rem]">
-            Step into Comfort. Walk with Confidence
+          <h1 className="font-family-3 text-customVeryDarkBlue text-5xl/[4rem] lg:text-7xl/[6rem]">
+            Step into Comfort. Walk <br />
+            with Confidence.
           </h1>
-          <p className="font-family-2 text-customLightGray  text-base lg:text-xl">
+          <p className="font-family-2 text-customLightGray text-base lg:text-2xl">
             Explore footwear crafted for style, durability, and unmatched
             comfort. Designed to elevate every step you take
           </p>
@@ -65,19 +58,23 @@ const Home = () => {
             size="lg"
             text="Shop Now"
             style={{
-              backgroundColor: "#2C6892",
+              backgroundColor: "#01497C",
               fontFamily: "Alexandria variable",
               color: "white",
             }}
             hoverStyle={{
-              backgroundColor: "transparent",
-              color: "black",
-              border: "1px solid black",
+              backgroundColor: "white",
+              color: "#01497C",
+              border: "1px solid #01497C",
             }}
             className="font-family-2 rounded-2 lg:w-48 w-32 p-lg-2 p-1"
           />
         </div>
-        <Image src={heroImg} style={{ maxWidth: "50vw" }} className="d-none d-md-block"/>
+        <Image
+          src={heroImg}
+          style={{ width: "45vw" }}
+          className="d-none d-md-block"
+        />
         {/* hero small screen */}
         <div className="d-flex flex-column text-center align-items-center p-3 d-md-none d-block">
           <h1 className="font-family-3 text-customVeryDarkBlue text-4xl/[3rem]">
@@ -92,45 +89,29 @@ const Home = () => {
             size="md"
             text="Shop Now"
             style={{
-              backgroundColor: "#2C6892",
+              backgroundColor: "#01497C",
               fontFamily: "Alexandria variable",
               color: "white",
             }}
             hoverStyle={{
-              backgroundColor: "transparent",
-              color: "black",
-              border: "1px solid black",
+              backgroundColor: "white",
+              color: "#01497C",
+              border: "1px solid #01497C",
             }}
             className="font-family-2 rounded-2 w-32 p-2"
           />
         </div>
-        <Image src={heroImg}  className="d-block d-md-none"/>
+        <Image src={heroImg} className="d-block d-md-none" />
       </div>
-
-      <div className="bg-customGray p-2 overflow-hidden">
-        <div
-          ref={imageContainerRef}
-          className=" d-flex justify-content-between align-items-center"
-        >
-          <Image src={nike} className="lg:w-28 md:w-14 w-8" />
-          <Image src={fila} className="lg:w-28 md:w-14 w-8" />
-          <Image src={reebok} className="lg:w-28 md:w-14 w-8" />
-          <Image src={ballenciaga} className="lg:w-40 md:w-32 w-14" />
-          <Image src={champion} className="lg:w-40 md:w-32 w-14" />
-          <Image src={vans} className="lg:w-28 md:w-14 w-8" />
-          <Image src={newBalance} className="lg:w-28 md:w-14 w-8" />
-          <Image src={gap} className="lg:w-28 md:w-14 w-8" />
-          <Image src={adidas} className="lg:w-28 md:w-14 w-8" />
-        </div>
-      </div>
+      <BrandCarousel />
 
       <Trending />
 
-      <div className="d-none d-md-block mt-14 p-4">
+      <div className="d-none d-md-block mt-14 md:px-3 lg:px-16">
         <Row>
           <Col sm={12} md={6} lg={5}>
             <Image
-              src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nV3rHZ1xzp79iG1f~mTQFSs8~Q~2Y0rVVsZBrcO3drM0NVLTkC0XhgE7wRGllVje8~FPhJ1YlP0jvPlF7h~VbuwJTAuQHMN-egm1Ltyu0-SoZ-LLBV1vmWIEpAWEMBNnwrdovY9y8BTNp6buBr-gAVUKe1HRENvgWBAp0ZQvlIHF3A3WUidxoIi0k~ZHf5cZQZhrTbhYFIWhpmHJudLqT7bpSv5h2YDwshccy~UPxZFRQFG-bQbVZS7dfxdU0~JgABPEr8xWh7oIM-0ysraEVL1S6dBVr3ViEy2WFUApgSAMSmGJDdxTKTe5Q3nv1Adi2FRwBgs5FBmnzC3QsyCQZQ__"
+              src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=jDxnFiZ2oDE2GpWrH~8kFGs21JNU~80QH6Mwoi9jAGYstNqcYVD17jweZh9VNKDlK9JtdAi41G1kTELQGA6gd18sQbtB4J1ptI2sQDffO-TUM6ECLLtot0Fd7ItxebU-r97MrRGkyiHSFGmMFpEwN~oNyHBXSGbgFOOidcKFE8rhdhw5DQ10kmpXcUXJxNNMcCPBfeGOqNASSKvsysvdNgx1NAKC-6KFbm30q3VriwSBNSagbv2iDptLIss3TQwc3~hd9gygEMxmDo0J9pX-8cB5P13ejtkoDsVC1R8wDdkvQJesYxATALiqt~J6CFsgH3-CJDLLtXxAn~H5T9FI6A__"
               className="w-100"
             />
           </Col>
@@ -138,16 +119,16 @@ const Home = () => {
             sm={12}
             md={6}
             lg={7}
-            className="d-flex flex-column text-center align-items-center justify-content-center"
+            className="d-flex flex-column gap-2 text-center align-items-center justify-content-center"
           >
             <Image src={discountBg} />
-            <h1 className="font-family-4 text-3xl lg:text-4xl">
+            <h1 className="font-family-4 text-2xl lg:text-5xl">
               EXPERIENCE THE “HIGH” CONIC DUNK
             </h1>
-            <h1 className="font-family-2 fw-bold text-4xl lg:text-5xl">
+            <h1 className="font-family-2 fw-bold text-3xl lg:text-6xl">
               ICONIC FOR A REASON
             </h1>
-            <p className="font-family-2 fw-medium text-2xl lg:text-3xl">
+            <p className="font-family-2 fw-medium text-xl lg:text-2xl">
               Timeless Style, Unmatched Legacy
             </p>
             <ActionButton
@@ -155,14 +136,14 @@ const Home = () => {
               size="lg"
               text="Shop Dunk Now"
               style={{
-                backgroundColor: "#2C6892",
+                backgroundColor: "#01497C",
                 fontFamily: "Alexandria variable",
                 color: "white",
               }}
               hoverStyle={{
-                backgroundColor: "transparent",
-                color: "black",
-                border: "1px solid black",
+                backgroundColor: "white",
+                color: "#01497C",
+                border: "1px solid #01497C",
               }}
               className="font-family-2 rounded-2 w-64 p-lg-3"
             />
@@ -174,9 +155,7 @@ const Home = () => {
 
       {/* gif small screen */}
       <div className="d-md-none d-block relative mt-12">
-        <Image
-          src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nV3rHZ1xzp79iG1f~mTQFSs8~Q~2Y0rVVsZBrcO3drM0NVLTkC0XhgE7wRGllVje8~FPhJ1YlP0jvPlF7h~VbuwJTAuQHMN-egm1Ltyu0-SoZ-LLBV1vmWIEpAWEMBNnwrdovY9y8BTNp6buBr-gAVUKe1HRENvgWBAp0ZQvlIHF3A3WUidxoIi0k~ZHf5cZQZhrTbhYFIWhpmHJudLqT7bpSv5h2YDwshccy~UPxZFRQFG-bQbVZS7dfxdU0~JgABPEr8xWh7oIM-0ysraEVL1S6dBVr3ViEy2WFUApgSAMSmGJDdxTKTe5Q3nv1Adi2FRwBgs5FBmnzC3QsyCQZQ__"
-        />
+        <Image src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=jDxnFiZ2oDE2GpWrH~8kFGs21JNU~80QH6Mwoi9jAGYstNqcYVD17jweZh9VNKDlK9JtdAi41G1kTELQGA6gd18sQbtB4J1ptI2sQDffO-TUM6ECLLtot0Fd7ItxebU-r97MrRGkyiHSFGmMFpEwN~oNyHBXSGbgFOOidcKFE8rhdhw5DQ10kmpXcUXJxNNMcCPBfeGOqNASSKvsysvdNgx1NAKC-6KFbm30q3VriwSBNSagbv2iDptLIss3TQwc3~hd9gygEMxmDo0J9pX-8cB5P13ejtkoDsVC1R8wDdkvQJesYxATALiqt~J6CFsgH3-CJDLLtXxAn~H5T9FI6A__" />
         <div className="d-flex flex-column text-center align-items-center justify-content-center absolute top-0 px-3">
           <Image src={discountBg} className="w-64" />
           <h1 className="font-family-4 text-2xl">
@@ -198,9 +177,9 @@ const Home = () => {
               color: "white",
             }}
             hoverStyle={{
-              backgroundColor: "transparent",
-              color: "black",
-              border: "1px solid black",
+              backgroundColor: "white",
+              color: "#01497C",
+              border: "1px solid #01497C",
             }}
             className="font-family-2 rounded-2 w-40 p-lg-3"
           />
@@ -212,7 +191,7 @@ const Home = () => {
       <OfferForYou />
 
       <div className="mx-16 mt-16 p-4 d-none d-lg-block">
-        <div className="bg-customBlue rounded-5 text-center text-white p-16 position-relative">
+        <div className="bg-customDarkBlue rounded-5 text-center text-white p-16 position-relative">
           <h1 className="font-family-3 text-6xl">
             Subscribe to our Newsletter
           </h1>
@@ -220,8 +199,12 @@ const Home = () => {
             By providing your email, you agree to the Terms & Conditions and
             Privacy Policy. You may unsubscribe later.
           </p>
-          <div className="relative bg-transparent mt-5 text-start ps-4 border w-50 mx-auto border-white rounded-4 p-2">
-            <h4>Email Address</h4>
+          <div className="flex items-center border-[2px] mt-4 text-start ps-4 border w-50 mx-auto border-white rounded-4">
+            <input
+              type="text"
+              placeholder="Email Address"
+              className="font-family-2 w-3/4 p-2 bg-[#01497C] text-white placeholder-white outline-none"
+            />
             <ActionButton
               variant="none"
               size="lg"
@@ -231,7 +214,7 @@ const Home = () => {
                 fontFamily: "Alexandria variable",
                 color: "black",
               }}
-              className="font-family-2 rounded-4 w-64 p-2 absolute top-0.5 right-0"
+              className="font-family-2 rounded-4 w-64 py-2 px-4"
             />
           </div>
           <img src={vector1} className="vector-image1" />
@@ -242,32 +225,36 @@ const Home = () => {
       </div>
 
       {/* subsribe with us small screen */}
-      <div className="bg-customBlue d-block d-lg-none text-white px-4 py-16 position-relative">
+      <div className="bg-customDarkBlue d-block d-lg-none text-white px-4 py-16 position-relative">
         <h1 className="font-family-3 text-center text-white text-2xl md:text-4xl">
           Subscribe to our Newsletter
         </h1>
         <p className="font-family-2 text-center text-white mt-2 text-xs font-light">
-            By providing your email, you agree to the Terms & Conditions and
-            Privacy Policy. You may unsubscribe later.
-          </p>
-          <div className="relative bg-transparent mt-2 text-start ps-4 border w-100 mx-auto border-white rounded-4 p-2">
-            <span>Email Address</span>
-            <ActionButton
-              variant="none"
-              size="smal"
-              text="Subscribe"
-              style={{
-                backgroundColor: "white",
-                fontFamily: "Alexandria variable",
-                color: "black",
-              }}
-              className="font-family-2 rounded-4 w-32 p-2 absolute top-0 right-0"
-            />
-          </div>
-          <img src={vector1} className="vector-image1S" />
-          <img src={vector2} className="vector-image2S" />
-          <img src={vector3} className="vector-image3S" />
-          <img src={vector4} className="vector-image4S" />
+          By providing your email, you agree to the Terms & Conditions and
+          Privacy Policy. You may unsubscribe later.
+        </p>
+        <div className="flex items-center border-[2px] mt-4 text-start ps-4 border mx-auto border-white rounded-4">
+          <input
+            type="text"
+            placeholder="Email Address"
+            className="font-family-2 w-4/5 bg-[#01497C] text-white placeholder-white outline-none"
+          />
+          <ActionButton
+            variant="none"
+            size="smal"
+            text="Subscribe"
+            style={{
+              backgroundColor: "white",
+              fontFamily: "Alexandria variable",
+              color: "black",
+            }}
+            className="font-family-2 rounded-4 w-32 p-2"
+          />
+        </div>
+        <img src={vector1} className="vector-image1S" />
+        <img src={vector2} className="vector-image2S" />
+        <img src={vector3} className="vector-image3S" />
+        <img src={vector4} className="vector-image4S" />
       </div>
     </div>
   );
