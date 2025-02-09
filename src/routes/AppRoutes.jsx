@@ -5,6 +5,7 @@ import { Loader } from "../components";
 import Login from "../components/auth/LogIn";
 import SignUp from "../components/auth/SignUp";
 import AddToCart from "../components/addToCart/AddToCart";
+import ContactUs from "../pages/ContactUs";
 const RootLayout = lazy(() => import("../layouts/RootLayout"));
 const AboutUs = lazy(() => import("../pages/AboutUs")); // Lazy load AboutUs page
 
@@ -36,6 +37,14 @@ export default function AppRoutes() {
                     element: (
                         <Suspense fallback={<Loader />}>
                             <AddToCart/>
+                        </Suspense>
+                    ),
+                },
+                {
+                    path: "/contact-us", 
+                    element: (
+                        <Suspense fallback={<Loader />}>
+                            <ContactUs/>
                         </Suspense>
                     ),
                 },
