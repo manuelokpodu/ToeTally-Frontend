@@ -15,7 +15,7 @@ const Hero = () => {
         </div>
 
         <div className="">
-            <div className="grid md:grid-cols-2  items-center mt-4 md:px-6">
+            <div className="grid md:grid-cols-2  items-center md:px-6">
                 <div className=" px-3 md:px-0  lg:w-11/12 mx-auto">
                     <h1 className="font-medium  font-family-3 mt-8 mx-auto hwho">Who We Are</h1>
 

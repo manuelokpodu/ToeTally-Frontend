@@ -96,7 +96,7 @@ const Login = () => {
 
             {/* Description */}
             <div className="mt-2">
-              <p className="text-gray-600 text-lg text-center font-semibold font-font-family-2">
+              <p className="text-gray-600 text-lg text-start font-semibold font-font-family-2">
                 Enter your email to join us or sign in
               </p>
             </div>
