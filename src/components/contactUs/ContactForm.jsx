@@ -25,19 +25,18 @@ const ContactForm = () => {
         if (!formData.message.trim()) newErrors.message = "Message cannot be empty";
 
         setErrors(newErrors);
-        return Object.keys(newErrors).length === 0; // Returns true if no errors
+        return Object.keys(newErrors).length === 0;
     };
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-        setErrors({ ...errors, [e.target.name]: "" }); // Clear error when user types
+        setErrors({ ...errors, [e.target.name]: "" }); 
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
             console.log("Form submitted successfully", formData);
-            // You can handle form submission here (e.g., send data to an API)
             setFormData({ firstName: "", lastName: "", email: "", subject: "", message: "" });
         }
     };
@@ -127,7 +126,7 @@ const ContactForm = () => {
                         <div>
                         <button 
     type="submit" 
-    className="w-full bg-[#01497C] text-[#FFFFFF] rounded-md py-2 text-[12px] md:text-[16px] 
+    className="w-full bg-[#01497C] text-[#FFFFFF] rounded-md py-2 text-[12px] md:text-[14px] 
     transition-all duration-300 ease-in-out transform hover:bg-[#013366] hover:scale-105"
 >
     Send Message
