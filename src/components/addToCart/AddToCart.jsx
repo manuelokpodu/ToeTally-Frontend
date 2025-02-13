@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import OfferForYou from "../OfferForYou";
 
 const AddToCart = () => {
   const [selectedSize, setSelectedSize] = useState(null);
@@ -11,15 +12,15 @@ const AddToCart = () => {
   return (
     <>
       {/* Route History */}
-      <div className="bg-[#EBEBEB] w-full">
-        <div className="flex font-font-family-2  font-bold gap-2 mx-auto 2xl:container px-3 py-4">
+      <div className="bg-[#EBEBEB] w-full ">
+        <div className="flex font-font-family-2  font-bold gap-2 mx-auto 2xl:container px-3  py-4">
           <h4 className="text-[#00000073] font-bold text-[16px]">Home</h4>
           <h4 className="text-[#00000073] text-[12px] mt-[3px] px-2">/</h4>
           <h4 className="text-[16px] font-bold">Back</h4>
         </div>
       </div>
 
-      <div className="p-3 mx-auto 2xl:container">
+      <div className=" mx-auto 2xl:container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Image Preview */}
           <div className="w-full">
@@ -100,10 +101,10 @@ const AddToCart = () => {
         </div>
       </div>
 
-      <div className="2xl:container mx-auto px-3 mt-8">
-        <h1>Product Details</h1>
+      <div className="2xl:container mx-auto px-3 mt-8 font-font-family-2">
+        <h1 className="text-[28px]">Product Details</h1>
 
-        <div className="">
+        <div className="mt-3">
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 -ml-4 gap-1">
             <li className="font-semibold"><span className="px-1">• </span>Regular fit</li>
             <li className="font-semibold"><span className="px-1">• </span>Lace closure</li>
@@ -119,11 +120,77 @@ const AddToCart = () => {
       </div>
 
 
-      <div className="2xl:container mx-auto px-3 mt-8">
-        <h1>Description</h1>
+      <div className="2xl:container mx-auto px-3 mt-8 font-font-family-2">
+        <h1 className="text-[28px]">Description</h1>
 
-        <p>These iconic Gazelle shoes get a creative Liberty London makeover. These sneakers are refreshed with a vibrantly printed textile and suede upper, putting everyday street style into a floral state of mind. Their rich history inspires a sense of sporty nostalgia, while Liberty London's artistic influence injects freshness. </p>
+        <p className="mt-3">These iconic Gazelle shoes get a creative Liberty London makeover. These sneakers are refreshed with a vibrantly printed textile and suede upper, putting everyday street style into a floral state of mind. Their rich history inspires a sense of sporty nostalgia, while Liberty London's artistic influence injects freshness. </p>
       </div>
+
+
+      <div className="2xl:container mx-auto px-3 mt-8 md:flex md:justify-between font-font-family-2">
+        <div>
+          <h1 className="text-[28px]">Shipping</h1>
+
+          <p className="mt-3 font-semibold">You'll see our shipping options at 
+          checkout.</p>
+        </div>
+
+
+        <div className="">
+          <img src="/cartimg.svg" alt="cart image" className="w-[400px] md:w-[350px] lg:w-[450px] xl:w-[550px]" />
+        </div>
+
+      </div>
+
+
+
+      <div>
+        <OfferForYou/>
+      </div>
+
+
+      <div className="text-[#808080] font-font-family-2 grid grid-cols-1 md:grid-cols-3 py-12 px-3  2xl:container mx-auto w-full max-w-[1390px]">
+  
+  <div className="md:flex md:gap-3 items-center justify-center text-center md:text-left">
+    <div>
+      <img src="/bef1.svg" alt="icon" className="w-10 md:w-[70px] mx-auto md:mt-4" />
+    </div>
+    <div className="fast">
+      <h2 className="text-[17px] mt-2 font-bold">Fast & Free Shipping</h2>
+      <p className="text-[12px] sm:mt-2 w-4/5 md:w-5/6 mx-auto md:mx-0">
+        Every single order ships for free. No extra credit needed.
+      </p>
+    </div>
+  </div>
+
+  
+  <div className="lg:border-x-[1px] lg:border-[#808080] px-2 md:flex md:gap-3 items-center justify-center text-center md:text-left">
+    <div>
+      <img src="/bef2.svg" alt="icon" className="w-10 md:w-[50px] mx-auto md:mt-4" />
+    </div>
+    <div className="fast">
+      <h2 className="text-[17px] mt-2 font-bold">30 Days Returns Policy</h2>
+      <p className="text-[12px] sm:mt-2 w-4/5 md:w-5/6 mx-auto md:mx-0">
+        Product returns are accepted within 30 days.
+      </p>
+    </div>
+  </div>
+
+ 
+  <div className="md:flex md:gap-3 items-center justify-center text-center md:text-left">
+    <div>
+      <img src="/bef3.svg" alt="icon" className="w-10 md:w-[50px] mx-auto md:mt-4" />
+    </div>
+    <div className="fast">
+      <h2 className="text-[17px] mt-2 font-bold">Top Quality Products</h2>
+      <p className="text-[12px] sm:mt-2 w-4/5 md:w-5/6 mx-auto md:mx-0">
+        We always provide high quality shoes.
+      </p>
+    </div>
+  </div>
+</div>
+
+
     </>
   );
 };

@@ -125,6 +125,33 @@ body {
   display: none; /* Chrome, Safari, and Opera */
 }
 
+@media (min-width: 640px) and (max-width: 1024px) {
+.fast h2{
+  text-align: left;
+}
+.fast p{
+  text-align: left;
+  width: 100%;
+}
+}
+
+
+
+
+@keyframes moveLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-moveLeft {
+  display: flex;
+  white-space: nowrap;
+  animation: moveLeft 10s linear infinite;
+}
 
 
 @media (min-width: 1420px) {
