@@ -1,3 +1,3 @@
 import userService from "./user";
 
-export { userService };
+export {userService}
