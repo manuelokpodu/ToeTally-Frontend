@@ -154,3 +154,45 @@ body {
   white-space: nowrap;
   animation: moveLeft 10s linear infinite;
 }
+
+
+.responsive-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content by default (for mobile screens) */
+  text-align: center; /* Center text by default (for mobile screens) */
+}
+
+@media (min-width: 768px) { /* Apply styles for tablets and larger screens */
+  .responsive-container {
+    align-items: flex-start; /* Align content to the left */
+    text-align: left;
+    width: 340px; /* Maintain fixed width for tablet/laptop */
+  }
+}
+
+.responsive-button {
+  margin-left: auto;
+  margin-right: auto; /* Center the button on mobile screens */
+  width: 55%; /* Adjust button width */
+}
+
+@media (min-width: 768px) {
+  .responsive-button {
+    margin-left: 0; /* Align button to the left on tablet/laptop */
+    width: 60%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-button {
+     width: 50%;
+  }
+
+}
+
+@media (min-width: 1440px) { 
+  .responsive-container {
+    width: 383px;
+  }
+}

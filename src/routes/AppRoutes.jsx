@@ -1,10 +1,11 @@
-import { Cart, Home } from "../pages";
+import { Home } from "../pages";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { Loader } from "../components";
 import Login from "../components/auth/LogIn";
 import SignUp from "../components/auth/SignUp";
 import AddToCart from "../components/addToCart/AddToCart";
+import ContactUs from "../pages/ContactUs";
 const RootLayout = lazy(() => import("../layouts/RootLayout"));
 const AboutUs = lazy(() => import("../pages/AboutUs")); // Lazy load AboutUs page
 
@@ -40,8 +41,12 @@ export default function AppRoutes() {
                     ),
                 },
                 {
-                    path: "/cart", 
-                    element: <Cart/>
+                    path: "/contact-us", 
+                    element: (
+                        <Suspense fallback={<Loader />}>
+                            <ContactUs/>
+                        </Suspense>
+                    ),
                 },
             ],
         },
@@ -62,9 +67,7 @@ export default function AppRoutes() {
             ),
         },
     ];
-  
-          
 
-  const router = createBrowserRouter(routes);
-  return <RouterProvider router={router} />;
+    const router = createBrowserRouter(routes);
+    return <RouterProvider router={router} />;
 }

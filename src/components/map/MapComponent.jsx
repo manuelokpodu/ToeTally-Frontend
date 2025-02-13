@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const MapComponent = () => {
+const MapComponent = ({ height = '300px' }) => {
     useEffect(() => {
         const mapContainerId = 'map';
         let map;
 
         // Check if the map container is already initialized
-        if (!L.DomUtil.get(mapContainerId)._leaflet_id) {
+        if (!L.DomUtil.get(mapContainerId)?._leaflet_id) {
             map = L.map(mapContainerId).setView([51.505, -0.09], 13);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -30,7 +30,7 @@ const MapComponent = () => {
         };
     }, []);
 
-    return <div id="map" className="h-[300px] md:h-[380px] lg:h-[450px] w-full"></div>;
+    return <div id="map" style={{ height }} className="w-full" />;
 };
 
 export default MapComponent;

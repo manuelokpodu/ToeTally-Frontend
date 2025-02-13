@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import OfferForYou from "../OfferForYou";
+import { Link } from "react-router-dom";
 
 const AddToCart = () => {
   const [selectedSize, setSelectedSize] = useState(null);
@@ -12,9 +13,9 @@ const AddToCart = () => {
   return (
     <>
       {/* Route History */}
-      <div className="bg-[#EBEBEB] w-full md:px-4 lg:px-14">
+      <div className="bg-[#EBEBEB] w-full mt-3 md:px-4 lg:px-14">
         <div className="flex font-font-family-2  font-bold gap-2 mx-auto 2xl:container px-3  mx-auto py-4">
-          <h4 className="text-[#00000073] font-bold text-[16px]">Home</h4>
+          <Link to="/" className="text-[#00000073] font-bold no-underline text-[16px]">Home</Link>
           <h4 className="text-[#00000073] text-[12px] mt-[3px] px-2">/</h4>
           <h4 className="text-[16px] font-bold">Back</h4>
         </div>
@@ -27,13 +28,13 @@ const AddToCart = () => {
             <div className="bg-[#B5B5B54D] rounded-3xl p-4">
               <img src={previewImage} alt="Preview" className="w-full h-[370px] object-contain" />
             </div>
-            <div className="flex gap-2 mt-4">
+            <div className="flex w-full gap-2 mt-4">
               {images.map((img, index) => (
                 <img
                   key={index}
                   src={img}
                   alt="shoe"
-                  className="w-14 md:w-20 md:h-20 lg:w-32 cursor-pointer border-2 border-transparent hover:border-gray-500"
+                  className="w-16 md:w-20 md:h-20 lg:w-32 cursor-pointer border-2 border-transparent hover:border-gray-500"
                   onClick={() => setPreviewImage(img)}
                 />
               ))}
