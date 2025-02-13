@@ -1,15 +1,42 @@
 import { Image } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { logo } from "../assets";
 import { navItems } from "../utils";
 import { CgProfile } from "react-icons/cg";
 import { TbShoppingBag } from "react-icons/tb";
 import { IoIosSearch } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 import Drawer from "./Drawer";
+import { useState } from "react";
+import { useStore } from "../hooks/useStore";
 
 const Nav = () => {
+  const { loggedInUser } = useStore();
+  const [bannerVisible, setBannerVisible] = useState(true);
+
+  const handleBannerClose = () => {
+    setBannerVisible(false);
+  };
+
   return (
     <>
+      {bannerVisible && (
+        <div className="d-none d-md-flex align-items-center bg-[#000000] py-2 px-20 text-center">
+          <div className="flex-grow-1">
+            <span className="font-family-2 text-white text-sm">
+              Sign up and get 20% off to your first order.{" "}
+            </span>
+            <Link to="/signup" className="font-family-2 text-white text-sm">
+              Sign Up Now
+            </Link>
+          </div>
+          <IoClose
+            color="white"
+            onClick={handleBannerClose}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
+      )}
       <header className="border-b-2 d-none d-md-block">
         <div className="d-flex justify-content-between align-items-center md:px-3 lg:px-16 py-4 ">
           <NavLink to="/" className="no-underline">
@@ -52,14 +79,17 @@ const Nav = () => {
               <NavLink to="/cart">
                 <TbShoppingBag className="text-navIcon text-2xl" />
               </NavLink>
-              <NavLink to="/signup">
-                <CgProfile className="text-navIcon text-2xl" />
-              </NavLink>
+              {console.log("loggedInUser:", loggedInUser)}
+              {loggedInUser && (
+                <NavLink to="/profile">
+                  <CgProfile className="text-navIcon text-2xl" />
+                </NavLink>
+              )}
             </div>
           </div>
         </div>
       </header>
-      
+
       {/* small screen */}
       <header className="d-block d-md-none">
         <div className="d-flex justify-content-between align-items-center p-3 ">
@@ -74,11 +104,32 @@ const Nav = () => {
           <Drawer />
         </div>
       </header>
-      
+      {bannerVisible && (
+        <div className="d-md-none d-flex align-items-center bg-[#000000] text-center py-2 px-4">
+          <div className="flex-grow-1">
+            <span
+              className="font-family-2 text-white"
+              style={{ fontSize: "10px" }}
+            >
+              Sign up and get 20% off to your first order.{" "}
+            </span>
+            <Link
+              to="/signup"
+              className="font-family-2 text-white"
+              style={{ fontSize: "10px" }}
+            >
+              Sign Up Now
+            </Link>
+          </div>
+          <IoClose
+            color="white"
+            onClick={handleBannerClose}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
+      )}
     </>
   );
 };
 
 export default Nav;
-
-

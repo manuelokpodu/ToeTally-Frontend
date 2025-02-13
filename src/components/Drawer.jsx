@@ -5,8 +5,10 @@ import { navItems } from "../utils";
 import { NavLink } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { TbShoppingBag } from "react-icons/tb";
+import { useStore } from "../hooks/useStore";
 
 const Drawer = () => {
+  const { user } = useStore();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -36,7 +38,7 @@ const Drawer = () => {
                 className={({ isActive }) =>
                   isActive
                     ? "text-customDarkBlue fw-bold no-underline"
-                    : "text-customBlue no-underline"
+                    : "text-customVeryDarkBlue no-underline"
                 }
                 onClick={handleClose}
               >
@@ -45,16 +47,18 @@ const Drawer = () => {
             ))}
           </div>
           <hr />
-          <NavLink
-            to="/profile"
-            className="no-underline text-black"
-            onClick={handleClose}
-          >
-            <div className="d-flex align-items-center gap-5">
-              <span className="font-family-2 text-xl">Profile</span>
-              <CgProfile className="text-navIcon text-3xl" />
-            </div>
-          </NavLink>
+          {user && user.id && (
+            <NavLink
+              to="/profile"
+              className="no-underline text-black"
+              onClick={handleClose}
+            >
+              <div className="d-flex align-items-center gap-5">
+                <span className="font-family-2 text-xl">Profile</span>
+                <CgProfile className="text-navIcon text-3xl" />
+              </div>
+            </NavLink>
+          )}
           <NavLink
             to="/cart"
             className="no-underline text-black"
