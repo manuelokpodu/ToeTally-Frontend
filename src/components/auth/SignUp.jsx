@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom"; 
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import WelcomeModal from "./WelcomeModal";
 
 const SignUp = () => {
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate(); 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -12,6 +14,7 @@ const SignUp = () => {
   });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
+  const [showModal, setShowModal] = useState(false);
 
   const validatePassword = (password) => {
     const minLength = password.length >= 8;
@@ -59,8 +62,7 @@ const SignUp = () => {
         const data = await response.json();
 
         if (response.ok) {
-          alert("Registration successful!");
-          navigate("/"); // Redirect to home page
+          setShowModal(true); // Show success modal
         } else {
           alert(`Error: ${data.message}`);
         }
@@ -88,10 +90,10 @@ const SignUp = () => {
         <div className="lg:w-[45%] w-full mx-auto py-12 lg:py-0 flex flex-col justify-center items-center md:px-2">
           <div className="w-4/6 font-font-family-2">
             {/* Logo and Title */}
-            <div className="text-center flex gap-2 justify-self-center items-center">
-              <img src="/logo.svg" alt="logo" className="mx-auto w-16 h-16" />
-              <h1 className="font-font-family-1 text-2xl font-bold mt-2">TOETALLY</h1>
-            </div>
+            <Link to="/" className="flex gap-2 items-center justify-center text-black no-underline">
+  <img src="/logo.svg" alt="logo" className="w-16 h-16" />
+  <h1 className="font-font-family-1 text-2xl font-bold mt-2">TOETALLY</h1>
+</Link>
 
             {/* Description */}
             <div className="mt-2">
@@ -211,13 +213,15 @@ const SignUp = () => {
                 </button>
               </div>
 
-              <div className="flex gap-2 mt-3">
+              <div className="flex gap-2 mt-3 justify-center">
                 <p>Have an account?</p> <a href="/login" className="text-[#01497C] font-semibold">Sign in</a>
               </div>
             </form>
           </div>
         </div>
       </div>
+
+      <WelcomeModal showModal={showModal} setShowModal={setShowModal} navigate={navigate} />
     </>
   );
 };

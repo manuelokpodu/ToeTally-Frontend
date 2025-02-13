@@ -1,19 +1,28 @@
 import MapComponent from "../map/MapComponent";
+import Subscribe from "../Subscribe";
 
 const FindUs = () => {
     return (
       <>
-        <div className="space-y-10 px-3 lg:px-16">
+        <div className="space-y-10 md:px-3 lg:px-16">
             {/* Row with two sections */}
             <div className="flex flex-col md:flex-row p-6 gap-8 ">
                 {/* Left Section: 1/3 */}
-                <div className="w-full md:w-5/12 md:p-4 flex justify-center items-center">
+                <div className="w-full md:w-5/12 md:p-4 flex  items-center">
 
-                <div className="md:w-[270px] flex flex-col justify-center">
-                    <h1 className="font-family-3 text-center text-black text-2xl md:text-3xl">Find Our Outlets Today</h1>
-                    <p className="text-center font-font-family-2 w-5/6 mx-auto font-medium">Contact us on any of our media handles or number</p>
-                    <button className="px-6 -mt-1 py-2 bg-[#01497C] text-white rounded-md w-6.5/12 mx-auto font-font-family-2">Get In Touch</button>
-                </div>
+                <div className="responsive-container">
+      <h1 className="font-family-3 text-black text-2xl md:text-3xl">
+        Find Our Outlets Today
+      </h1>
+      <p className="font-font-family-2 font-medium">
+      Thank you for visiting our page! If you have any questions, need further assistance or would like to learn more about our [services/products], please don't hesitate to contact us. We'd love to hear from you!
+      </p>
+      <button className="responsive-button px-4 -mt-1 py-2 bg-[#01497C] text-white rounded-md font-font-family-2">
+        Get In Touch
+      </button>
+    </div>
+
+
 
                 </div>
 
@@ -25,7 +34,7 @@ const FindUs = () => {
 
             {/* Newsletter Section */}
 
-            <div className="md:px-5 md:py-8 ">
+            {/* <div className="md:px-5 md:py-8 ">
                 
 
             <div className=" bg-[#01497C] h-[290px] md:h-[270px] md:rounded-xl flex justify-center items-center p-2">
@@ -70,7 +79,11 @@ const FindUs = () => {
             </div>
 
             
-            </div>
+            </div> */}
+
+<div className="md:mb-4 md:w-5/6 lg:w-full mx-auto">
+                    <Subscribe/>
+                </div>
 
 
 

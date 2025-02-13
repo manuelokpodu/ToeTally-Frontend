@@ -64,6 +64,6 @@ export default function AppRoutes() {
     },
   ];
 
-  const router = createBrowserRouter(routes);
-  return <RouterProvider router={router} />;
+    const router = createBrowserRouter(routes);
+    return <RouterProvider router={router} />;
 }

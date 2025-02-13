@@ -75,18 +75,18 @@ const Mission = () => {
       <div className="bg-[#01497C] text-[#FFFFFF] text-center mt-2 md:py-2 lg:py-4">
   <div
     ref={missionCarouselRef}
-    className="flex overflow-x-auto snap-x snap-mandatory md:py-4 px-2 lg:grid lg:grid-cols-4 lg:space-x-0 lg:gap-0 scrollbar-hide"
+    className="flex overflow-x-auto snap-x snap-mandatory  px-2 lg:grid lg:grid-cols-4 lg:space-x-0 lg:gap-0 scrollbar-hide"
   >
     {/* Cards */}
     {["6 Years Active", "10,000+ Orders", "8 Stores", "20,000+ Satisfied Customers"].map((item, index, arr) => (
       <div
         key={index}
-        className={`min-w-[75%] flex-shrink-0 snap-center lg:min-w-0 flex items-center justify-center mt-2 mb-2 ${
+        className={`min-w-[75%] flex-shrink-0 snap-center lg:min-w-0 flex items-center justify-center mt-2 mb-1 ${
           index !== arr.length - 1 ? "border-r-[1px] border-[#FFFFFF]" : ""
         }`}
       >
         <div>
-          <h1 className="text-2xl font-bold">{item.split(" ")[0]}</h1>
+          <h1 className="text-2xl font-bold pt-2">{item.split(" ")[0]}</h1>
           <p>{item.split(" ").slice(1).join(" ")}</p>
         </div>
       </div>
@@ -96,8 +96,8 @@ const Mission = () => {
 
 
       {/* Mission Description Section */}
-      <div className="grid md:grid-cols-2 md:py-8 px-3 lg:px-16">
-        <div className="p-3">
+      <div className="grid md:grid-cols-2 md:py-8 px-3  lg:w-11/12 mx-auto">
+        <div className="py-3">
           <div className="md:p-3">
             <img
               src="/mission.svg"
@@ -106,7 +106,7 @@ const Mission = () => {
             />
           </div>
         </div>
-        <div className="p-3 my-auto lg:w-5/6 lg:mx-auto">
+        <div className="md:p-3 my-auto lg:w-5/6 lg:mx-auto">
           <h1 className="font-family-3 md:mt-4 lg:mt-0">Mission</h1>
           <p className="font-family-2 mt-4">
             At Toetally, our mission is to provide an unparalleled online
@@ -119,7 +119,7 @@ const Mission = () => {
       </div>
 
       {/* Meet the Team Section */}
-      <div className="flex flex-col justify-center items-center px-3 lg:px-16 py-10 md:py-16 ">
+      <div className="flex flex-col justify-center items-center px-3 lg:w-11/12 mx-auto py-10 md:py-16">
         <h1 className="font-family-3 mx-auto mb-4">Meet The Team</h1>
 
         <div
