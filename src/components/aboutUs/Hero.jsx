@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Hero = () => {
     return (
       <>
@@ -7,7 +9,7 @@ const Hero = () => {
 
             <div className="flex flex-col gap-2 justify-center items-center container">
             <h1 className="text-[30px] lg:text-[80px] font-family-3">About Us</h1>
-            <p className="font-family-2">Home / About Us</p>
+            <Link to="/" className="font-family-2 text-white no-underline">Home / About Us</Link>
 
 
             </div>
