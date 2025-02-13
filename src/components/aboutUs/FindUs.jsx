@@ -81,7 +81,7 @@ const FindUs = () => {
             
             </div> */}
 
-<div>
+<div className="md:mb-4 md:w-5/6 lg:w-full mx-auto">
                     <Subscribe/>
                 </div>
 

@@ -75,18 +75,18 @@ const Mission = () => {
       <div className="bg-[#01497C] text-[#FFFFFF] text-center mt-2 md:py-2 lg:py-4">
   <div
     ref={missionCarouselRef}
-    className="flex overflow-x-auto snap-x snap-mandatory md:py-4 px-2 lg:grid lg:grid-cols-4 lg:space-x-0 lg:gap-0 scrollbar-hide"
+    className="flex overflow-x-auto snap-x snap-mandatory  px-2 lg:grid lg:grid-cols-4 lg:space-x-0 lg:gap-0 scrollbar-hide"
   >
     {/* Cards */}
     {["6 Years Active", "10,000+ Orders", "8 Stores", "20,000+ Satisfied Customers"].map((item, index, arr) => (
       <div
         key={index}
-        className={`min-w-[75%] flex-shrink-0 snap-center lg:min-w-0 flex items-center justify-center mt-2 mb-2 ${
+        className={`min-w-[75%] flex-shrink-0 snap-center lg:min-w-0 flex items-center justify-center mt-2 mb-1 ${
           index !== arr.length - 1 ? "border-r-[1px] border-[#FFFFFF]" : ""
         }`}
       >
         <div>
-          <h1 className="text-2xl font-bold">{item.split(" ")[0]}</h1>
+          <h1 className="text-2xl font-bold pt-2">{item.split(" ")[0]}</h1>
           <p>{item.split(" ").slice(1).join(" ")}</p>
         </div>
       </div>

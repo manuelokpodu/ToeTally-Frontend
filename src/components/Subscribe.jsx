@@ -4,8 +4,8 @@ import ActionButton from "./ActionButton";
 const Subscribe = () => {
   return (
     <>
-      <div className="mx-16 mt-16 p-4 d-none d-lg-block">
-        <div className="bg-customDarkBlue rounded-5 text-center text-white p-16 position-relative">
+      <div className="mx-16 mt-10 p-4 d-none d-lg-block">
+        <div className="bg-[#01497C] rounded-5 text-center text-white p-16 position-relative">
           <h1 className="font-family-3 text-6xl">
             Subscribe to our Newsletter
           </h1>
@@ -17,7 +17,7 @@ const Subscribe = () => {
             <input
               type="text"
               placeholder="Email Address"
-              className="font-family-2 w-3/4 p-2 bg-customDarkBlue text-white placeholder-white outline-none"
+              className="font-family-2 w-3/4 p-2 bg-[#01497C] text-white placeholder-white outline-none"
             />
             <ActionButton
               variant="none"
@@ -39,7 +39,7 @@ const Subscribe = () => {
       </div>
 
       {/* subsribe with us small screen */}
-      <div className="bg-customDarkBlue d-block d-lg-none text-white px-4 py-16 position-relative">
+      <div className="bg-[#01497C] d-block d-lg-none text-white px-4 py-16 position-relative md:rounded-xl">
         <h1 className="font-family-3 text-center text-white text-2xl md:text-4xl">
           Subscribe to our Newsletter
         </h1>
