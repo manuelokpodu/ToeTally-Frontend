@@ -2,8 +2,14 @@ import { Card, Image } from "react-bootstrap";
 import { discountOffer, formatCurrency } from "../utils";
 import ActionButton from "./ActionButton";
 import { discountBadge } from "../assets";
+import { useNavigate } from "react-router-dom";
 
 const Discount = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/addtocart");
+  };
   return (
     <>
       <div className="mt-24  d-none d-lg-block pl-16">
@@ -74,6 +80,7 @@ const Discount = () => {
                       fontFamily: "Alexandria variable",
                     }}
                     className="font-family-2 buy-now-button rounded-1 w-32 text-white p-2"
+                    onClick={handleClick}
                   />
                 </div>
               </Card.Body>
@@ -151,6 +158,7 @@ const Discount = () => {
                       fontFamily: "Alexandria variable",
                     }}
                     className="font-family-2 buy-now-button rounded-1 text-white p-1 w-24"
+                    onClick={handleClick}
                   />
                 </div>
               </Card.Body>

@@ -1,8 +1,14 @@
 import { Card, Image } from "react-bootstrap";
 import { formatCurrency, offers } from "../utils";
 import ActionButton from "./ActionButton";
+import { useNavigate } from "react-router-dom";
 
 const OfferForYou = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/addtocart");
+  };
   return (
     <>
       <div className="mt-24 d-none d-lg-block pl-16">
@@ -58,6 +64,7 @@ const OfferForYou = () => {
                       border: "1px solid black",
                     }}
                     className="font-family-2 rounded-1 w-32  p-2"
+                    onClick={handleClick}
                   />
                 </div>
               </Card.Body>
@@ -68,7 +75,9 @@ const OfferForYou = () => {
 
       {/* small screen */}
       <div className="mt-12 p-3 d-block d-lg-none">
-        <h1 className="font-family-3 text-3xl md:text-4xl text-black">OFFERS FOR YOU</h1>
+        <h1 className="font-family-3 text-3xl md:text-4xl text-black">
+          OFFERS FOR YOU
+        </h1>
         <div className="mt-4 d-flex gap-2 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
           {offers.map((item) => (
             <Card
@@ -120,6 +129,7 @@ const OfferForYou = () => {
                       border: "1px solid black",
                     }}
                     className="font-family-2 rounded-1 w-24  p-2"
+                    onClick={handleClick}
                   />
                 </div>
               </Card.Body>
