@@ -1,12 +1,12 @@
 import { Blog, Cart, Home } from "../pages";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import { Loader } from "../components";
 import Login from "../components/auth/LogIn";
 import SignUp from "../components/auth/SignUp";
 import AddToCart from "../components/addToCart/AddToCart";
+import ContactUs from "../pages/ContactUs";
 import RootLayout from "../layouts/RootLayout";
-const AboutUs = lazy(() => import("../pages/AboutUs")); // Lazy load AboutUs page
+import AboutUs from "../pages/AboutUs";
+
 
 export default function AppRoutes() {
   const routes = [
@@ -17,24 +17,21 @@ export default function AppRoutes() {
 
       children: [
         {
-          path: "/",
-          element: <Home />,
+            path: "/",
+            element: <Home />,
         },
         {
-          path: "/aboutus",
-          element: (
-            <Suspense fallback={<Loader />}>
-              <AboutUs />
-            </Suspense>
-          ),
+            path: "/aboutus", 
+            element: <AboutUs/>
         },
         {
-          path: "/addToCart",
-          element: (
-            <Suspense fallback={<Loader />}>
-              <AddToCart />
-            </Suspense>
-          ),
+            path: "/addToCart", 
+            element: <AddToCart/>
+        },
+        {
+            path: "/contact-us", 
+            element:  <ContactUs/>
+
         },
         {
           path: "/cart",
@@ -44,23 +41,17 @@ export default function AppRoutes() {
           path: "/blog",
           element: <Blog />,
         },
-      ],
+    ],
     },
     {
       path: "/login",
-      element: (
-        <Suspense fallback={<Loader />}>
-          <Login />
-        </Suspense>
-      ),
+      element: <Login />
+     
     },
     {
       path: "/signup",
-      element: (
-        <Suspense fallback={<Loader />}>
-          <SignUp />
-        </Suspense>
-      ),
+      element: <SignUp />
+
     },
   ];
 
