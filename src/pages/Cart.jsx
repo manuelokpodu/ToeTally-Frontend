@@ -169,7 +169,6 @@ const Cart = () => {
           </div>
         </Col>
       </Row>
-
       <Subscribe />
     </>
   );

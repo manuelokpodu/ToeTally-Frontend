@@ -1,12 +1,11 @@
 import { Blog, Cart, Home } from "../pages";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import { Loader } from "../components";
 import Login from "../components/auth/LogIn";
 import SignUp from "../components/auth/SignUp";
 import AddToCart from "../components/addToCart/AddToCart";
 import RootLayout from "../layouts/RootLayout";
-const AboutUs = lazy(() => import("../pages/AboutUs")); // Lazy load AboutUs page
+import AboutUs from "../pages/AboutUs";
+
 
 export default function AppRoutes() {
   const routes = [
@@ -22,19 +21,11 @@ export default function AppRoutes() {
         },
         {
           path: "/aboutus",
-          element: (
-            <Suspense fallback={<Loader />}>
-              <AboutUs />
-            </Suspense>
-          ),
+          element: <AboutUs/>
         },
         {
           path: "/addToCart",
-          element: (
-            <Suspense fallback={<Loader />}>
-              <AddToCart />
-            </Suspense>
-          ),
+          element:<AddToCart/>
         },
         {
           path: "/cart",
@@ -48,19 +39,11 @@ export default function AppRoutes() {
     },
     {
       path: "/login",
-      element: (
-        <Suspense fallback={<Loader />}>
-          <Login />
-        </Suspense>
-      ),
+      element:<Login/>
     },
     {
       path: "/signup",
-      element: (
-        <Suspense fallback={<Loader />}>
-          <SignUp />
-        </Suspense>
-      ),
+      element: <SignUp/>
     },
   ];
 
