@@ -4,6 +4,7 @@ import { formatCurrency } from "./formatCurrency";
 import { styleInspirations } from "./styleInspo";
 import { blogItems } from "./blog";
 import http from "./http";
+import validateFields from "./formValidate";
 
 export {
   navItems,
@@ -13,5 +14,6 @@ export {
   styleInspirations,
   offers,
   blogItems,
-  http
+  http,
+  validateFields,
 };

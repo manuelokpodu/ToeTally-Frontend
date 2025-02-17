@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ActionButton, Subscribe } from "../components";
 import { useState } from "react";
 import { cartImg } from "../assets";
@@ -11,6 +11,12 @@ import { FaArrowRight } from "react-icons/fa6";
 import { GoTag } from "react-icons/go";
 
 const Cart = () => {
+  const navigate = useNavigate();
+
+  const handleCheckoutClick = () => {
+    navigate('/checkout');
+  };
+
   const [cartData, setCartData] = useState([
     {
       id: 1,
@@ -74,22 +80,22 @@ const Cart = () => {
         <div className="px-16 py-4 lg:flex gap-3 hidden">
           <Link
             to="/"
-            className="text-customLightGray font-bold text-xl font-family-2 no-underline"
+            className="text-customLightGray font-semibold text-xl font-family-2 no-underline"
           >
             Home
           </Link>
-          <span className="font-bold font-family-1 text-xl">/</span>
-          <span className="font-bold font-family-2 text-xl">Cart</span>
+          <span className="font-semibold text-customLightGray font-family-1 text-xl">/</span>
+          <span className="font-semibold font-family-2 text-xl">Cart</span>
         </div>
         <div className="py-2 px-3  lg:hidden gap-2 flex">
           <Link
             to="/"
-            className="text-customLightGray font-bold text-xs md:text-base font-family-2 no-underline"
+            className="text-customLightGray font-semibold text-xs md:text-base font-family-2 no-underline"
           >
             Home
           </Link>
-          <span className="font-bold font-family-1 text-xs md:text-base">/</span>
-          <span className="font-bold font-family-2 text-xs md:text-base">Cart</span>
+          <span className="font-semibold text-customLightGray font-family-1 text-xs md:text-base">/</span>
+          <span className="font-semibold font-family-2 text-xs md:text-base">Cart</span>
         </div>
       </div>
       <h1 className="py-3 lg:px-16 md:px-3 font-family-3 lg:text-5xl text-black hidden lg:block">
@@ -228,7 +234,7 @@ const Cart = () => {
               <input
                 type="text"
                 placeholder="Add promo code"
-                className="font-family-2 w-2/3 rounded-5 pl-10 py-2 bg-[#F0F0F0] text-gray-500 placeholder-gray-500 outline-none pl-8"
+                className="font-family-2 w-2/3 rounded-5 pl-10 py-2 bg-[#F0F0F0] text-gray-500 placeholder-gray-500 outline-none"
               />
               <ActionButton
                 variant="none"
@@ -267,6 +273,7 @@ const Cart = () => {
                 border: "1px solid #01497C",
               }}
               className="font-family-2 rounded-5 w-100 p-2 my-3"
+              onClick={handleCheckoutClick}
             />
           </div>
         </Col>
@@ -336,6 +343,7 @@ const Cart = () => {
                 border: "1px solid #01497C",
               }}
               className="font-family-2 rounded-5 w-100 mt-3 mb-4"
+              onClick={handleCheckoutClick}
             />
         </Col>
       </Row>
