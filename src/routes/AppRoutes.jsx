@@ -6,7 +6,7 @@ import AddToCart from "../components/addToCart/AddToCart";
 import ContactUs from "../pages/ContactUs";
 import RootLayout from "../layouts/RootLayout";
 import AboutUs from "../pages/AboutUs";
-import { element } from "prop-types";
+
 
 
 export default function AppRoutes() {
