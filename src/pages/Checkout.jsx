@@ -1,7 +1,8 @@
 import { Col, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { validateFields } from "../utils";
+import { formatCurrency, validateFields } from "../utils";
+import { Subscribe } from "../components";
 
 const Checkout = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -144,19 +145,43 @@ const Checkout = () => {
           </Form>
         </Col>
         <Col
-          md={6}
+          md={5}
           style={{
-            paddingLeft: "5rem",
-            paddingRight: "5rem",
+            paddingLeft: "6rem",
             marginTop: "7rem",
             marginBottom: "5rem",
           }}
           className="d-none d-lg-block"
         >
           <h1 className="font-family-3 text-4xl text-black">Your Order</h1>
-          <hr/>
+          <hr />
+          <div className="d-flex justify-content-between">
+            <div className="d-flex flex-column">
+              <p>Product</p>
+              <p>Sketchers Monsters white top shoes x2</p>
+            </div>
+            <div className="d-flex flex-column">
+              <p>Subtotal</p>
+              <p>{formatCurrency(225000)}</p>
+            </div>
+          </div>
+          <hr />
+          <div className="d-flex justify-content-between">
+            <p>Subtotal</p>
+            <p>{formatCurrency(225000)}</p>
+          </div>
+          <div className="d-flex justify-content-between">
+            <p>Shipping</p>
+            <p>(Regular Shipping) {formatCurrency(5000)}</p>
+          </div>
+          <hr />
+          <div className="d-flex justify-content-between">
+            <p>Total</p>
+            <p>{formatCurrency(230000)}</p>
+          </div>
         </Col>
       </Row>
+      <Subscribe/>
     </>
   );
 };
