@@ -1,7 +1,7 @@
 import { http } from "../utils";
 
 const getUser = (id) => {
-  return http.get(`/auth/user/${id}`);
+  return http.get(`/auth/getUser/${id}`);
 };
 
 
