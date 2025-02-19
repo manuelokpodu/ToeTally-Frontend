@@ -46,8 +46,8 @@ const AddToCart = () => {
   return (
     <>
       <div className="bg-[#EBEBEB] w-full mt-3 md:px-4 lg:px-14">
-        <div className="flex font-bold gap-2 mx-auto px-3 py-4">
-          <Link to="/" className="text-[#00000073] text-[16px]">Home</Link>
+        <div className="flex font-font-family-2  font-bold gap-2 mx-auto 2xl:container px-3  mx-auto py-4">
+          <Link to="/" className="text-[#00000073] font-bold no-underline text-[16px]">Home</Link>
           <h4 className="text-[#00000073] text-[12px] mt-[3px] px-2">/</h4>
           <h4 className="text-[16px] font-bold">Back</h4>
         </div>
