@@ -14,14 +14,14 @@ const AddToCart = () => {
     <>
       {/* Route History */}
       <div className="bg-[#EBEBEB] w-full mt-3 md:px-4 lg:px-14">
-        <div className="flex font-font-family-2  font-bold gap-2 mx-auto 2xl:container px-3  mx-auto py-4">
+        <div className="flex font-font-family-2  font-bold gap-2 mx-auto 2xl:container px-3 py-4">
           <Link to="/" className="text-[#00000073] font-bold no-underline text-[16px]">Home</Link>
           <h4 className="text-[#00000073] text-[12px] mt-[3px] px-2">/</h4>
           <h4 className="text-[16px] font-bold">Back</h4>
         </div>
       </div>
 
-      <div className=" mx-auto 2xl:container px-3  mx-auto mt-4">
+      <div className=" mx-auto 2xl:container px-3 mt-4">
         <div className="grid md:px-6 lg:px-12 grid-cols-1 md:grid-cols-2 gap-8">
           {/* Image Preview */}
           <div className="w-full">
