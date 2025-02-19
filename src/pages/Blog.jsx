@@ -55,10 +55,10 @@ const Blog = () => {
                 <p className="font-family-2 text-[#01497C] lg:text-2xl md:text-xl font-medium">
                   {item.category}
                 </p>
-                <h3 className="font-family-2 lg:text-3xl md:text-2xl font-medium">
+                <h3 className="font-family-2 lg:text-2xl md:text-xl font-medium">
                   {item.title}
                 </h3>
-                <p className="font-family-2 lg:text-2xl md:text-xl">
+                <p className="font-family-2 lg:text-xl md:text-xl">
                   {item.text}
                 </p>
                 <div className="d-flex justify-content-between">
