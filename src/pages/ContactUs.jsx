@@ -1,6 +1,5 @@
 import ContactForm from "../components/contactUs/ContactForm";
 import Hero from "../components/contactUs/Hero";
-import PromoModal from "../components/contactUs/PromoModal";
 import MapComponent from "../components/map/MapComponent";
 import Subscribe from "../components/Subscribe";
 
@@ -10,9 +9,7 @@ export default function ContactUs() {
         <div className="w-full mx-auto 2xl:container relative">
             
          
-            <div className="md:absolute md:top-0 md:left-0 md:w-full md:z-50">
-                <PromoModal />
-            </div>
+            
 
             <Hero />
             <ContactForm />

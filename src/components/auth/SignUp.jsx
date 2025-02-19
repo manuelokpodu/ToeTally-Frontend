@@ -51,7 +51,7 @@ const SignUp = () => {
     if (Object.keys(errors).length === 0) {
       try {
         const response = await fetch(
-          "https://toetally-backend-1.onrender.com/api/v1/auth/register",
+          "https://backend-toetally.onrender.com",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

@@ -1,20 +1,18 @@
-import { Blog, Cart, Home } from "../pages";
+import { Blog, Cart, Checkout, Home } from "../pages";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { lazy, Suspense } from "react";
-import { Loader } from "../components";
 import Login from "../components/auth/LogIn";
 import SignUp from "../components/auth/SignUp";
 import AddToCart from "../components/addToCart/AddToCart";
+import ContactUs from "../pages/ContactUs";
 import RootLayout from "../layouts/RootLayout";
-const AboutUs = lazy(() => import("../pages/AboutUs")); // Lazy load AboutUs page
+import AboutUs from "../pages/AboutUs";
 
 export default function AppRoutes() {
   const routes = [
     {
       path: "/",
       name: "Root",
-      element: <RootLayout/> ,
-
+      element: <RootLayout />,
       children: [
         {
           path: "/",
@@ -22,19 +20,15 @@ export default function AppRoutes() {
         },
         {
           path: "/aboutus",
-          element: (
-            <Suspense fallback={<Loader />}>
-              <AboutUs />
-            </Suspense>
-          ),
+          element: <AboutUs />,
         },
         {
-          path: "/addToCart",
-          element: (
-            <Suspense fallback={<Loader />}>
-              <AddToCart />
-            </Suspense>
-          ),
+          path: "/addToCart/:productId", 
+          element: <AddToCart />
+        },
+        {
+          path: "/contact-us",
+          element: <ContactUs />,
         },
         {
           path: "/cart",
@@ -44,26 +38,23 @@ export default function AppRoutes() {
           path: "/blog",
           element: <Blog />,
         },
+        {
+          path: "/checkout",
+          element: <Checkout />,
+        },
       ],
     },
     {
       path: "/login",
-      element: (
-        <Suspense fallback={<Loader />}>
-          <Login />
-        </Suspense>
-      ),
+      element: <Login />,
     },
     {
       path: "/signup",
-      element: (
-        <Suspense fallback={<Loader />}>
-          <SignUp />
-        </Suspense>
-      ),
+      element: <SignUp />,
     },
+    
   ];
 
-    const router = createBrowserRouter(routes);
-    return <RouterProvider router={router} />;
+  const router = createBrowserRouter(routes);
+  return <RouterProvider router={router} />;
 }
