@@ -128,7 +128,7 @@ const SignUp = () => {
                     <p className="text-red-500 text-sm">{errors.firstName}</p>
                   )}
                 </div>
-                <div className="w-full sm:mt-2 md:mt-6 lg:mt-0">
+                <div className="w-full sm:mt-2 md:mt-[30px] lg:mt-0">
                   <input
                     type="text"
                     name="lastName"
