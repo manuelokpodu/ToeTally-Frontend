@@ -54,7 +54,7 @@ const Login = () => {
     }
 
     try {
-      const response = await fetch("https://backend-toetally.onrender.com/login/api/auth", {
+      const response = await fetch("https://backend-toetally.onrender.com/api/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -65,7 +65,7 @@ const Login = () => {
       if (response.ok) {
         alert("Login successful!");
         localStorage.setItem("token", data.token);
-        window.location.href = "/dashboard";
+        window.location.href = "/";
       } else {
         setEmailError(data.message || "Invalid credentials. Please try again.");
       }
