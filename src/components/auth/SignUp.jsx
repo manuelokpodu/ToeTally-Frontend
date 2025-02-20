@@ -37,30 +37,30 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const { firstName, lastName, email, password } = formData;
     const errors = {};
-
+  
     if (!firstName) errors.firstName = "First name is required";
     if (!lastName) errors.lastName = "Last name is required";
     if (!email) errors.email = "Email is required";
     if (!password) errors.password = "Password is required";
-
+  
     setErrors(errors);
-
+  
     if (Object.keys(errors).length === 0) {
       try {
         const response = await fetch(
-          "https://backend-toetally.onrender.com",
+          "https://backend-toetally.onrender.com/api/auth/signup",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ firstName, lastName, email, password }),
           }
         );
-
+  
         const data = await response.json();
-
+  
         if (response.ok) {
           setShowModal(true); // Show success modal
         } else {
@@ -71,6 +71,7 @@ const SignUp = () => {
       }
     }
   };
+  
 
   const passwordValidation = validatePassword(formData.password);
 
@@ -78,17 +79,22 @@ const SignUp = () => {
     <>
       <div className="flex flex-col lg:flex-row lg:h-[900px] 2xl:h-screen">
         {/* Left Section: Image */}
-        <div className="lg:w-[55%] h-full">
+        <div className="lg:w-[55%] h-full hidden lg:block relative">
           <img
             src="/auth.svg"
             alt="login image"
             className="w-full h-full object-cover"
           />
+
+
+<div className="flex justify-center">
+          <img src="/authv.svg" alt="auth vector" className="absolute bottom-8  " />
+          </div>
         </div>
 
         {/* Right Section: Form */}
         <div className="lg:w-[45%] w-full mx-auto py-12 lg:py-0 flex flex-col justify-center items-center md:px-2">
-          <div className="w-4/6 font-font-family-2">
+          <div className="w-5/6 font-font-family-2">
             {/* Logo and Title */}
             <Link to="/" className="flex gap-2 items-center justify-center text-black no-underline">
   <img src="/logo.svg" alt="logo" className="w-16 h-16" />
@@ -105,7 +111,11 @@ const SignUp = () => {
             {/* Form */}
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col md:flex-row gap-4 mt-4">
+
+                
                 <div className="w-full">
+
+                <label htmlFor="name" className="text-sm lg:hidden font-bold mb-2">Name</label>
                   <input
                     type="text"
                     name="firstName"
@@ -118,7 +128,7 @@ const SignUp = () => {
                     <p className="text-red-500 text-sm">{errors.firstName}</p>
                   )}
                 </div>
-                <div className="w-full sm:mt-2 md:mt-0">
+                <div className="w-full sm:mt-2 md:mt-6 lg:mt-0">
                   <input
                     type="text"
                     name="lastName"
@@ -135,6 +145,7 @@ const SignUp = () => {
 
               {/* Email Input */}
               <div className="mt-4">
+              <label htmlFor="email" className="text-sm lg:hidden font-bold mb-2">Email</label>
                 <input
                   type="email"
                   name="email"
@@ -150,6 +161,7 @@ const SignUp = () => {
 
               {/* Password Input */}
               <div className="mt-4 relative">
+              <label htmlFor="password" className="text-sm lg:hidden font-bold mb-2">Password</label>
                 <input
                   type={showPassword ? "text" : "password"}
                   name="password"
@@ -159,7 +171,7 @@ const SignUp = () => {
                   onChange={handleChange}
                 />
                 <div
-                  className="absolute right-3 top-3 cursor-pointer"
+                  className="absolute right-3 top-11 lg:top-3 cursor-pointer"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
@@ -213,7 +225,7 @@ const SignUp = () => {
                 </button>
               </div>
 
-              <div className="flex gap-2 mt-3 justify-center">
+              <div className="flex gap-2 mt-3 justify-center lg:justify-start">
                 <p>Have an account?</p> <a href="/login" className="text-[#01497C] font-semibold">Sign in</a>
               </div>
             </form>
