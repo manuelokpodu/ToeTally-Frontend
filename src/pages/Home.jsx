@@ -108,8 +108,8 @@ const Home = () => {
         <Row>
           <Col sm={12} md={6} lg={5}>
             <Image
-              src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1740960000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QyoWoRucIhCAgxH7vOxbv7Kj4v2xWJFgXIS3muVmg71r~Q2OQ~YqEuwTaebQt9nxABq6y6uRV2od23QxuC1WAP-e51Hn7sKFG5if6WCgHMUULXAyvkAJuyCL454c8zopcg1ZnW2-Kv1xRMGW4d40kHBU-YUGGIrPX-cEZ11zl4CcmP-v9kuG6RUS8fr92Wo5JLll7oLTckz2DtiP5QKHDrngphaLPf-8uXfIloi136VLXFwFBj91cBIzCZehTshlukfseGxw~MoXQKD6xAZMEzdS32rfrNFUXFUvXoDUgtN~q4C7PAWGV9uuZIs6HwHCAy1qII0D1LxUSBUY3bmMpA__"
-              className="w-100"
+            src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1740960000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QyoWoRucIhCAgxH7vOxbv7Kj4v2xWJFgXIS3muVmg71r~Q2OQ~YqEuwTaebQt9nxABq6y6uRV2od23QxuC1WAP-e51Hn7sKFG5if6WCgHMUULXAyvkAJuyCL454c8zopcg1ZnW2-Kv1xRMGW4d40kHBU-YUGGIrPX-cEZ11zl4CcmP-v9kuG6RUS8fr92Wo5JLll7oLTckz2DtiP5QKHDrngphaLPf-8uXfIloi136VLXFwFBj91cBIzCZehTshlukfseGxw~MoXQKD6xAZMEzdS32rfrNFUXFUvXoDUgtN~q4C7PAWGV9uuZIs6HwHCAy1qII0D1LxUSBUY3bmMpA__"
+       className="w-100"
             />
           </Col>
           <Col
@@ -152,8 +152,7 @@ const Home = () => {
 
       {/* gif small screen */}
       <div className="d-md-none d-block relative mt-12">
-        <Image src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=jDxnFiZ2oDE2GpWrH~8kFGs21JNU~80QH6Mwoi9jAGYstNqcYVD17jweZh9VNKDlK9JtdAi41G1kTELQGA6gd18sQbtB4J1ptI2sQDffO-TUM6ECLLtot0Fd7ItxebU-r97MrRGkyiHSFGmMFpEwN~oNyHBXSGbgFOOidcKFE8rhdhw5DQ10kmpXcUXJxNNMcCPBfeGOqNASSKvsysvdNgx1NAKC-6KFbm30q3VriwSBNSagbv2iDptLIss3TQwc3~hd9gygEMxmDo0J9pX-8cB5P13ejtkoDsVC1R8wDdkvQJesYxATALiqt~J6CFsgH3-CJDLLtXxAn~H5T9FI6A__" />
-        <div className="d-flex flex-column text-center align-items-center justify-content-center absolute top-0 px-3">
+        <Image src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1740960000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QyoWoRucIhCAgxH7vOxbv7Kj4v2xWJFgXIS3muVmg71r~Q2OQ~YqEuwTaebQt9nxABq6y6uRV2od23QxuC1WAP-e51Hn7sKFG5if6WCgHMUULXAyvkAJuyCL454c8zopcg1ZnW2-Kv1xRMGW4d40kHBU-YUGGIrPX-cEZ11zl4CcmP-v9kuG6RUS8fr92Wo5JLll7oLTckz2DtiP5QKHDrngphaLPf-8uXfIloi136VLXFwFBj91cBIzCZehTshlukfseGxw~MoXQKD6xAZMEzdS32rfrNFUXFUvXoDUgtN~q4C7PAWGV9uuZIs6HwHCAy1qII0D1LxUSBUY3bmMpA__"/><div className="d-flex flex-column text-center align-items-center justify-content-center absolute top-0 px-3">
           <Image src={discountBg} className="w-64" />
           <h1 className="font-family-4 text-2xl">
             EXPERIENCE THE “HIGH” CONIC DUNK

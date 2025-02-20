@@ -189,8 +189,8 @@ body {
   text-align: center;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .text-align-custom {
     text-align: left;
   }
-}
+} */
