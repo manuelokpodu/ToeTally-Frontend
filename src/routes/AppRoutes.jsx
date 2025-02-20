@@ -6,33 +6,29 @@ import AddToCart from "../components/addToCart/AddToCart";
 import ContactUs from "../pages/ContactUs";
 import RootLayout from "../layouts/RootLayout";
 import AboutUs from "../pages/AboutUs";
-import { element } from "prop-types";
-
 
 export default function AppRoutes() {
   const routes = [
     {
       path: "/",
       name: "Root",
-      element: <RootLayout/> ,
-
+      element: <RootLayout />,
       children: [
         {
-            path: "/",
-            element: <Home />,
+          path: "/",
+          element: <Home />,
         },
         {
-            path: "/aboutus", 
-            element: <AboutUs/>
+          path: "/aboutus",
+          element: <AboutUs />,
         },
         {
-            path: "/addToCart", 
-            element: <AddToCart/>
+          path: "/addToCart/:productId", 
+          element: <AddToCart />
         },
         {
-            path: "/contact-us", 
-            element:  <ContactUs/>
-
+          path: "/contact-us",
+          element: <ContactUs />,
         },
         {
           path: "/cart",
@@ -44,22 +40,21 @@ export default function AppRoutes() {
         },
         {
           path: "/checkout",
-          element: <Checkout/>
-        }
-    ],
+          element: <Checkout />,
+        },
+      ],
     },
     {
       path: "/login",
-      element: <Login />
-     
+      element: <Login />,
     },
     {
       path: "/signup",
-      element: <SignUp />
-
+      element: <SignUp />,
     },
+    
   ];
 
-    const router = createBrowserRouter(routes);
-    return <RouterProvider router={router} />;
+  const router = createBrowserRouter(routes);
+  return <RouterProvider router={router} />;
 }
