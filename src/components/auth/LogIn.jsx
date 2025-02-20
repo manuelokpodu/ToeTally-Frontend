@@ -94,7 +94,7 @@ const Login = () => {
 
         <div className="lg:w-[45%] py-12 lg:py-0 flex flex-col justify-center items-center md:px-8">
           <div className="w-5/6 2xl:w-4/6 font-font-family-2">
-            <Link to="/" className="flex justify-center md:justify-start gap-2 items-center text-black no-underline">
+            <Link to="/" className="flex justify-center gap-2 items-center text-black no-underline">
               <img src="/logo.svg" alt="logo" className="w-16 h-16" />
               <h1 className="font-font-family-1 text-2xl font-bold mt-2">TOETALLY</h1>
             </Link>
@@ -109,7 +109,7 @@ const Login = () => {
 
             <div className="mx-auto flex flex-col justify-center">
 
-            <label htmlFor="email" className="text-sm lg:hidden font-bold">Email</label>
+            <label htmlFor="email" className="text-sm lg:hidden font-bold mb-2">Email</label>
               <input
                 type="text"
                 className="rounded-sm outline-none border-[#696767] w-full mx-auto border-[1px] px-3 py-2"
@@ -123,7 +123,7 @@ const Login = () => {
             </div>
 
             <div className="relative mt-3">
-            <label htmlFor="password" className="text-sm lg:hidden font-bold">Password</label>
+            <label htmlFor="password" className="text-sm lg:hidden font-bold mb-2">Password</label>
            
 
               <input
