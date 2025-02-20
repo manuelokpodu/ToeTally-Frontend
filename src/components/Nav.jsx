@@ -20,6 +20,8 @@ const Nav = () => {
 
   return (
     <>
+      {console.log("bannerVisible:", bannerVisible)}
+      {console.log("loggedInUser:", loggedInUser)}
       {bannerVisible && !loggedInUser && (
         <div className="d-none d-md-flex align-items-center bg-[#000000] py-2 px-20 text-center">
           <div className="flex-grow-1">
@@ -82,6 +84,7 @@ const Nav = () => {
               <NavLink to="/cart">
                 <TbShoppingBag className="text-navIcon text-2xl" />
               </NavLink>
+              {console.log("loggedInUser:", loggedInUser)}
               {loggedInUser && (
                 <NavLink to="/profile">
                   <CgProfile className="text-navIcon text-2xl" />
