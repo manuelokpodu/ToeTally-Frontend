@@ -60,9 +60,37 @@ import blog2 from "./blog/blog-image2.png";
 import blog3 from "./blog/blog-image3.png";
 import blog4 from "./blog/blog-image4.png";
 import blog5 from "./blog/blog-image5.png";
-import cartImg from "./cart.png"
+import cartImg from "./cart.png";
+import adidas1 from "./adidas/COUNTRY JAPAN SHOES 155,000.svg";
+import adidas2 from "./adidas/RUNFALCON 5 RUNNING SHOES 100,000.svg";
+import adidas3 from "./adidas/image 326.svg";
+import adidas4 from "./adidas/ADILETTE COMFORT SLIDES 35,000.svg";
+import balenciaga1 from "./ballenciaga/BALENCIAGA MEN'S 3XL GRADIENT SNEAKER 430,000.svg";
+import balenciaga2 from "./ballenciaga/WOMEN'S CROCS™ BOOTIE IN BEIGE 350,000.svg";
+import balenciaga5 from "./ballenciaga/MEN'S TRIPLE S TAPE TYPE SNEAKER 500,000.svg";
+import balenciaga6 from "./ballenciaga/WOMEN'S CAGOLE 90MM BOOTIE.svg";
+import louboutin1 from "./louboutin/Louis Junior P Strass Eternity.svg";
+import louboutin2 from "./louboutin/Kate.svg";
+import louboutin3 from "./louboutin/Astroloubi.svg";
+import louboutin4 from "./louboutin/Chambeliss.svg";
+import louboutin5 from "./louboutin/Louis Junior Spikes.svg";
+import louboutin6 from "./louboutin/Trailnrun.svg";
 
 export {
+  adidas1,
+  adidas2,
+  adidas3,
+  adidas4,
+  balenciaga1,
+  balenciaga2,
+  balenciaga5,
+  balenciaga6,
+  louboutin1,
+  louboutin2,
+  louboutin3,
+  louboutin4,
+  louboutin5,
+  louboutin6,
   logo,
   whiteLogo,
   heroImg,
