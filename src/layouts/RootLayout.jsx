@@ -6,11 +6,11 @@ import { FaXTwitter } from "react-icons/fa6";
 import { AiOutlineFacebook } from "react-icons/ai";
 import { Image } from "react-bootstrap";
 import { whiteLogo } from "../assets";
-import { StoreProvider } from "../store";
+
 
 const RootLayout = () => {
   return (
-    <StoreProvider>
+
       <div className="w-full mx-auto 2xl:container">
         <Nav />
         <Outlet />
@@ -38,7 +38,7 @@ const RootLayout = () => {
               </a>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 FAQ
               </a>
@@ -53,19 +53,19 @@ const RootLayout = () => {
               <h5 style={{ fontFamily: "Averia Serif Libre" }}>Legal</h5>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 Privacy policy
               </a>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 Terms and Conditions
               </a>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 Cookie policy
               </a>
@@ -74,19 +74,19 @@ const RootLayout = () => {
               <h5 style={{ fontFamily: "Averia Serif Libre" }}>Help</h5>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 Shipping and delivery
               </a>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 Return policy
               </a>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 Payment and security
               </a>
@@ -95,25 +95,25 @@ const RootLayout = () => {
               <h5 style={{ fontFamily: "Averia Serif Libre" }}>Shop</h5>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 Men
               </a>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 Women
               </a>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 Kids
               </a>
               <a
                 href="#"
-                className="font-family-2 font-extralight text-white no-underline"
+                className="font-family-2 font-extralight text-white no-underline disabled-link"
               >
                 Sales
               </a>
@@ -147,7 +147,7 @@ const RootLayout = () => {
                   Company
                 </h5>
                 <a href="aboutus" className=" font-family-2 font-light text-sm text-white no-underline">About Us</a>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">FAQ</a>
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">FAQ</a>
                 <a href="contact-us" className="font-family-2 font-light text-sm text-white no-underline">Contact</a>
               </div>
               <div className="d-flex flex-column justify-content-start gap-2">
@@ -157,13 +157,13 @@ const RootLayout = () => {
                 >
                   Legal
                 </h5>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">
                   Privacy policy
                 </a>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">
                   Terms and Conditions
                 </a>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">
                   Cookie policy
                 </a>
               </div>
@@ -176,10 +176,10 @@ const RootLayout = () => {
                 >
                   Shop
                 </h5>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">Men</a>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">Women</a>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">Kids</a>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">Sales</a>
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">Men</a>
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">Women</a>
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">Kids</a>
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">Sales</a>
               </div>
 
 
@@ -190,13 +190,13 @@ const RootLayout = () => {
                 >
                   Help
                 </h5>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">
                   Shipping and delivery
                 </a>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">
                   Return policy
                 </a>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline">
+                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">
                   Payment and security
                 </a>
               </div>
@@ -211,7 +211,7 @@ const RootLayout = () => {
           </div>
         </footer>
       </div>
-    </StoreProvider>
+ 
   );
 };
 

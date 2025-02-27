@@ -77,12 +77,17 @@ const Login = () => {
               <h1 className="font-font-family-1 text-2xl font-bold mt-2">TOETALLY</h1>
             </Link>
 
-            <p className="text-gray-600 text-lg text-align-custom font-semibold mt-2">
-              Enter your email to join us or sign in
-            </p>
+            <div className="mt-2">
+              <p className="text-gray-600 text-lg text-align-custom font-semibold font-font-family-2">
+                Enter your email to join us or sign in
+              </p>
+            </div>
 
-            <div className="mx-auto flex flex-col justify-center mt-3">
-              <label htmlFor="email" className="text-sm lg:hidden font-bold mb-2">Email</label>
+           
+
+            <div className="mx-auto flex flex-col justify-center">
+
+            <label htmlFor="email" className="text-sm lg:hidden font-bold mb-2">Email</label>
               <input
                 type="text"
                 className="rounded-sm outline-none border-[#696767] w-full mx-auto border-[1px] px-3 py-2"

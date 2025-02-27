@@ -125,18 +125,60 @@ body {
   display: none; /* Chrome, Safari, and Opera */
 }
 
+.gradient-hr {
+  border: 1.37px solid;
+  border-image-source: linear-gradient(
+    90deg,
+    rgba(41, 45, 50, 0.1) 0.44%,
+    #292d32 50%,
+    rgba(41, 45, 50, 0.1) 100%
+  );
+  border-image-slice: 1;
+  background-color: transparent;
+  height: 0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-2,
+.col-md-9 {
+  flex: 1;
+  min-height: 50vh;
+}
+
+.disabled-link {
+  cursor: not-allowed;
+}
+
+.disabled-link:hover {
+  cursor: not-allowed;
+}
+
+.dropdown-item:active,
+.dropdown-item:focus,
+.dropdown-item:hover {
+  background-color: transparent;
+}
+
+.logout-button:active,
+.logout-button:focus {
+  background-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 @media (min-width: 640px) and (max-width: 1024px) {
-.fast h2{
-  text-align: left;
+  .fast h2 {
+    text-align: left;
+  }
+  .fast p {
+    text-align: left;
+    width: 100%;
+  }
 }
-.fast p{
-  text-align: left;
-  width: 100%;
-}
-}
-
-
-
 
 @keyframes moveLeft {
   from {
@@ -153,10 +195,42 @@ body {
   animation: moveLeft 10s linear infinite;
 }
 
+@media (min-width: 992px) {
+  .card {
+    width: 295px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    width: 260px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .card {
+    width: 285px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .card {
+    width: 315px;
+  }
+}
 
 @media (min-width: 1420px) {
   .blogImg {
     min-width: 550px;
+  }
+  .card {
+    width: 320px;
   }
 }
 
@@ -164,11 +238,18 @@ body {
   .blogImg {
     min-width: 560px;
   }
+  .card {
+    width: 325px;
+  }
+
 }
 
 @media (min-width: 1465px) {
   .blogImg {
     min-width: 570px;
+  }
+  .card {
+    width: 330px;
   }
 }
 
@@ -176,14 +257,20 @@ body {
   .blogImg {
     min-width: 580px;
   }
+  .card {
+    width: 335px;
+  }
 }
 
 @media (min-width: 1500px) {
   .blogImg {
     min-width: 590px;
   }
-}
+  .card {
+    width: 340px;
+  }
 
+}
 
 .text-align-custom {
   text-align: center;
@@ -223,4 +310,5 @@ body {
   color: #01497C;
   border-color: #01497C;
 }
+
 

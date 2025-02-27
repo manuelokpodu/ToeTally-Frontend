@@ -2,13 +2,47 @@ import { Card, Image } from "react-bootstrap";
 import { formatCurrency, offers } from "../utils";
 import ActionButton from "./ActionButton";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const OfferForYou = () => {
   const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
-  const handleClick = () => {
-    navigate("/addtocart");
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get(
+        "https://backend-toetally.onrender.com/api/products"
+      );
+      const products = response.data;
+      const filteredProducts = products.filter(
+        (product) => product.category === "offers"
+      );
+      setProducts(products);
+      setFilteredProducts(filteredProducts);
+    } catch (error) {
+      setError("Failed to load products. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+const handleClick = (productId) => {
+  if (!productId) {
+    console.error("Product ID is missing!");
+    return;
+  }
+  navigate(`/addtocart/${productId}`); // Navigate with product ID
+};
+
+
   return (
     <>
       <div className="mt-24 d-none d-lg-block pl-16">

@@ -4,6 +4,7 @@ import { ActionButton, Subscribe } from "../components";
 import { blogItems } from "../utils";
 import { FaRegCalendarDays } from "react-icons/fa6";
 import { FaRegClock } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   return (
@@ -14,44 +15,46 @@ const Blog = () => {
           backgroundImage: `url(${blogSmHero})`,
         }}
       >
-        <h1 className="font-family-2 font-semibold text-4xl">BLOG</h1>
-        <p className="font-family-2 text-xs">
-          At Toetally, we believe shopping is more than just a transaction—it's
-          an experience. Our blog is here to help you make the most out of your
-          shopping journey with helpful tips, product spotlights, industry
-          trends, and exclusive updates on our latest collections and offers.
-        </p>
+        <h1 className="font-family-3  text-4xl">BLOG</h1>
+        <div >
+          <Link to="/" className="text-white text-sm font-family-2 no-underline">
+            Home
+          </Link>
+          <span className="font-family-2 text-sm"> /</span>
+          <span className="font-family-2 text-sm"> Blog</span>
+        </div>
+       
       </div>
 
       {/* large screen */}
       <div
-        className="hidden md:block p-40 text-center text-white"
+        className="hidden md:block p-36 text-center text-white"
         style={{
           backgroundImage: `url(${blogBigHero})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <h1 className="font-family-2 font-semibold text-6xl">BLOG</h1>
-        <p className="font-family-2 text-xl mt-4 lg:px-20">
-          At Toetally, we believe shopping is more than just a transaction—it's
-          an experience. Our blog is here to help you make the most out of your
-          shopping journey with helpful tips, product spotlights, industry
-          trends, and exclusive updates on our latest collections and offers.
-        </p>
+        <h1 className="font-family-3 text-8xl">BLOG</h1>
+        <div className="mt-4">
+          <Link to="/" className="text-white text-2xl font-family-2 no-underline">
+            Home
+          </Link>
+          <span className="font-family-2 text-2xl"> /</span>
+          <span className="font-family-2 text-2xl"> Blog</span>
+        </div>
       </div>
       <div className="lg:px-16 mt-16 md:px-3 hidden md:block">
-        <h1 className="font-family-2 text-5xl font-medium md:text-4xl">
+        <h1 className="font-family-2 text-5xl font-medium md:hidden block">
           Recent Blogs
         </h1>
         <div className="d-grid grid-cols-1 md:grid-cols-2 lg:gap-24 md:gap-8 mt-4">
           {blogItems.map((item) => (
             <div
               key={item.id}
-              className="border-2 border-[#01497C] p-4 rounded-4"
             >
-              <Image src={item.image} className="mx-auto blogImg" />
-              <div className="lg:px-3 md:px-2 py-3">
+              <Image src={item.image} className="mx-auto w-100 rounded-3" />
+              <div className="py-3 pr-3">
                 <p className="font-family-2 text-[#01497C] lg:text-2xl md:text-xl font-medium">
                   {item.category}
                 </p>
@@ -70,16 +73,6 @@ const Blog = () => {
                     <FaRegClock />5 mins read
                   </span>
                 </div>
-                <ActionButton
-                  variant="none"
-                  size="lg"
-                  text="Read More"
-                  style={{
-                    backgroundColor: "#01497C",
-                    fontFamily: "Alexandria variable",
-                  }}
-                  className="font-family-2 rounded-5 mt-3 text-white"
-                />
               </div>
             </div>
           ))}
