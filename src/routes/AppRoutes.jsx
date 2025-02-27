@@ -1,4 +1,4 @@
-import { Blog, Cart, Checkout, Home } from "../pages";
+import { Blog, Cart, Checkout, Home, Shop } from "../pages";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Login from "../components/auth/LogIn";
 import SignUp from "../components/auth/SignUp";
@@ -42,6 +42,10 @@ export default function AppRoutes() {
           path: "/checkout",
           element: <Checkout />,
         },
+        {
+          path: "/shop",
+          element: <Shop/>
+        }
       ],
     },
     {

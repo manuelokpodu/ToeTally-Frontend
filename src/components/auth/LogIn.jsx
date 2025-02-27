@@ -65,6 +65,7 @@ const Login = () => {
       if (response.ok) {
         alert("Login successful!");
         localStorage.setItem("token", data.token);
+        localStorage.setItem("userId", data.userId);
         window.location.href = "/";
       } else {
         setEmailError(data.message || "Invalid credentials. Please try again.");
@@ -104,11 +105,7 @@ const Login = () => {
                 Enter your email to join us or sign in
               </p>
             </div>
-
-           
-
             <div className="mx-auto flex flex-col justify-center">
-
             <label htmlFor="email" className="text-sm lg:hidden font-bold mb-2">Email</label>
               <input
                 type="text"
