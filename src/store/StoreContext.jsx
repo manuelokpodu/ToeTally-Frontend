@@ -6,8 +6,24 @@ import { jwtDecode } from "jwt-decode";
 
 const API_BASE_URL = "https://backend-toetally.onrender.com/api";
 
-// eslint-disable-next-line react-refresh/only-export-components
-export const ContextStore = createContext({});
+
+export const ContextStore = createContext({
+  cartItems: [],
+  loggedInUser: null,
+  token: null,
+  increaseCartQuantity: () => {},
+  setCartItems: () => {},
+  cartQuantity: 0,
+  priceTotal: 0,
+  removeFromCart: () => {},
+  decreaseCartQuantity: () => {},
+  setToken: () => {},
+  setLoggedInUser: () => {},
+  login: () => {},
+  logout: () => {},
+  loading: false,
+  error: null,
+});
 
 export const StoreProvider = ({ children }) => {
   const [cartItems, setCartItems] = usePersist("cart", []);
@@ -96,12 +112,13 @@ export const StoreProvider = ({ children }) => {
         password,
       });
       setToken(response.data.token);
+      setLoggedInUser(response.data.user);
       getUser();
     } catch (error) {
       console.error(error);
       setError(error.message);
     }
-  }, [getUser, setToken]);
+  }, [getUser, setLoggedInUser, setToken]);
 
   const logout = useCallback(() => {
     try {
@@ -139,17 +156,18 @@ export const StoreProvider = ({ children }) => {
     login,
     logout,
     loading,
-    error,
-  };
+    error
+};
 
-  return (
-    <ContextStore.Provider value={contextData}>
-      {children}
-    </ContextStore.Provider>
-  );
+return (
+  <ContextStore.Provider value={contextData}>
+    {children}
+  </ContextStore.Provider>
+);
 };
 
 StoreProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
+export default StoreProvider;
