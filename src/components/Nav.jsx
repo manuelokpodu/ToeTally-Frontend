@@ -20,14 +20,18 @@ const Nav = () => {
 
   return (
     <>
-      {bannerVisible && (
+      {console.log("bannerVisible:", bannerVisible)}
+      {console.log("loggedInUser:", loggedInUser)}
+      {bannerVisible && !loggedInUser && (
         <div className="d-none d-md-flex align-items-center bg-[#000000] py-2 px-20 text-center">
           <div className="flex-grow-1">
             <span className="font-family-2 text-white text-sm">
+              {" "}
               Sign up and get 20% off to your first order.{" "}
             </span>
             <Link to="/signup" className="font-family-2 text-white text-sm">
-              Sign Up Now
+              {" "}
+              Sign Up Now{" "}
             </Link>
           </div>
           <IoClose
@@ -37,6 +41,7 @@ const Nav = () => {
           />
         </div>
       )}
+
       <header className="border-b-2 d-none d-md-block">
         <div className="d-flex justify-content-between align-items-center md:px-3 lg:px-16 py-4 ">
           <NavLink to="/" className="no-underline">
@@ -104,7 +109,7 @@ const Nav = () => {
           <Drawer />
         </div>
       </header>
-      {bannerVisible && (
+      {bannerVisible && !loggedInUser && (
         <div className="d-md-none d-flex align-items-center bg-[#000000] text-center py-2 px-4">
           <div className="flex-grow-1">
             <span
