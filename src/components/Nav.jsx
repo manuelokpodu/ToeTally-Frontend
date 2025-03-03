@@ -1,20 +1,20 @@
-import { Dropdown, Image } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Button, Dropdown, Image, Modal } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { logo } from "../assets";
 import { navItems } from "../utils";
 import { CgProfile } from "react-icons/cg";
 import { TbShoppingBag } from "react-icons/tb";
-import { IoClose } from "react-icons/io5";
 import Drawer from "./Drawer";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { MdLogout } from "react-icons/md";
+import ActionButton from "./ActionButton";
 
 const Nav = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [bannerVisible, setBannerVisible] = useState(true);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -51,14 +51,14 @@ const Nav = () => {
   }, []);
 
   const handleLogout = () => {
+    setShowLogoutModal(true);
+  };
+
+  const handleConfirmLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     setUser(null);
     window.location.href = "/";
-  };
-
-  const handleBannerClose = () => {
-    setBannerVisible(false);
   };
 
   if (loading) {
@@ -67,26 +67,6 @@ const Nav = () => {
 
   return (
     <>
-      {bannerVisible && !user && (
-        <div className="d-none d-md-flex align-items-center bg-[#000000] py-2 px-20 text-center">
-          <div className="flex-grow-1">
-            <span className="font-family-2 text-white text-sm">
-              {" "}
-              Sign up and get 20% off to your first order.{" "}
-            </span>
-            <Link to="/signup" className="font-family-2 text-white text-sm">
-              {" "}
-              Sign Up Now{" "}
-            </Link>
-          </div>
-          <IoClose
-            color="white"
-            onClick={handleBannerClose}
-            style={{ cursor: "pointer" }}
-          />
-        </div>
-      )}
-
       <header className="border-b-2 d-none d-md-block">
         <div className="d-flex justify-content-between align-items-center md:px-3 lg:px-16 py-4 ">
           <NavLink to="/" className="no-underline">
@@ -97,7 +77,6 @@ const Nav = () => {
               </span>
             </div>
           </NavLink>
-
           <div className="d-flex gap-4 align-items-center text-sm font-family-2">
             {navItems.map((item) => (
               <NavLink
@@ -130,7 +109,10 @@ const Nav = () => {
                     <CgProfile className="text-navIcon text-2xl me-2" />
                   </Dropdown.Toggle>
                   <Dropdown.Menu>
-                    <Dropdown.Item className="d-flex align-items-center gap-2" style={{ pointerEvents: 'none', cursor: 'default' }}>
+                    <Dropdown.Item
+                      className="d-flex align-items-center gap-2"
+                      style={{ pointerEvents: "none", cursor: "default" }}
+                    >
                       <span
                         className="text-navIcon font-family-2 text-2xl bg-[#E3F5F6] rounded-5 p-3"
                         style={{ color: "#147C84" }}
@@ -150,6 +132,26 @@ const Nav = () => {
                         </span>
                       </div>
                     </Dropdown.Item>
+                    <Modal
+                      show={showLogoutModal}
+                      onHide={() => setShowLogoutModal(false)}
+                    >
+                      <Modal.Header closeButton>
+                        <Modal.Title>Confirm Logout</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>Are you sure you want to log out?</Modal.Body>
+                      <Modal.Footer>
+                        <Button
+                          variant="secondary"
+                          onClick={() => setShowLogoutModal(false)}
+                        >
+                          Cancel
+                        </Button>
+                        <Button variant="danger" onClick={handleConfirmLogout}>
+                          Logout
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
                     <Dropdown.Item
                       href="#/action-2"
                       onClick={handleLogout}
@@ -169,6 +171,46 @@ const Nav = () => {
                 </Dropdown>
               </div>
             )}
+            {!user && (
+              <>
+                <NavLink to="/login">
+                  <ActionButton
+                    variant="none"
+                    size="md"
+                    text="Login"
+                    style={{
+                      backgroundColor: "white",
+                      fontFamily: "Alexandria variable",
+                      color: "black",
+                    }}
+                    hoverStyle={{
+                      backgroundColor: "#01497C",
+                      fontFamily: "Alexandria variable",
+                      color: "white",
+                    }}
+                    className="font-family-2 rounded-3 p-2"
+                  />
+                </NavLink>
+                <NavLink to="/signup">
+                  <ActionButton
+                    variant="none"
+                    size="md"
+                    text="Sign Up"
+                    style={{
+                      backgroundColor: "white",
+                      fontFamily: "Alexandria variable",
+                      color: "black",
+                    }}
+                    hoverStyle={{
+                      backgroundColor: "#01497C",
+                      fontFamily: "Alexandria variable",
+                      color: "white",
+                    }}
+                    className="font-family-2 rounded-3 p-2"
+                  />
+                </NavLink>
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -187,30 +229,6 @@ const Nav = () => {
           <Drawer />
         </div>
       </header>
-      {bannerVisible && !user && (
-        <div className="d-md-none d-flex align-items-center bg-[#000000] text-center py-2 px-4">
-          <div className="flex-grow-1">
-            <span
-              className="font-family-2 text-white"
-              style={{ fontSize: "10px" }}
-            >
-              Sign up and get 20% off to your first order.{" "}
-            </span>
-            <Link
-              to="/signup"
-              className="font-family-2 text-white"
-              style={{ fontSize: "10px" }}
-            >
-              Sign Up Now
-            </Link>
-          </div>
-          <IoClose
-            color="white"
-            onClick={handleBannerClose}
-            style={{ cursor: "pointer" }}
-          />
-        </div>
-      )}
     </>
   );
 };

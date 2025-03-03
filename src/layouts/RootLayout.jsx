@@ -37,10 +37,10 @@ const RootLayout = () => {
                 About Us
               </a>
               <a
-                href="#"
-                className="font-family-2 font-extralight text-white no-underline disabled-link"
+                href="/checkout"
+                className="font-family-2 font-extralight text-white no-underline"
               >
-                FAQ
+                Shop now
               </a>
               <a
                 href="/contact-us"
@@ -147,7 +147,7 @@ const RootLayout = () => {
                   Company
                 </h5>
                 <a href="aboutus" className=" font-family-2 font-light text-sm text-white no-underline">About Us</a>
-                <a href="#" className="font-family-2 font-light text-sm text-white no-underline disabled-link">FAQ</a>
+                <a href="checkout" className="font-family-2 font-light text-sm text-white no-underline">Shop now</a>
                 <a href="contact-us" className="font-family-2 font-light text-sm text-white no-underline">Contact</a>
               </div>
               <div className="d-flex flex-column justify-content-start gap-2">

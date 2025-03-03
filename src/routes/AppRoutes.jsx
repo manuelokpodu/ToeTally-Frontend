@@ -1,19 +1,25 @@
 import { Blog, Cart, Checkout, Home, Shop } from "../pages";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Login from "../components/auth/LogIn";
 import SignUp from "../components/auth/SignUp";
 import AddToCart from "../components/addToCart/AddToCart";
 import ContactUs from "../pages/ContactUs";
-import RootLayout from "../layouts/RootLayout";
 import AboutUs from "../pages/AboutUs";
 import NotFound from "../pages/NotFound";
 import OrderConfirmation from "../pages/OrderConfirmation";
+import { Loader } from "../components";
+const RootLayout = lazy(() => import("../layouts/RootLayout"));
 
 export default function AppRoutes() {
   const routes = [
     {
       path: "/",
-      element: <RootLayout />, 
+      element: (
+        <Suspense fallback={<Loader />}>
+          <RootLayout />
+        </Suspense>
+      ),
       children: [
         { path: "/", element: <Home /> },
         { path: "/aboutus", element: <AboutUs /> },
@@ -25,8 +31,8 @@ export default function AppRoutes() {
         { path: "/orderconfirmation", element: <OrderConfirmation /> },
         {
           path: "/shop",
-          element: <Shop/>
-        }
+          element: <Shop />,
+        },
       ],
     },
     { path: "/login", element: <Login /> },
