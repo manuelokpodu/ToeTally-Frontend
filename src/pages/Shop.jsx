@@ -401,7 +401,7 @@ const Shop = () => {
                               border: "1px solid black",
                             }}
                             className="font-family-2 rounded-1 xl:w-32 lg:w-24  xl:p-2 lg:p-0"
-                            onClick={handleClick}
+                            onClick={() => handleClick(item._id || item.id)}
                           />
                         </div>
                       </Card.Body>
@@ -738,7 +738,7 @@ const Shop = () => {
                         e.target.style.color = "white";
                         e.target.style.border = "";
                       }}
-                      onClick={handleClick}
+                      onClick={() => handleClick(item._id || item.id)}
                     >
                       Buy Now
                     </button>
