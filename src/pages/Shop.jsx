@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { ActionButton, Discount, Subscribe } from "../components";
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Row, Spinner } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { formatCurrency } from "../utils";
@@ -14,7 +14,12 @@ const Shop = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
+  const [appliedFilter, setAppliedFilter] = useState(false);
   const [productsPerPage, setProductsPerPage] = useState(6);
+  const [displayedBrand, setDisplayedBrand] = useState("All");
+  const [sortBy, setSortBy] = useState("Most Popular");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showBrandDropdown, setShowBrandDropdown] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -34,23 +39,67 @@ const Shop = () => {
     fetchProducts();
   }, []);
 
+  const handleBrandDropdownClick = () => {
+    setShowBrandDropdown(!showBrandDropdown);
+  };
+
   const handleBrandClick = (brand) => {
-    if (selectedBrands.includes(brand)) {
-      setSelectedBrands(selectedBrands.filter((b) => b !== brand));
+    if (brand === "All") {
+      setSelectedBrands([]);
+      setAppliedFilter(false);
     } else {
-      setSelectedBrands([...selectedBrands, brand]);
+      setSelectedBrands([brand]);
+      setAppliedFilter(false);
     }
   };
 
   const handleApplyFilter = () => {
     if (selectedBrands.length === 0) {
       setFilteredProducts(products);
+      setDisplayedBrand("All");
     } else {
       const filteredProducts = products.filter((product) =>
         selectedBrands.includes(product.productTag)
       );
       setFilteredProducts(filteredProducts);
+      setDisplayedBrand(selectedBrands[0]);
     }
+    setCurrentPage(1);
+    setAppliedFilter(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleSortByChange = (newSortBy) => {
+    setSortBy(newSortBy);
+    setCurrentPage(1);
+    let filteredProducts;
+
+    if (newSortBy === "All") {
+      filteredProducts = products;
+    } else {
+      filteredProducts = products;
+      if (selectedBrands.length > 0) {
+        filteredProducts = filteredProducts.filter((product) =>
+          selectedBrands.includes(product.productTag)
+        );
+      }
+
+      if (newSortBy === "New Arrivals") {
+        filteredProducts = filteredProducts.filter(
+          (product) => product.category === "newarrivals"
+        );
+      } else if (newSortBy === "Offers") {
+        filteredProducts = filteredProducts.filter(
+          (product) => product.category === "offers"
+        );
+      }
+    }
+    setFilteredProducts(filteredProducts);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const handleDropdownClick = () => {
+    setShowDropdown(!showDropdown);
   };
 
   const handleClick = (productId) => {
@@ -68,7 +117,10 @@ const Shop = () => {
     indexOfLastProduct
   );
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div>
@@ -86,234 +138,624 @@ const Shop = () => {
           <span className="font-semibold font-family-2 text-xl">Shop Now</span>
         </div>
       </div>
-      <Row className="h-100 d-none d-lg-flex">
-        <Col
-        xl={2}
-          lg={3}
-          className="border-2 py-16 px-3 rounded-3 h-100"
-          style={{ marginLeft: "5rem" }}
-        >
-          <p className="text-[#2C6892] text-xl font-family-2 font-medium">
-            Filters
-          </p>
-          <ActionButton
-            variant="none"
-            size="md"
-            text="ADIDAS"
-            style={{
-              backgroundColor: selectedBrands.includes("ADIDAS")
-                ? "#2C6892"
-                : "white",
-              fontFamily: "Alexandria variable",
-              color: selectedBrands.includes("ADIDAS") ? "white" : "black",
-            }}
-            hoverStyle={{
-              backgroundColor: "#2C6892",
-              color: "white",
-            }}
-            onClick={() => handleBrandClick("ADIDAS")}
-            className="font-family-2 rounded-2 w-100 text-start font-medium"
-          />
-          <hr className="gradient-hr" />
-          <ActionButton
-            variant="none"
-            size="md"
-            text="BALENCIAGA"
-            style={{
-              backgroundColor: selectedBrands.includes("BALENCIAGA")
-                ? "#2C6892"
-                : "white",
-              fontFamily: "Alexandria variable",
-              color: selectedBrands.includes("BALENCIAGA") ? "white" : "black",
-            }}
-            hoverStyle={{
-              backgroundColor: "#2C6892",
-              color: "white",
-            }}
-            onClick={() => handleBrandClick("BALENCIAGA")}
-            className="font-family-2 rounded-2 w-100 text-start font-medium"
-          />
-          <hr className="gradient-hr" />
-          <ActionButton
-            variant="none"
-            size="md"
-            text="LOUBOUTIN"
-            style={{
-              backgroundColor: selectedBrands.includes("Christian Louboutin")
-                ? "#2C6892"
-                : "white",
-              fontFamily: "Alexandria variable",
-              color: selectedBrands.includes("Christian Louboutin")
-                ? "white"
-                : "black",
-            }}
-            hoverStyle={{
-              backgroundColor: "#2C6892",
-              color: "white",
-            }}
-            onClick={() => handleBrandClick("Christian Louboutin")}
-            className="font-family-2 rounded-2 w-100 text-start font-medium"
-          />
-          <hr className="gradient-hr" />
-          <ActionButton
-            variant="none"
-            size="md"
-            text="LOUIS VUITTON"
-            style={{
-              backgroundColor: selectedBrands.includes("LOUIS VUITTON")
-                ? "#2C6892"
-                : "white",
-              fontFamily: "Alexandria variable",
-              color: selectedBrands.includes("LOUIS VUITTON")
-                ? "white"
-                : "black",
-            }}
-            hoverStyle={{
-              backgroundColor: "#2C6892",
-              color: "white",
-            }}
-            onClick={() => handleBrandClick("LOUIS VUITTON")}
-            className="font-family-2 rounded-2 w-100 text-start font-medium"
-          />
-          <hr className="gradient-hr" />
-          <ActionButton
-            variant="none"
-            size="md"
-            text="SKETCHERS"
-            style={{
-              backgroundColor: selectedBrands.includes("Skechers")
-                ? "#2C6892"
-                : "white",
-              fontFamily: "Alexandria variable",
-              color: selectedBrands.includes("Skechers") ? "white" : "black",
-            }}
-            hoverStyle={{
-              backgroundColor: "#2C6892",
-              color: "white",
-            }}
-            onClick={() => handleBrandClick("Skechers")}
-            className="font-family-2 rounded-2 w-100 text-start font-medium"
-          />
-          <ActionButton
-            variant="none"
-            size="sm"
-            text="Apply Filter"
-            style={{
-              backgroundColor: "#01497C",
-              fontFamily: "Alexandria variable",
-              color: "white",
-            }}
-            hoverStyle={{
-              backgroundColor: "white",
-              color: "#01497C",
-              border: "1px solid #01497C",
-            }}
-            onClick={handleApplyFilter}
-            className="font-family-2 rounded-2 w-100 mt-4 p-2"
-          />
-        </Col>
-        <Col xl={9} lg={8} className="h-100">
-          <div className="font-family-2 d-flex align-items-center justify-content-between">
-            <h1>
-              {" "}
-              {selectedBrands.length === 0
-                ? "All"
-                : selectedBrands
-                    .map(
-                      (brand) =>
-                        brand.charAt(0).toUpperCase() +
-                        brand.slice(1).toLowerCase()
-                    )
-                    .join(", ")}
-            </h1>
-            <div
-              className="font-family-2 d-flex gap-2 align-items-center"
-            >
-              <span>
-                {indexOfFirstProduct + 1} -{" "}
-                {Math.min(indexOfLastProduct, filteredProducts.length)} of{" "}
-                {filteredProducts.length} Products
-              </span>
-              <span>
-                Sort by:<> Most Popular </>
-              </span>
-              <RiArrowDropDownLine />
-            </div>
-          </div>
-          {!loading && !error && (
-            <div className="d-flex gap-5 flex-wrap">
-              {currentProducts.length === 0 ? (
-                <p>No products found for the selected brand.</p>
-              ) : (
-                currentProducts.map((item) => (
-                  <Card
-                    key={item._id || item.id}
-                    className="flex-shrink-0 border-0 pb-4 hover-brightness card"
-                    style={{
-                     
-                      minHeight: "30rem",
-                      backgroundColor: "#B5B5B51A",
-                    }}
+      <div className="px-20">
+        <Row className="h-100 d-none d-lg-flex">
+          <Col xl={2} lg={3} className="border-2 py-16 px-3 rounded-3 h-100">
+            <p className="text-[#2C6892] text-xl font-family-2 font-medium">
+              Filters
+            </p>
+            <ActionButton
+              variant="none"
+              size="md"
+              text="All"
+              style={{
+                backgroundColor:
+                  selectedBrands.length === 0 ? "#2C6892" : "white",
+                fontFamily: "Alexandria variable",
+                color: selectedBrands.length === 0 ? "white" : "black",
+              }}
+              hoverStyle={{
+                backgroundColor: "#2C6892",
+                color: "white",
+              }}
+              onClick={() => handleBrandClick("All")}
+              className="font-family-2 rounded-2 w-100 text-start font-medium"
+            />
+            <hr className="gradient-hr" />
+            <ActionButton
+              variant="none"
+              size="md"
+              text="ADIDAS"
+              style={{
+                backgroundColor: selectedBrands.includes("ADIDAS")
+                  ? "#2C6892"
+                  : "white",
+                fontFamily: "Alexandria variable",
+                color: selectedBrands.includes("ADIDAS") ? "white" : "black",
+              }}
+              hoverStyle={{
+                backgroundColor: "#2C6892",
+                color: "white",
+              }}
+              onClick={() => handleBrandClick("ADIDAS")}
+              className="font-family-2 rounded-2 w-100 text-start font-medium"
+            />
+            <hr className="gradient-hr" />
+            <ActionButton
+              variant="none"
+              size="md"
+              text="BALENCIAGA"
+              style={{
+                backgroundColor: selectedBrands.includes("BALENCIAGA")
+                  ? "#2C6892"
+                  : "white",
+                fontFamily: "Alexandria variable",
+                color: selectedBrands.includes("BALENCIAGA")
+                  ? "white"
+                  : "black",
+              }}
+              hoverStyle={{
+                backgroundColor: "#2C6892",
+                color: "white",
+              }}
+              onClick={() => handleBrandClick("BALENCIAGA")}
+              className="font-family-2 rounded-2 w-100 text-start font-medium"
+            />
+            <hr className="gradient-hr" />
+            <ActionButton
+              variant="none"
+              size="md"
+              text="LOUBOUTIN"
+              style={{
+                backgroundColor: selectedBrands.includes("Christian Louboutin")
+                  ? "#2C6892"
+                  : "white",
+                fontFamily: "Alexandria variable",
+                color: selectedBrands.includes("Christian Louboutin")
+                  ? "white"
+                  : "black",
+              }}
+              hoverStyle={{
+                backgroundColor: "#2C6892",
+                color: "white",
+              }}
+              onClick={() => handleBrandClick("Christian Louboutin")}
+              className="font-family-2 rounded-2 w-100 text-start font-medium"
+            />
+            <hr className="gradient-hr" />
+            <ActionButton
+              variant="none"
+              size="md"
+              text="LOUIS VUITTON"
+              style={{
+                backgroundColor: selectedBrands.includes("LOUIS VUITTON")
+                  ? "#2C6892"
+                  : "white",
+                fontFamily: "Alexandria variable",
+                color: selectedBrands.includes("LOUIS VUITTON")
+                  ? "white"
+                  : "black",
+              }}
+              hoverStyle={{
+                backgroundColor: "#2C6892",
+                color: "white",
+              }}
+              onClick={() => handleBrandClick("LOUIS VUITTON")}
+              className="font-family-2 rounded-2 w-100 text-start font-medium"
+            />
+            <hr className="gradient-hr" />
+            <ActionButton
+              variant="none"
+              size="md"
+              text="SKETCHERS"
+              style={{
+                backgroundColor: selectedBrands.includes("Skechers")
+                  ? "#2C6892"
+                  : "white",
+                fontFamily: "Alexandria variable",
+                color: selectedBrands.includes("Skechers") ? "white" : "black",
+              }}
+              hoverStyle={{
+                backgroundColor: "#2C6892",
+                color: "white",
+              }}
+              onClick={() => handleBrandClick("Skechers")}
+              className="font-family-2 rounded-2 w-100 text-start font-medium"
+            />
+            <ActionButton
+              variant="none"
+              size="sm"
+              text="Apply Filter"
+              style={{
+                backgroundColor: "#01497C",
+                fontFamily: "Alexandria variable",
+                color: "white",
+              }}
+              hoverStyle={{
+                backgroundColor: "white",
+                color: "#01497C",
+                border: "1px solid #01497C",
+              }}
+              onClick={handleApplyFilter}
+              className="font-family-2 rounded-2 w-100 mt-4 p-2"
+            />
+          </Col>
+          <Col xl={10} lg={9} className="h-100">
+            <div className="font-family-2 mb-8 d-flex align-items-center justify-content-between">
+              <h1>
+                {" "}
+                {displayedBrand === "All"
+                  ? "All"
+                  : displayedBrand.charAt(0).toUpperCase() +
+                    displayedBrand.slice(1).toLowerCase()}
+              </h1>
+
+              <div className="font-family-2 d-flex gap-2 align-items-center">
+                <span>
+                  {indexOfFirstProduct + 1} -{" "}
+                  {Math.min(indexOfLastProduct, filteredProducts.length)} of{" "}
+                  {filteredProducts.length} Products
+                </span>
+                <span
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    position: "relative",
+                  }}
+                  className="font-family-2 font-bold"
+                >
+                  Sort by:{" "}
+                  <span
+                    onClick={handleDropdownClick}
+                    className="font-family-2 font-bold"
                   >
-                    <div style={{ height: "15rem", width: "auto" }}>
-                      <Card.Img
-                        variant="top"
-                        src={item.thumbnail}
-                        className="object-fit-contain p-2"
-                        style={{ height: "15rem" }}
-                      />
-                    </div>
-                    <Card.Body>
-                      <Card.Text className="font-family-2 fw-bold xl:text-xl lg:text-lg">
-                        {item.title}
-                      </Card.Text>
-                      <Card.Text className="font-family-2 fw-medium xl:text-xl lg:text-base">
-                        {item.productTag} | {item.color}
-                      </Card.Text>
-                      <hr className="border-2" />
-                      <div className="d-flex justify-content-between align-items-center">
-                        <Card.Text className="font-family-2 fw-bold text-xl mb-0">
-                          {formatCurrency(item.price)}
-                        </Card.Text>
-                        <ActionButton
-                          variant="none"
-                          size="md"
-                          text="Buy Now"
-                          style={{
-                            backgroundColor: "#01497C",
-                            fontFamily: "Alexandria variable",
-                          }}
-                          className="font-family-2 buy-now-button rounded-1 w-32 text-white p-2"
-                          onClick={() => handleClick(item._id || item.id)}
+                    {" "}
+                    {sortBy}
+                  </span>
+                  <span onClick={handleDropdownClick}>
+                    <RiArrowDropDownLine style={{ marginLeft: 5 }} />
+                  </span>
+                  {showDropdown && (
+                    <ul
+                      style={{
+                        position: "absolute",
+                        top: "100%",
+                        width: "150px",
+                        left: 0,
+                        backgroundColor: "white",
+                        border: "1px solid #ddd",
+                        padding: 10,
+                        zIndex: 1,
+                      }}
+                      onClick={(e) => {
+                        if (e.target.tagName === "LI") {
+                          handleSortByChange(e.target.textContent);
+
+                          handleDropdownClick();
+                        }
+                      }}
+                    >
+                      <li className="mb-3">All</li>
+                      <li className="mb-3">New Arrivals</li>
+                      <li>Offers</li>
+                    </ul>
+                  )}
+                </span>
+              </div>
+            </div>
+            {loading && <Spinner animation="border" />}
+            {error && <p className="text-danger">{error}</p>}
+            {!loading && !error && (
+              <div className="d-flex md:gap-10 lg:gap-4 xl:gap-10 flex-wrap">
+                {currentProducts.length === 0 ? (
+                  <p>No products found for the selected brand.</p>
+                ) : (
+                  currentProducts.map((item) => (
+                    <Card
+                      key={item._id || item.id}
+                      className="flex-shrink-0 border-0 pb-4 hover-brightness card"
+                      style={{
+                        backgroundColor: "#B5B5B51A",
+                      }}
+                    >
+                      <div style={{ width: "auto" }}>
+                        <Card.Img
+                          variant="top"
+                          src={item.thumbnail}
+                          className="object-fit-contain p-2"
+                          style={{ height: "15vw" }}
                         />
                       </div>
-                    </Card.Body>
-                  </Card>
-                ))
+                      <Card.Body>
+                        <Card.Text
+                          className="font-family-2 fw-bold xl:text-xl lg:text-base"
+                          style={{ height: "1rem" }}
+                        >
+                          {item.title.length > 15
+                            ? `${item.title.substring(0, 15)}...`
+                            : item.title}
+                        </Card.Text>
+                        <Card.Text
+                          className="font-family-2 fw-medium xl:text-xl lg:text-sm"
+                          style={{ height: "2.5rem" }}
+                        >
+                          {item.productTag} | {item.color}
+                        </Card.Text>
+                        <hr className="border-2" />
+                        <div className="d-flex justify-content-between align-items-center">
+                          <Card.Text className="font-family-2 fw-bold xl:text-xl lg:text-sm mb-0">
+                            {formatCurrency(item.price)}
+                          </Card.Text>
+                          <ActionButton
+                            variant="none"
+                            size="sm"
+                            text="Buy Now"
+                            style={{
+                              backgroundColor: "#01497C",
+                              fontFamily: "Alexandria variable",
+                              color: "white",
+                            }}
+                            hoverStyle={{
+                              backgroundColor: "white",
+                              color: "black",
+                              border: "1px solid black",
+                            }}
+                            className="font-family-2 rounded-1 xl:w-32 lg:w-24  xl:p-2 lg:p-0"
+                            onClick={handleClick}
+                          />
+                        </div>
+                      </Card.Body>
+                    </Card>
+                  ))
+                )}
+              </div>
+            )}
+            <div className="pagination d-flex justify-content-center align-items-center gap-5 mt-3">
+              {currentPage > 1 && (
+                <button
+                  className="pagination-button font-family-2"
+                  onClick={() => paginate(currentPage - 1)}
+                >
+                  Prev
+                </button>
+              )}
+              {Array(
+                Math.min(
+                  3,
+                  Math.ceil(filteredProducts.length / productsPerPage)
+                )
+              )
+                .fill()
+                .map((_, index) => {
+                  const pageNumber = Math.max(1, currentPage - 2) + index;
+                  return (
+                    <button
+                      key={pageNumber}
+                      className={`pagination-button font-family-2 ${
+                        currentPage === pageNumber
+                          ? "active bg-[#01497C] text-white p-3 rounded-5"
+                          : ""
+                      }`}
+                      onClick={() => paginate(pageNumber)}
+                    >
+                      {pageNumber}
+                    </button>
+                  );
+                })}
+              {currentPage <
+                Math.ceil(filteredProducts.length / productsPerPage) && (
+                <button
+                  className="pagination-button font-family-2"
+                  onClick={() => paginate(currentPage + 1)}
+                >
+                  Next
+                </button>
               )}
             </div>
+          </Col>
+        </Row>
+      </div>
+
+      <div className="d-flex justify-content-between align-items-center px-3 d-lg-none">
+        <div style={{ position: "relative" }}>
+          <span className="font-family-2 text-sm d-flex">
+            {" "}
+            {displayedBrand === "All"
+              ? "All"
+              : displayedBrand.charAt(0).toUpperCase() +
+                displayedBrand.slice(1).toLowerCase()}
+            <RiArrowDropDownLine
+              style={{ marginLeft: 1 }}
+              size="25px"
+              onClick={handleBrandDropdownClick}
+            />
+          </span>
+          {showBrandDropdown && (
+            <ul
+              style={{
+                position: "absolute",
+                top: "100%",
+                width: "150px",
+                left: 0,
+                backgroundColor: "white",
+                border: "1px solid #ddd",
+                padding: 10,
+                zIndex: 1,
+              }}
+            >
+              <ActionButton
+                variant="none"
+                size="sm"
+                text="All"
+                style={{
+                  backgroundColor:
+                    selectedBrands.length === 0 ? "#2C6892" : "white",
+                  fontFamily: "Alexandria variable",
+                  color: selectedBrands.length === 0 ? "white" : "black",
+                }}
+                hoverStyle={{
+                  backgroundColor: "#2C6892",
+                  color: "white",
+                }}
+                onClick={() => handleBrandClick("All")}
+                className="font-family-2 rounded-2 w-100 text-start font-medium"
+              />
+              <hr className="gradient-hr" />
+              <ActionButton
+                variant="none"
+                size="sm"
+                text="ADIDAS"
+                style={{
+                  backgroundColor: selectedBrands.includes("ADIDAS")
+                    ? "#2C6892"
+                    : "white",
+                  fontFamily: "Alexandria variable",
+                  color: selectedBrands.includes("ADIDAS") ? "white" : "black",
+                }}
+                hoverStyle={{
+                  backgroundColor: "#2C6892",
+                  color: "white",
+                }}
+                onClick={() => handleBrandClick("ADIDAS")}
+                className="font-family-2 rounded-2 w-100 text-start font-medium"
+              />
+              <hr className="gradient-hr" />
+              <ActionButton
+                variant="none"
+                size="sm"
+                text="BALENCIAGA"
+                style={{
+                  backgroundColor: selectedBrands.includes("BALENCIAGA")
+                    ? "#2C6892"
+                    : "white",
+                  fontFamily: "Alexandria variable",
+                  color: selectedBrands.includes("BALENCIAGA")
+                    ? "white"
+                    : "black",
+                }}
+                hoverStyle={{
+                  backgroundColor: "#2C6892",
+                  color: "white",
+                }}
+                onClick={() => handleBrandClick("BALENCIAGA")}
+                className="font-family-2 rounded-2 w-100 text-start font-medium"
+              />
+              <hr className="gradient-hr" />
+              <ActionButton
+                variant="none"
+                size="sm"
+                text="LOUBOUTIN"
+                style={{
+                  backgroundColor: selectedBrands.includes(
+                    "Christian Louboutin"
+                  )
+                    ? "#2C6892"
+                    : "white",
+                  fontFamily: "Alexandria variable",
+                  color: selectedBrands.includes("Christian Louboutin")
+                    ? "white"
+                    : "black",
+                }}
+                hoverStyle={{
+                  backgroundColor: "#2C6892",
+                  color: "white",
+                }}
+                onClick={() => handleBrandClick("Christian Louboutin")}
+                className="font-family-2 rounded-2 w-100 text-start font-medium"
+              />
+              <hr className="gradient-hr" />
+              <ActionButton
+                variant="none"
+                size="sm"
+                text="LOUIS VUITTON"
+                style={{
+                  backgroundColor: selectedBrands.includes("LOUIS VUITTON")
+                    ? "#2C6892"
+                    : "white",
+                  fontFamily: "Alexandria variable",
+                  color: selectedBrands.includes("LOUIS VUITTON")
+                    ? "white"
+                    : "black",
+                }}
+                hoverStyle={{
+                  backgroundColor: "#2C6892",
+                  color: "white",
+                }}
+                onClick={() => handleBrandClick("LOUIS VUITTON")}
+                className="font-family-2 rounded-2 w-100 text-start font-medium"
+              />
+              <hr className="gradient-hr" />
+              <ActionButton
+                variant="none"
+                size="sm"
+                text="SKETCHERS"
+                style={{
+                  backgroundColor: selectedBrands.includes("Skechers")
+                    ? "#2C6892"
+                    : "white",
+                  fontFamily: "Alexandria variable",
+                  color: selectedBrands.includes("Skechers")
+                    ? "white"
+                    : "black",
+                }}
+                hoverStyle={{
+                  backgroundColor: "#2C6892",
+                  color: "white",
+                }}
+                onClick={() => handleBrandClick("Skechers")}
+                className="font-family-2 rounded-2 w-100 text-start font-medium"
+              />
+              <ActionButton
+                variant="none"
+                size="sm"
+                text="Apply Filter"
+                style={{
+                  backgroundColor: "#01497C",
+                  fontFamily: "Alexandria variable",
+                  color: "white",
+                }}
+                hoverStyle={{
+                  backgroundColor: "white",
+                  color: "#01497C",
+                  border: "1px solid #01497C",
+                }}
+                onClick={() => {
+                  handleBrandDropdownClick();
+                  handleApplyFilter();
+                }}
+                className="mb-4 font-family-2 rounded-2 w-100 mt-4 p-2"
+              />
+            </ul>
           )}
-          <div className="pagination d-flex justify-content-center align-items-center gap-5 mt-3">
-            {[
-              ...Array(Math.ceil(filteredProducts.length / productsPerPage)),
-            ].map((_, index) => (
-              <button
-                key={index}
-                className={`pagination-button font-family-2 ${
-                  currentPage === index + 1 ? "active" : ""
-                }`}
-                onClick={() => paginate(index + 1)}
+        </div>
+        <span
+          style={{
+            display: "flex",
+            alignItems: "center",
+            position: "relative",
+            color: "grey",
+          }}
+          className="font-family-2 text-sm"
+        >
+          Sort by:{" "}
+          <span
+            onClick={handleDropdownClick}
+            className="font-family-2 text-black"
+          >
+            {" "}
+            {sortBy}
+          </span>
+          <span onClick={handleDropdownClick}>
+            <RiArrowDropDownLine
+              style={{ marginLeft: 1, color: "black" }}
+              size="25px"
+            />
+          </span>
+          {showDropdown && (
+            <ul
+              style={{
+                position: "absolute",
+                top: "100%",
+                width: "150px",
+                left: 0,
+                backgroundColor: "white",
+                border: "1px solid #ddd",
+                padding: 10,
+                zIndex: 1,
+              }}
+              onClick={(e) => {
+                if (e.target.tagName === "LI") {
+                  handleSortByChange(e.target.textContent);
+
+                  handleDropdownClick();
+                }
+              }}
+            >
+              <li className="mb-3">All</li>
+              <li className="mb-3">New Arrivals</li>
+              <li>Offers</li>
+            </ul>
+          )}
+        </span>
+      </div>
+      {loading && <Spinner animation="border" />}
+      {error && <p className="text-danger">{error}</p>}
+      {!loading && !error && (
+        <div className="px-3 grid grid-cols-2 lg:hidden gap-3 flex-wrap">
+          {currentProducts.length === 0 ? (
+            <p>No products found for the selected brand.</p>
+          ) : (
+            currentProducts.map((item) => (
+              <Card
+                key={item._id || item.id}
+                className="border-0 pb-2 hover-brightness card"
+                style={{
+                  backgroundColor: "#B5B5B51A",
+                  width: "45vw",
+                }}
               >
-                {currentPage === index + 1 ? <b>{index + 1}</b> : index + 1}
-              </button>
-            ))}
-          </div>
-        </Col>
-      </Row>
+                <div style={{ width: "auto" }}>
+                  <Card.Img
+                    variant="top"
+                    src={item.thumbnail}
+                    className="object-fit-contain p-2"
+                    style={{ height: "8rem" }}
+                  />
+                </div>
+                <Card.Body>
+                  <Card.Text
+                    className="font-family-2 fw-bold text-xs"
+                    style={{ height: "1rem" }}
+                  >
+                    {item.title.length > 15
+                      ? `${item.title.substring(0, 15)}...`
+                      : item.title}
+                  </Card.Text>
+                  <Card.Text
+                    className="font-family-2 fw-medium text-xs"
+                    style={{ height: "1rem" }}
+                  >
+                    {item.productTag} | {item.color}
+                  </Card.Text>
+                  <hr className="border-2" />
+                  <div className="d-flex justify-content-between align-items-center">
+                    <Card.Text className="font-family-2 fw-bold text-xs mb-0">
+                      {formatCurrency(item.price)}
+                    </Card.Text>
+                    <button
+                      className="font-family-2 rounded-1 py-1 px-2 text-xs"
+                      style={{
+                        backgroundColor: "#01497C",
+                        color: "white",
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.backgroundColor = "white";
+                        e.target.style.color = "#01497C";
+                        e.target.style.border = "1px solid #01497C";
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.backgroundColor = "#01497C";
+                        e.target.style.color = "white";
+                        e.target.style.border = "";
+                      }}
+                      onClick={handleClick}
+                    >
+                      Buy Now
+                    </button>
+                  </div>
+                </Card.Body>
+              </Card>
+            ))
+          )}
+        </div>
+      )}
       <Discount />
-      <Subscribe />
+      <div className="mx-auto lg:w-11/12">
+        
+        <Subscribe/>
+  
+        </div>
     </div>
   );
 };
-
 export default Shop;

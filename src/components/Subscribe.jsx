@@ -39,7 +39,7 @@ const Subscribe = () => {
       </div>
 
       {/* subsribe with us small screen */}
-      <div className="bg-[#01497C] d-block d-lg-none text-white px-4 w-11/12 md:w-full mx-auto mb-4 pt-16 pb-8 position-relative rounded-lg">
+      <div className="bg-[#01497C] d-block d-lg-none text-white px-4 w-full  mx-auto  pt-16 pb-8 position-relative md:w-11/12 md:mb-4 md:rounded-lg">
         <h1 className="font-family-3 text-center text-white text-2xl md:text-4xl">
           Subscribe to our Newsletter
         </h1>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { trending1, trending2, trending3, trending4 } from "../assets";
 import ActionButton from './ActionButton';
+import { useNavigate } from 'react-router-dom';
 
 const images = [
   { src: trending1, title: 'New in Shoes', subtitle: 'SB Dunk' },
@@ -12,6 +13,9 @@ const images = [
 const Trending = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slidesToShow, setSlidesToShow] = useState(1);
+  const navigate = useNavigate();
+
+
 
   useEffect(() => {
     const updateSlidesToShow = () => {
@@ -33,6 +37,9 @@ const Trending = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, [slidesToShow]);
+
+
+
 
   return (
     <div className="overflow-hidden relative w-full">
@@ -57,6 +64,7 @@ const Trending = () => {
                 variant="none"
                 size="lg"
                 text="Shop Now"
+                onClick={() => navigate("/shop", { scrollToTop: true })}
                 style={{
                   backgroundColor: "#01497C",
                   fontFamily: "Alexandria variable",
@@ -73,6 +81,7 @@ const Trending = () => {
                 variant="none"
                 size="md"
                 text="Shop Now"
+                onClick={() => navigate("/shop", { scrollToTop: true })}
                 style={{
                   backgroundColor: "black",
                   fontFamily: "Alexandria variable",

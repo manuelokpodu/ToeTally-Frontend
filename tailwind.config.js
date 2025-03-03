@@ -43,13 +43,18 @@ export default {
           '80%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(0)' },
         },
+        zoomInOut: {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.1)' },
+        },
       },
       animation: {
         moveLeft: 'moveLeft 10s linear infinite',
         scrollLeftSmall: 'scrollLeftSmall 10s linear infinite',
-        scrollLeftLarge: 'scrollLeftLarge 10s linear infinite'
+        scrollLeftLarge: 'scrollLeftLarge 10s linear infinite',
+        zoomInOut: 'zoomInOut 1.5s ease-in-out infinite',
       },
     },
   },
   plugins: [],
-}
+};
