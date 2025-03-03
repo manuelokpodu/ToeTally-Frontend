@@ -18,7 +18,7 @@ const Hero = () => {
 
         <div className="">
             <div className="grid md:grid-cols-2  items-center md:px-6">
-                <div className=" px-3 md:px-0  lg:w-11/12 mx-auto">
+                <div className=" px-3 md:px-0  lg:w-11/12 mx-auto text-mob">
                     <h1 className="font-medium  font-family-3 mt-8 mx-auto hwho">Who We Are</h1>
 
                     <p className="font-family-2 mt-4  "> Welcome to <span className="text-[#01497C]">Toetally</span>, where comfort meets style!

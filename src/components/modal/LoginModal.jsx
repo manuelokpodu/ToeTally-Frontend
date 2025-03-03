@@ -5,13 +5,17 @@ const LoginModal = ({ onClose }) => {
   const navigate = useNavigate();
 
   const handleClose = () => {
-    onClose(); // Close the modal
-    navigate("/"); // Redirect to login page
+    if (onClose) {
+      onClose(); // Close the modal
+    }
+    navigate("/"); // Redirect to home page
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+      {/* Modal container */}
       <div className="relative flex flex-col gap-4 py-12 w-4/5 md:w-3/5 mx-auto bg-white rounded-lg shadow-lg p-6 text-center">
+        
         {/* Close Button */}
         <button 
           onClick={handleClose} 
@@ -20,9 +24,9 @@ const LoginModal = ({ onClose }) => {
           <FaTimes size={20} />
         </button>
 
-        {/* Success Icon */}
-        <div className="bg-[#23A26D1F] w-[160px] p-6 rounded-full mx-auto">
-          <img src="/tick.svg" alt="tick icon" className="w-full" />
+        {/* Animated Success Icon Wrapper */}
+        <div className="bg-[#23A26D1F] w-[160px] p-6 rounded-full mx-auto animate-zoomInOut">
+          <img src="/tick.svg" alt="tick icon" className="w-full scale-100" />
         </div>
 
         <h1 className="text-xl font-bold">Welcome Back</h1>
