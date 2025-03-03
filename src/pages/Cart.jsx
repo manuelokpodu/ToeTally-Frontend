@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ActionButton, Subscribe } from "../components";
 import { useState, useEffect, useCallback } from "react";
 import { cartImg } from "../assets";
-import { Col, Image, Row } from "react-bootstrap";
+import { Image} from "react-bootstrap";
 import { RiDeleteBinFill } from "react-icons/ri";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { formatCurrency } from "../utils";

@@ -115,7 +115,7 @@ const Discount = () => {
                         border: "1px solid black",
                       }}
                       className="font-family-2 rounded-1 w-32  p-2"
-                      onClick={handleClick}
+                      onClick={() => handleClick(item._id || item.id)}
                     />
                   </div>
                 </Card.Body>
@@ -201,7 +201,7 @@ const Discount = () => {
                         border: "1px solid black",
                       }}
                       className="font-family-2 rounded-1 w-24"
-                      onClick={handleClick}
+                      onClick={() => handleClick(item._id || item.id)}
                     />
                   </div>
                 </Card.Body>

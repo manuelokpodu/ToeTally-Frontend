@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import OfferForYou from "../OfferForYou";
 import Alert from "../alert/Alert";
+import Subscribe from "../Subscribe";
 
 const AddToCart = () => {
   const { productId } = useParams();
@@ -16,6 +17,7 @@ const AddToCart = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
+        console.log("Product ID:", productId); // Debugging
         const response = await axios.get(
           `https://backend-toetally.onrender.com/api/products/${productId}`
         );
@@ -37,14 +39,20 @@ const AddToCart = () => {
     }
 
     if (!selectedSize) {
-      setAlert({ message: "Please select a size before adding to cart.", type: "warning" });
+      setAlert({
+        message: "Please select a size before adding to cart.",
+        type: "warning",
+      });
       return;
     }
 
     const token = localStorage.getItem("token");
 
     if (!token) {
-      setAlert({ message: "You need to be logged in to add items to the cart.", type: "error" });
+      setAlert({
+        message: "You need to be logged in to add items to the cart.",
+        type: "error",
+      });
       navigate("/login");
       return;
     }
@@ -75,19 +83,34 @@ const AddToCart = () => {
       navigate("/cart");
     } catch (error) {
       console.error("Error adding to cart:", error.response?.data || error);
-      setAlert({ message: error.response?.data?.message || "Failed to add item to cart.", type: "error" });
+      setAlert({
+        message: error.response?.data?.message || "Failed to add item to cart.",
+        type: "error",
+      });
     }
   };
 
-  if (!product) return <div className="text-center mt-10">Loading product details...</div>;
+  if (!product)
+    return <div className="text-center mt-10">Loading product details...</div>;
 
   return (
     <>
-      {alert && <Alert message={alert.message} type={alert.type} onClose={() => setAlert(null)} />}
+      {alert && (
+        <Alert
+          message={alert.message}
+          type={alert.type}
+          onClose={() => setAlert(null)}
+        />
+      )}
 
       <div className="bg-[#EBEBEB] w-full mt-3 md:px-4 lg:px-14">
         <div className="flex font-font-family-2  font-bold gap-2 2xl:container px-3  mx-auto py-4">
-          <Link to="/" className="text-[#00000073] font-bold no-underline text-[16px]">Home</Link>
+          <Link
+            to="/"
+            className="text-[#00000073] font-bold no-underline text-[16px]"
+          >
+            Home
+          </Link>
           <h4 className="text-[#00000073] text-[12px] mt-[3px] px-2">/</h4>
           <h4 className="text-[16px] font-bold">Back</h4>
         </div>
@@ -97,11 +120,21 @@ const AddToCart = () => {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="w-full">
             <div className="bg-[#B5B5B54D] rounded-3xl p-4">
-              <img src={previewImage} alt={product.title} className="w-full h-[370px] object-contain" />
+              <img
+                src={previewImage}
+                alt={product.title}
+                className="w-full h-[370px] object-contain"
+              />
             </div>
             <div className="flex gap-2 mt-4 ">
               {product.image?.map((img, index) => (
-                <img key={index} src={img} alt="shoe" className="w-16 lg:w-24 xl:w-32 cursor-pointer hover:border-gray-500" onClick={() => setPreviewImage(img)} />
+                <img
+                  key={index}
+                  src={img}
+                  alt="shoe"
+                  className="w-16 lg:w-24 xl:w-32 cursor-pointer hover:border-gray-500"
+                  onClick={() => setPreviewImage(img)}
+                />
               ))}
             </div>
           </div>
@@ -109,7 +142,9 @@ const AddToCart = () => {
           <div>
             <h1 className="text-2xl font-bold">{product.title}</h1>
             <h3 className="text-gray-600 text-[18px]">{product.productTag}</h3>
-            <h1 className="text-[#01497C] text-xl font-semibold text-[36px]">₦{product.price?.toLocaleString()}</h1>
+            <h1 className="text-[#01497C] text-xl font-semibold text-[36px]">
+              ₦{product.price?.toLocaleString()}
+            </h1>
 
             <h3 className="text-[22px] mt-[34px]">Colour</h3>
             <h3 className="text-[#5C5C5C] text-[22px]">{product.color}</h3>
@@ -120,7 +155,11 @@ const AddToCart = () => {
                 {product.size?.map((size) => (
                   <button
                     key={size}
-                    className={`px-4 py-2 border rounded-md ${selectedSize === size ? "border-blue-500 bg-[#01497C] text-white" : "border-gray-300 hover:border-blue-500"}`}
+                    className={`px-4 py-2 border rounded-md ${
+                      selectedSize === size
+                        ? "border-blue-500 bg-[#01497C] text-white"
+                        : "border-gray-300 hover:border-blue-500"
+                    }`}
                     onClick={() => setSelectedSize(size)}
                   >
                     {size}
@@ -138,7 +177,9 @@ const AddToCart = () => {
                 >
                   -
                 </button>
-                <span className="text-lg text-center font-semibold min-w-0 truncate">{quantity}</span>
+                <span className="text-lg text-center font-semibold min-w-0 truncate">
+                  {quantity}
+                </span>
                 <button
                   className="sm:px-3 md:px-4 py-2 flex items-center justify-center rounded-r-lg hover:bg-gray-200"
                   onClick={() => setQuantity((prev) => prev + 1)}
@@ -149,7 +190,10 @@ const AddToCart = () => {
             </div>
 
             <div className="mt-3 flex-col">
-              <button className="custom-button add-to-cart" onClick={handleAddToCart}>
+              <button
+                className="custom-button add-to-cart"
+                onClick={handleAddToCart}
+              >
                 Add To Cart
               </button>
 
@@ -157,7 +201,10 @@ const AddToCart = () => {
                 className="custom-button shop-now mt-3"
                 onClick={() => {
                   if (!selectedSize) {
-                    setAlert({ message: "Please select a size before purchasing.", type: "warning" });
+                    setAlert({
+                      message: "Please select a size before purchasing.",
+                      type: "warning",
+                    });
                     return;
                   }
 
@@ -181,6 +228,58 @@ const AddToCart = () => {
       </div>
 
       <OfferForYou />
+      <div className="text-[#808080] mt-8 font-font-family-2 grid grid-cols-1 md:grid-cols-3 py-12 px-3 2xl:container mx-auto w-11/12 max-w-[1390px]">
+        <div className="md:flex md:gap-3 items-center justify-center text-center md:text-left">
+          <div>
+            <img
+              src="/bef1.svg"
+              alt="icon"
+              className="w-10 md:w-[100px] mx-auto md:mt-4"
+            />
+          </div>
+          <div className="fast">
+            <h2 className="text-[25px] mt-2 text-start font-bold">Fast & Free Shipping</h2>
+            <p className="text-[15px] sm:mt-2 w-4/5 md:w-5/6 text-start">
+              Every single order ships for free. No extra credit needed.
+            </p>
+          </div>
+        </div>
+
+        <div className="lg:border-x-[1px] lg:border-[#808080] px-2 md:flex md:gap-3 items-center justify-center text-center md:text-left">
+          <div>
+            <img
+              src="/bef2.svg"
+              alt="icon"
+              className="w-10 md:w-[70px] mx-auto md:mt-4"
+            />
+          </div>
+          <div className="fast">
+            <h2 className="text-[25px] mt-2 font-bold text-start">
+              30 Days Returns Policy
+            </h2>
+            <p className="text-[15px] text-start sm:mt-2 w-4/5 md:w-5/6">
+              Product returns are accepted within 30 days.
+            </p>
+          </div>
+        </div>
+
+        <div className="md:flex md:gap-3 items-center justify-center text-center md:text-left">
+          <div>
+            <img
+              src="/bef3.svg"
+              alt="icon"
+              className="w-10 md:w-[70px] mx-auto md:mt-4"
+            />
+          </div>
+          <div className="fast">
+            <h2 className="text-[25px] mt-2 font-bold text-start">Top Quality Products</h2>
+            <p className="text-[15px] sm:mt-2 w-4/5 md:w-5/6 text-start">
+              We always provide high quality shoes.
+            </p>
+          </div>
+        </div>
+      </div>
+      <Subscribe />
     </>
   );
 };
