@@ -14,9 +14,12 @@ import {
   heroImg,
 } from "../assets";
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const imageContainerRef = useRef(null);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,6 +57,7 @@ const Home = () => {
             variant="none"
             size="lg"
             text="Shop Now"
+            onClick={() => navigate("/shop")}
             style={{
               backgroundColor: "#01497C",
               fontFamily: "Alexandria variable",
@@ -85,6 +89,7 @@ const Home = () => {
             variant="none"
             size="md"
             text="Shop Now"
+            onClick={() => navigate("/shop")}
             style={{
               backgroundColor: "#01497C",
               fontFamily: "Alexandria variable",
