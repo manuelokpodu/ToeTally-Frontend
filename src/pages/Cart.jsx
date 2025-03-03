@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ActionButton, Subscribe } from "../components";
 import { useState, useEffect, useCallback } from "react";
 import { cartImg } from "../assets";
-import { Col, Image, Row } from "react-bootstrap";
+import { Image} from "react-bootstrap";
 import { RiDeleteBinFill } from "react-icons/ri";
 import { FaPlus, FaMinus } from "react-icons/fa6";
 import { formatCurrency } from "../utils";
@@ -135,7 +135,7 @@ const Cart = () => {
       ) : cartData.length === 0 ? (
         <div className="text-center py-5">
           <h2 className="font-family-3 text-2xl">Your cart is empty</h2>
-          <ActionButton text="Shop Now" className="mt-3" onClick={() => navigate("/shop")} />
+          <ActionButton text="Shop Now" className="mt-3 border-0" onClick={() => navigate("/shop")} style={{backgroundColor: "#01497C"}}/>
         </div>
       ) : (
         <div className="lg:w-11/12 mx-auto">

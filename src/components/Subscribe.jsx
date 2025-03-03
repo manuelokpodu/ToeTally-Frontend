@@ -4,7 +4,7 @@ import ActionButton from "./ActionButton";
 const Subscribe = () => {
   return (
     <>
-      <div className=" mt-10 p-4 d-none d-lg-block">
+      <div className=" mt-10 mb-12 p-4 d-none d-lg-block">
         <div className="bg-[#01497C] rounded-4 text-center text-white p-14 position-relative">
           <h1 className="font-family-3 text-5xl">
             Subscribe to our Newsletter
