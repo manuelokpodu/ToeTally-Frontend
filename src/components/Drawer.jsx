@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { IoIosMenu } from "react-icons/io";
 import { navItems } from "../utils";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import axios from "axios";
 import { MdLogout } from "react-icons/md";
+import ActionButton from "./ActionButton";
 
 const Drawer = () => {
   const [user, setUser] = useState(null);
@@ -128,6 +129,22 @@ const Drawer = () => {
                 <span className="font-family-2 text-lg text-[red]">Logout</span>
               </div>
             </>
+          )}
+          {!user && (
+            <div className="d-flex flex-column gap-2">
+              <Link
+                to="/login"
+                className="no-underline text-black font-family-2 text-xl"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="no-underline text-black font-family-2 text-xl"
+              >
+                Sign up
+              </Link>
+            </div>
           )}
         </Offcanvas.Body>
       </Offcanvas>
