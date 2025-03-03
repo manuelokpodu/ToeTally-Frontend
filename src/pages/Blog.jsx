@@ -16,14 +16,16 @@ const Blog = () => {
         }}
       >
         <h1 className="font-family-3  text-4xl">BLOG</h1>
-        <div >
-          <Link to="/" className="text-white text-sm font-family-2 no-underline">
+        <div>
+          <Link
+            to="/"
+            className="text-white text-sm font-family-2 no-underline"
+          >
             Home
           </Link>
           <span className="font-family-2 text-sm"> /</span>
           <span className="font-family-2 text-sm"> Blog</span>
         </div>
-       
       </div>
 
       {/* large screen */}
@@ -37,7 +39,10 @@ const Blog = () => {
       >
         <h1 className="font-family-3 text-8xl">BLOG</h1>
         <div className="mt-4">
-          <Link to="/" className="text-white text-2xl font-family-2 no-underline">
+          <Link
+            to="/"
+            className="text-white text-2xl font-family-2 no-underline"
+          >
             Home
           </Link>
           <span className="font-family-2 text-2xl"> /</span>
@@ -50,9 +55,7 @@ const Blog = () => {
         </h1>
         <div className="d-grid grid-cols-1 md:grid-cols-2 lg:gap-24 md:gap-8 mt-4">
           {blogItems.map((item) => (
-            <div
-              key={item.id}
-            >
+            <div key={item.id}>
               <Image src={item.image} className="mx-auto w-100 rounded-3" />
               <div className="py-3 pr-3">
                 <p className="font-family-2 text-[#01497C] lg:text-2xl md:text-xl font-medium">
@@ -112,6 +115,12 @@ const Blog = () => {
 
       {/*small screen*/}
       <div className="px-3 mt-8 block md:hidden">
+        <p className="font-family-2 text-sm py-2 text-center">
+          At Toetally, we believe shopping is more than just a transaction—it's
+          an experience. Our blog is here to help you make the most out of your
+          shopping journey with helpful tips, product spotlights, industry
+          trends, and exclusive updates on our latest collections and offers.
+        </p>
         <h1 className="font-family-2 font-medium text-2xl">Recent Blogs</h1>
         <div className="d-grid grid-cols-1 gap-16 mt-4">
           {blogItems.map((item) => (
@@ -121,13 +130,13 @@ const Blog = () => {
             >
               <Image src={item.image} className="mx-auto blogImg" />
               <div className="p-2">
-                <h4 className="font-family-2 text-[#01497C] text-xl font-medium">
+                <h4 className="font-family-2 text-[#01497C] text-lg font-medium">
                   {item.category}
                 </h4>
-                <h3 className="font-family-2 text-2xl font-medium">
+                <h3 className="font-family-2 text-lg font-medium">
                   {item.title}
                 </h3>
-                <p className="font-family-2 text-xl">{item.text}</p>
+                <p className="font-family-2 text-base">{item.text}</p>
                 <div className="d-flex justify-content-between">
                   <span className="d-flex align-items-center gap-2 font-family-2 text-sm">
                     <FaRegCalendarDays />
@@ -152,9 +161,7 @@ const Blog = () => {
           ))}
         </div>
         <div className="p-3 border-2 my-12 rounded-4">
-          <h1 className="font-family-2 font-medium text-2xl">
-            Popular Tags
-          </h1>
+          <h1 className="font-family-2 font-medium text-2xl">Popular Tags</h1>
           <div className="d-flex flex-wrap mt-8 gap-2">
             <p className="font-family-2 font-medium text-xl p-2 rounded-5 bg-[#F5F5F5]">
               Fashion
