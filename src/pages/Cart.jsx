@@ -135,7 +135,13 @@ const Cart = () => {
       ) : cartData.length === 0 ? (
         <div className="text-center py-5">
           <h2 className="font-family-3 text-2xl">Your cart is empty</h2>
-          <ActionButton text="Shop Now" className="mt-3" onClick={() => navigate("/shop")} />
+          <button 
+  className="mt-3 bg-[#01497C] text-white px-4 py-2 rounded" 
+  onClick={() => navigate("/shop")}
+>
+  Shop Now
+</button>
+
         </div>
       ) : (
         <div className="lg:w-11/12 mx-auto">
