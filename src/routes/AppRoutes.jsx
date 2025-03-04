@@ -42,5 +42,12 @@ export default function AppRoutes() {
   ];
 
   const router = createBrowserRouter(routes);
-  return <RouterProvider router={router} />;
+  return (
+    <RouterProvider
+      router={router}
+      onNavigate={() => window.scrollTo(0, 0)}
+    />
+  );
+  
+  
 }

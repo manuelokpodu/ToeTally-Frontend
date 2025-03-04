@@ -184,9 +184,9 @@ const Nav = () => {
                       color: "black",
                     }}
                     hoverStyle={{
-                      backgroundColor: "#01497C",
+                      backgroundColor: "white",
                       fontFamily: "Alexandria variable",
-                      color: "white",
+                      color: "#01497C",
                     }}
                     className="font-family-2 rounded-3 p-2"
                   />
@@ -197,16 +197,17 @@ const Nav = () => {
                     size="md"
                     text="Sign Up"
                     style={{
-                      backgroundColor: "white",
-                      fontFamily: "Alexandria variable",
-                      color: "black",
-                    }}
-                    hoverStyle={{
                       backgroundColor: "#01497C",
                       fontFamily: "Alexandria variable",
                       color: "white",
                     }}
-                    className="font-family-2 rounded-3 p-2"
+                    hoverStyle={{
+                      backgroundColor: "white",
+                      fontFamily: "Alexandria variable",
+                      color: "#01497C",
+                      border: "1px solid #01497C"
+                    }}
+                    className="font-family-2 rounded-3 p-2 w-32"
                   />
                 </NavLink>
               </>

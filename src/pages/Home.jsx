@@ -113,8 +113,8 @@ const Home = () => {
         <Row>
           <Col sm={12} md={6} lg={5}>
             <Image
-            src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1740960000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QyoWoRucIhCAgxH7vOxbv7Kj4v2xWJFgXIS3muVmg71r~Q2OQ~YqEuwTaebQt9nxABq6y6uRV2od23QxuC1WAP-e51Hn7sKFG5if6WCgHMUULXAyvkAJuyCL454c8zopcg1ZnW2-Kv1xRMGW4d40kHBU-YUGGIrPX-cEZ11zl4CcmP-v9kuG6RUS8fr92Wo5JLll7oLTckz2DtiP5QKHDrngphaLPf-8uXfIloi136VLXFwFBj91cBIzCZehTshlukfseGxw~MoXQKD6xAZMEzdS32rfrNFUXFUvXoDUgtN~q4C7PAWGV9uuZIs6HwHCAy1qII0D1LxUSBUY3bmMpA__"
-       className="w-100"
+            src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=tjeavG~bTQ4h0dmOFmqprsauYO9UYu9lcO3KE9TH0kKyT8pgXL6-6cc6ZhbE~uBR0kUOlnbnb0003z6GpFSNz9qMePvaY72DtmCIoypOT7Y-SYmzRFOY8HO~dPvNJlRhC1bEPqlFhBCJc16mHhxLI62IZAfEkxnczpltY9-jC4gKLajpJ6q9FRJUSm0LXMGWRVS0pApgjJP4~C8AAr9SGTt88KRS53nlrMFT-IlW9QOHzkFMcVstFwn8wsFJ9fhepPFMcUU5tUbUIivgd403atr-zAR9zMvOFlwPzsfJs3TYMSpPaLWFN9gKgkeVu82XNEC3aiUhHRcOGhLlllpozQ__"
+            className="w-100"
             />
           </Col>
           <Col
@@ -157,7 +157,7 @@ const Home = () => {
 
       {/* gif small screen */}
       <div className="d-md-none d-block relative mt-12">
-        <Image src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1740960000&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=QyoWoRucIhCAgxH7vOxbv7Kj4v2xWJFgXIS3muVmg71r~Q2OQ~YqEuwTaebQt9nxABq6y6uRV2od23QxuC1WAP-e51Hn7sKFG5if6WCgHMUULXAyvkAJuyCL454c8zopcg1ZnW2-Kv1xRMGW4d40kHBU-YUGGIrPX-cEZ11zl4CcmP-v9kuG6RUS8fr92Wo5JLll7oLTckz2DtiP5QKHDrngphaLPf-8uXfIloi136VLXFwFBj91cBIzCZehTshlukfseGxw~MoXQKD6xAZMEzdS32rfrNFUXFUvXoDUgtN~q4C7PAWGV9uuZIs6HwHCAy1qII0D1LxUSBUY3bmMpA__"/><div className="d-flex flex-column text-center align-items-center justify-content-center absolute top-0 px-3">
+        <Image src="https://s3-alpha-sig.figma.com/img/7011/b796/16e9a6426e45a3c88c397b2a4cdc2e7f?Expires=1742169600&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=tjeavG~bTQ4h0dmOFmqprsauYO9UYu9lcO3KE9TH0kKyT8pgXL6-6cc6ZhbE~uBR0kUOlnbnb0003z6GpFSNz9qMePvaY72DtmCIoypOT7Y-SYmzRFOY8HO~dPvNJlRhC1bEPqlFhBCJc16mHhxLI62IZAfEkxnczpltY9-jC4gKLajpJ6q9FRJUSm0LXMGWRVS0pApgjJP4~C8AAr9SGTt88KRS53nlrMFT-IlW9QOHzkFMcVstFwn8wsFJ9fhepPFMcUU5tUbUIivgd403atr-zAR9zMvOFlwPzsfJs3TYMSpPaLWFN9gKgkeVu82XNEC3aiUhHRcOGhLlllpozQ__"/><div className="d-flex flex-column text-center align-items-center justify-content-center absolute top-0 px-3">
           <Image src={discountBg} className="w-64" />
           <h1 className="font-family-4 text-2xl">
             EXPERIENCE THE “HIGH” CONIC DUNK
@@ -173,7 +173,7 @@ const Home = () => {
             size="sm"
             text="Shop Dunk Now"
             style={{
-              backgroundColor: "black",
+              backgroundColor: "#01497C",
               fontFamily: "Alexandria variable",
               color: "white",
             }}

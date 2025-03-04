@@ -94,7 +94,6 @@ const Drawer = () => {
           <hr />
           {user && (
             <>
-              <span className="font-family-2 text-xl font-bold">Profile</span>
               <div className="d-flex align-items-center gap-2 mt-2">
                 <span
                   className="text-navIcon font-family-2 text-lg bg-[#E3F5F6] rounded-5 p-3"
