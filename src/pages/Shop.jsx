@@ -702,6 +702,7 @@ const Shop = () => {
                         e.target.style.border = "";
                       }}
                       onClick={() => handleClick(item._id || item.id)}
+                      onClick={() => handleClick(item._id || item.id)}
                     >
                       Buy Now
                     </button>
@@ -714,7 +715,11 @@ const Shop = () => {
       )}
       </div>
       <Discount />
-      <Subscribe />
+      <div className="mx-auto lg:w-11/12">
+        
+        <Subscribe/>
+  
+        </div>
     </div>
   );
 };

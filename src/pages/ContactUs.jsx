@@ -18,9 +18,12 @@ export default function ContactUs() {
                 <MapComponent height="250px" />
             </div>
 
-            <div className="lg:-mt-10">
-                <Subscribe />
-            </div>
+
+            <div className="mx-auto lg:w-11/12 lg:-mt-10">
+        
+      <Subscribe/>
+
+      </div>
 
         </div>
         </>

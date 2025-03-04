@@ -191,7 +191,12 @@ const Home = () => {
       <StyleInspirations />
       <OfferForYou />
 
+      <div className="mx-auto lg:w-11/12">
+        
       <Subscribe/>
+
+      </div>
+
     </div>
   );
 };

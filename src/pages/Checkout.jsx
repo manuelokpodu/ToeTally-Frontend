@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect, useCallback } from "react";
 import { formatCurrency, validateFields } from "../utils";
 import { Subscribe } from "../components";
-
+import Alert from "../components/alert/Alert";
 const API_BASE_URL = "https://backend-toetally.onrender.com/api";
 
 const Checkout = () => {
@@ -13,6 +13,7 @@ const Checkout = () => {
   const [cartData, setCartData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [userData, setUserData] = useState({ name: "", email: "" });
+  const [alert, setAlert] = useState(null);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -57,7 +58,7 @@ const Checkout = () => {
       if (!response.ok) throw new Error("Failed to fetch cart");
 
       const data = await response.json();
-      console.log("Cart data:", data); // Debugging: Check if product names exist
+      console.log("Cart data:", data);
       setCartData(data.items?.filter(item => item.product) || []);
     } catch (error) {
       console.error("Error fetching cart data:", error);
@@ -90,12 +91,12 @@ const Checkout = () => {
       ref: reference,
       callback: function (response) {
         console.log("Payment successful:", response);
-        alert(`Payment successful! Transaction reference: ${response.reference}`);
-        navigate("/OrderConfirmation");
+        setAlert({ message: `Payment successful! Transaction reference: ${response.reference}`, type: "success" });
+        setTimeout(() => navigate("/OrderConfirmation"), 3000);
       },
       onClose: function () {
         console.log("Payment window closed.");
-        alert("Payment was not completed.");
+        setAlert({ message: "Payment was not completed.", type: "error" });
       },
     });
 
@@ -104,64 +105,111 @@ const Checkout = () => {
 
   return (
     <>
-      <div style={{ backgroundColor: "#EBEBEB" }}>
-        <div className="px-16 py-4 lg:flex gap-3 hidden">
-          <Link to="/" className="text-customLightGray font-semibold text-xl font-family-2 no-underline">Home</Link>
-          <span className="font-semibold font-family-1 text-xl text-customLightGray">/</span>
-          <Link to="/cart" className="font-semibold font-family-2 text-xl text-customLightGray no-underline">Cart</Link>
-          <span className="font-semibold font-family-1 text-xl text-customLightGray">/</span>
-          <span className="font-semibold font-family-2 text-xl">Checkout</span>
+      {alert && <Alert message={alert.message} type={alert.type} onClose={() => setAlert(null)} />}
+      <div style={{ backgroundColor: "#EBEBEB" }} className="">
+        <div className="px-3 lg:w-11/12 mx-auto 2xl:container py-4 flex gap-2 ">
+          <Link to="/" className="text-customLightGray font-semibold lg:text-xl font-family-2 no-underline">Home</Link>
+          <span className="font-semibold font-family-1 lg:text-xl text-customLightGray">/</span>
+          <Link to="/cart" className="font-semibold font-family-2 lg:text-xl text-customLightGray no-underline">Cart</Link>
+          <span className="font-semibold font-family-1 lg:text-xl text-customLightGray">/</span>
+          <span className="font-semibold font-family-2 lg:text-xl">Checkout</span>
         </div>
       </div>
 
-      <Row>
-        <Col md={6} className="d-none d-lg-block" style={{ paddingLeft: "5rem", marginTop: "5rem", marginBottom: "5rem" }}>
-          <h1 className="font-family-3 text-5xl text-black">Billing Details</h1>
-          <Form className="mt-4">
-            <Form.Control {...register("firstName", validateFields.name)} placeholder="First Name" type="text" size="lg" className="font-family-2 ps-4" defaultValue={userData.firstName} />
-            <Form.Control {...register("email", validateFields.email)} placeholder="Email Address" type="text" size="lg" className="font-family-2 ps-4 mt-4" defaultValue={userData.email} />
-            <Form.Control {...register("lastName", validateFields.name)} placeholder="Last Name" type="text" size="lg" className="font-family-2 ps-4 mt-4" defaultValue={userData.lastName} />
-            <Form.Control {...register("country", validateFields.country)} placeholder="Country/region" type="text" size="lg" className="font-family-2 ps-4 mt-4" />
-            <Form.Control {...register("address", validateFields.address)} placeholder="Street Address" type="text" size="lg" className="font-family-2 ps-4 mt-4" />
-            <Form.Control {...register("city", validateFields.city)} placeholder="Town/city" type="text" size="lg" className="font-family-2 ps-4 mt-4" />
-            <Form.Control {...register("state", validateFields.state)} placeholder="State" type="text" size="lg" className="font-family-2 ps-4 mt-4" />
-            <Form.Control {...register("phone", validateFields.phone)} placeholder="Phone" type="text" size="lg" className="font-family-2 ps-4 mt-4" />
-          </Form>
-        </Col>
+      <Row className="px-3 py-4 w-11/12 md:w-full lg:w-11/12 flex flex-col lg:flex-row lg:justify-between mx-auto">
+  {/* Billing Details - Visible on all screens */}
+  <Col xs={12} lg={6} className="mt-4">
+    <h1 className="font-family-3 text-3xl lg:text-5xl text-black">Billing Details</h1>
+    <Form className="mt-4">
+      <Form.Control {...register("firstName", validateFields.name)} placeholder="First Name" type="text" size="lg" className="font-family-2 ps-4" defaultValue={userData.firstName} />
+      <Form.Control {...register("email", validateFields.email)} placeholder="Email Address" type="text" size="lg" className="font-family-2 ps-4 mt-4" defaultValue={userData.email} />
+      <Form.Control {...register("lastName", validateFields.name)} placeholder="Last Name" type="text" size="lg" className="font-family-2 ps-4 mt-4" defaultValue={userData.lastName} />
+      <Form.Control {...register("country", validateFields.country)} placeholder="Country/region" type="text" size="lg" className="font-family-2 ps-4 mt-4" />
+      <Form.Control {...register("address", validateFields.address)} placeholder="Street Address" type="text" size="lg" className="font-family-2 ps-4 mt-4" />
+      <Form.Control {...register("city", validateFields.city)} placeholder="Town/city" type="text" size="lg" className="font-family-2 ps-4 mt-4" />
+      <Form.Control {...register("state", validateFields.state)} placeholder="State" type="text" size="lg" className="font-family-2 ps-4 mt-4" />
+      <Form.Control {...register("phone", validateFields.phone)} placeholder="Phone" type="text" size="lg" className="font-family-2 ps-4 mt-4" />
+    </Form>
+  </Col>
 
-        <Col md={5} className="d-none d-lg-block" style={{ paddingLeft: "6rem", marginTop: "7rem", marginBottom: "5rem" }}>
-          <h1 className="font-family-3 text-4xl text-black">Your Order</h1>
-          <hr />
-          {loading ? <p>Loading cart items...</p> : cartData.length === 0 ? <p>Your cart is empty.</p> : (
-            <>
-             {cartData.map(item => (
-  <div key={item.product?._id || Math.random()} className="d-flex justify-content-between">
-    <p>{item.product?.title || "Unnamed Product"} x{item.quantity}</p> {/* Ensure title is used */}
-    <p>{formatCurrency(item.product?.price * item.quantity)}</p>
+  {/* Order Summary - Visible on all screens */}
+  <Col xs={12} lg={5} className="mt-5">
+    <h1 className="font-family-3 text-3xl lg:text-4xl text-black">Your Order</h1>
+    <hr />
+    {loading ? (
+      <p>Loading cart items...</p>
+    ) : cartData.length === 0 ? (
+      <p>Your cart is empty.</p>
+    ) : (
+      <>
+        {cartData.map(item => (
+          <div key={item.product?._id || Math.random()} className="d-flex justify-content-between">
+            <p>{item.product?.title || "Unnamed Product"} x{item.quantity}</p>
+            <p>{formatCurrency(item.product?.price * item.quantity)}</p>
+          </div>
+        ))}
+
+        <hr />
+        <div className="d-flex justify-content-between">
+          <p>Subtotal</p>
+          <p>{formatCurrency(totalPrice)}</p>
+        </div>
+        <div className="d-flex justify-content-between">
+          <p>Shipping</p>
+          <p>(Regular Shipping) {formatCurrency(5000)}</p>
+        </div>
+        <hr />
+        <div className="d-flex justify-content-between font-bold">
+          <p>Total</p>
+          <p>{formatCurrency(totalPrice + 5000)}</p>
+        </div>
+       
+
+      </>
+    )}
+  </Col>
+</Row>
+
+<div className="tom-container md:w-6/12 lg:w-5/12">
+  <h1 className="font-medium  font-family-3">Payment Method</h1>
+  <div>
+  <div className="rounded-lg">
+    <div className="bg-[#F5F5F5] px-3 py-2">
+      <input type="radio" name="payment" id="bank-transfer" />
+      <label htmlFor="bank-transfer" className="ml-[2px]">Direct Bank Transfer</label>
+    </div>
+
+    <p className="py-3 px-3">
+      Make your payment into our bank account. Please use your Order ID as the payment reference. Your order will not be shipped until the funds have cleared in our account.
+    </p>
+
+    <div className="bg-[#F5F5F5] px-3 py-2">
+      <input type="radio" name="payment" id="paypal" />
+      <label htmlFor="paypal" className="ml-[2px]">Paypal</label>
+    </div>
   </div>
-))}
 
-              <hr />
-              <div className="d-flex justify-content-between">
-                <p>Subtotal</p>
-                <p>{formatCurrency(totalPrice)}</p>
-              </div>
-              <div className="d-flex justify-content-between">
-                <p>Shipping</p>
-                <p>(Regular Shipping) {formatCurrency(5000)}</p>
-              </div>
-              <hr />
-              <div className="d-flex justify-content-between">
-                <p>Total</p>
-                <p>{formatCurrency(totalPrice + 5000)}</p>
-              </div>
-              <Button onClick={handlePayWithPaystack} className="btn btn-primary w-100 mt-4">Pay with Paystack</Button>
-            </>
-          )}
-        </Col>
-      </Row>
+  <div className="">
+    <img src="/allpay.svg" alt="all payment platform" className="" />
+  </div>
+</div>
+
+
+
+<button onClick={handlePayWithPaystack} className=" text-white rounded-[50px] py-2  bg-[#01497C] w-100 mt-4">
+  Pay with Paystack
+</button>
+
+</div>
+
+
+
       
-      <Subscribe />
+<div className="mx-auto lg:w-11/12">
+        
+        <Subscribe/>
+  
+        </div>
     </>
   );
 };
