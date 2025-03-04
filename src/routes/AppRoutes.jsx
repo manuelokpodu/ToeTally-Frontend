@@ -8,7 +8,7 @@ import ContactUs from "../pages/ContactUs";
 import AboutUs from "../pages/AboutUs";
 import NotFound from "../pages/NotFound";
 import OrderConfirmation from "../pages/OrderConfirmation";
-import { Loader, ScrollToTop } from "../components";
+import { Loader } from "../components";
 const RootLayout = lazy(() => import("../layouts/RootLayout"));
 
 export default function AppRoutes() {

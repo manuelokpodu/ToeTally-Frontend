@@ -9,7 +9,7 @@ import OfferForYou from "./OfferForYou";
 import Drawer from "./Drawer";
 import BrandCarousel from "./BrandCarousel";
 import Subscribe from "./Subscribe";
-import ScrollToTop from "./ScrollToTop";
+
 
 export {
   Nav,
@@ -23,5 +23,4 @@ export {
   Drawer,
   BrandCarousel,
   Subscribe,
-  ScrollToTop
 };
