@@ -45,10 +45,10 @@ const Discount = () => {
             products.slice(7, 12).map((item) => (
               <Card
                 key={item._id || item.id}
-                className="flex-shrink-0 border-0 pb-3 hover-brightness position-relative"
+                className="flex-shrink-0 border-0 pb-2 hover-brightness position-relative"
                 style={{
                   width: "22rem",
-                  minHeight: "30rem",
+                  minHeight: "27rem",
                   backgroundColor: "#B5B5B51A",
                 }}
               >
@@ -115,7 +115,7 @@ const Discount = () => {
                         border: "1px solid black",
                       }}
                       className="font-family-2 rounded-1 w-32  p-2"
-                      onClick={handleClick}
+                      onClick={() => handleClick(item._id || item.id)}
                     />
                   </div>
                 </Card.Body>
@@ -191,7 +191,7 @@ const Discount = () => {
                       size="sm"
                       text="Buy Now"
                       style={{
-                        backgroundColor: "black",
+                        backgroundColor: "#01497C",
                         fontFamily: "Alexandria variable",
                         color: "white",
                       }}
@@ -201,7 +201,7 @@ const Discount = () => {
                         border: "1px solid black",
                       }}
                       className="font-family-2 rounded-1 w-24"
-                      onClick={handleClick}
+                      onClick={() => handleClick(item._id || item.id)}
                     />
                   </div>
                 </Card.Body>

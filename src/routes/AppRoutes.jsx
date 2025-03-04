@@ -8,7 +8,7 @@ import ContactUs from "../pages/ContactUs";
 import AboutUs from "../pages/AboutUs";
 import NotFound from "../pages/NotFound";
 import OrderConfirmation from "../pages/OrderConfirmation";
-import { Loader } from "../components";
+import { Loader, ScrollToTop } from "../components";
 const RootLayout = lazy(() => import("../layouts/RootLayout"));
 
 export default function AppRoutes() {
@@ -42,5 +42,12 @@ export default function AppRoutes() {
   ];
 
   const router = createBrowserRouter(routes);
-  return <RouterProvider router={router} />;
+  return (
+    <RouterProvider
+      router={router}
+      onNavigate={() => window.scrollTo(0, 0)}
+    />
+  );
+  
+  
 }

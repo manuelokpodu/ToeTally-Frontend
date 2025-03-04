@@ -48,10 +48,10 @@ const OfferForYou = () => {
             products.slice(20, 25).map((item) => (
               <Card
                 key={item._id || item.id}
-                className="flex-shrink-0 border-0 pb-3 hover-brightness"
+                className="flex-shrink-0 border-0 pb-2 hover-brightness"
                 style={{
                   width: "22rem",
-                  minHeight: "30rem",
+                  minHeight: "27rem",
                   backgroundColor: "#B5B5B51A",
                 }}
               >
@@ -99,7 +99,7 @@ const OfferForYou = () => {
                         border: "1px solid black",
                       }}
                       className="font-family-2 rounded-1 w-32  p-2"
-                      onClick={handleClick}
+                      onClick={() => handleClick(item._id || item.id)}
                     />
                   </div>
                 </Card.Body>
@@ -115,7 +115,7 @@ const OfferForYou = () => {
         </h1>
         {loading && <Spinner animation="border" />}
         {error && <p className="text-danger">{error}</p>}
-        <div className="mt-2 d-flex gap-2 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
+        <div className="mt-2 d-flex gap-4 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
           {!loading &&
             !error &&
             products.slice(20, 25).map((item) => (
@@ -157,7 +157,7 @@ const OfferForYou = () => {
                       size="sm"
                       text="Buy Now"
                       style={{
-                        backgroundColor: "black",
+                        backgroundColor: "#01497C",
                         fontFamily: "Alexandria variable",
                         color: "white",
                       }}
@@ -167,7 +167,7 @@ const OfferForYou = () => {
                         border: "1px solid black",
                       }}
                       className="font-family-2 rounded-1 w-24"
-                      onClick={handleClick}
+                      onClick={() => handleClick(item._id || item.id)}
                     />
                   </div>
                 </Card.Body>
