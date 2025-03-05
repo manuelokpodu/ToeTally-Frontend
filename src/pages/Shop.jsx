@@ -117,7 +117,7 @@ const Shop = () => {
   return (
     <div>
       <div style={{ backgroundColor: "#EBEBEB" }}>
-        <div className="px-16 py-4 lg:flex gap-3 hidden mb-5">
+        <div className="px-16 py-3 lg:flex gap-3 hidden mb-5">
           <Link
             to="/"
             className="text-customLightGray font-semibold text-xl font-family-2 no-underline"
@@ -686,7 +686,7 @@ const Shop = () => {
                       {formatCurrency(item.price)}
                     </Card.Text>
                     <button
-                      className="font-family-2 rounded-1 py-1 px-2 text-xs"
+                      className="font-family-2 rounded-1 py-1 px-1 text-xs"
                       style={{
                         backgroundColor: "#01497C",
                         color: "white",
