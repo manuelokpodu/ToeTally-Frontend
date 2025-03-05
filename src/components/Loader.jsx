@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
-import { FadeLoader } from "react-spinners";
+import { BounceLoader } from "react-spinners";
+import PropTypes from "prop-types";
 
-export default function Loader() {
+export default function Loader({ onLoadingFinish }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // adjust the delay time as needed
-
+      if (onLoadingFinish) {
+        onLoadingFinish();
+      }
+    }, 2000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [onLoadingFinish]);
 
   if (!loading) {
     return null;
@@ -18,8 +21,13 @@ export default function Loader() {
 
   return (
     <div className="d-flex align-items-center justify-content-center vh-100">
-      <FadeLoader color="#01497C" />
+      <BounceLoader color="#01497C" />
     </div>
   );
 }
+
+Loader.propTypes = {
+  onLoadingFinish: PropTypes.func,
+};
+
 
