@@ -1,10 +1,26 @@
 import { vector1, vector2, vector3, vector4 } from "../assets";
 import ActionButton from "./ActionButton";
+import axios from "axios";
 
 const Subscribe = () => {
+  
+const handleSubscribe = async (email) => {
+  console.log("handleSubscribe function called with email:", email);
+  try {
+    const response = await axios.post(
+      "https://backend-toetally.onrender.com/newsletter",
+      { email }
+    );
+    console.log("Response from backend:", response.data);
+  } catch (error) {
+    console.error("Error subscribing to newsletter:", error.response.data);
+  }
+};
+
+
   return (
     <>
-      <div className=" mt-10 mb-12 p-4 d-none d-lg-block">
+      <div className=" mt-10 mb-12 p-4 w-11/12 mx-auto d-none d-lg-block">
         <div className="bg-[#01497C] rounded-4 text-center text-white p-14 position-relative">
           <h1 className="font-family-3 text-5xl">
             Subscribe to our Newsletter
@@ -29,6 +45,12 @@ const Subscribe = () => {
                 color: "black",
               }}
               className="font-family-2 rounded-4 w-2/6 py-2 px-4"
+              onClick={(e) => {
+                e.preventDefault();
+                const email =
+                  document.querySelector("input[type='text']").value;
+                handleSubscribe(email);
+              }}
             />
           </div>
           <img src={vector1} className="vector-image1 xl:left-36" />
@@ -39,7 +61,7 @@ const Subscribe = () => {
       </div>
 
       {/* subsribe with us small screen */}
-      <div className="bg-[#01497C] d-block d-lg-none text-white px-4 w-full  mx-auto  pt-16 pb-8 position-relative md:w-11/12 md:mb-4 md:rounded-lg">
+      <div className="bg-[#01497C] d-block d-lg-none text-white px-4  m-3  pt-16 pb-8 position-relative rounded-lg">
         <h1 className="font-family-3 text-center text-white text-2xl md:text-4xl">
           Subscribe to our Newsletter
         </h1>
@@ -67,13 +89,9 @@ const Subscribe = () => {
         </div>
         <img src={vector1} className="vector-image1S" />
         <img src={vector2} className="vector-image2S" />
-        
       </div>
     </>
   );
 };
 
 export default Subscribe;
-
-
-
