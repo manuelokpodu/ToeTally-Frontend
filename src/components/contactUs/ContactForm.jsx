@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Alert from "../alert/Alert";
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const ContactForm = () => {
     });
 
     const [errors, setErrors] = useState({});
+    const [alert, setAlert] = useState(null); // State to manage alerts
 
     const validateForm = () => {
         let newErrors = {};
@@ -30,19 +32,41 @@ const ContactForm = () => {
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-        setErrors({ ...errors, [e.target.name]: "" }); 
+        setErrors({ ...errors, [e.target.name]: "" });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
-            console.log("Form submitted successfully", formData);
-            setFormData({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+            const formDataToSend = new FormData();
+            Object.keys(formData).forEach((key) => {
+                formDataToSend.append(key, formData[key]);
+            });
+
+            try {
+                const response = await fetch("https://formspree.io/f/mzzepprw", {
+                    method: "POST",
+                    body: formDataToSend,
+                    headers: { Accept: "application/json" },
+                });
+
+                if (response.ok) {
+                    setFormData({ firstName: "", lastName: "", email: "", subject: "", message: "" });
+                    setAlert({ message: "Your message has been sent successfully!", type: "success" });
+                } else {
+                    setAlert({ message: "Something went wrong. Please try again.", type: "error" });
+                }
+            } catch (error) {
+                console.error("Error submitting form:", error);
+                setAlert({ message: "There was an error submitting your form.", type: "error" });
+            }
         }
     };
 
     return (
         <div className="px-3">
+            {alert && <Alert message={alert.message} type={alert.type} onClose={() => setAlert(null)} />}
+
             <div className="flex flex-col md:flex-row md:px-5 font-family-2">
                 <div className="py-6 md:my-auto md:w-3/6">
                     <h1 className="font-bold">Reach Out To Us</h1>
@@ -124,14 +148,13 @@ const ContactForm = () => {
                         </div>
 
                         <div>
-                        <button 
-    type="submit" 
-    className="w-full bg-[#01497C] text-[#FFFFFF] rounded-md py-2 text-[12px] md:text-[14px] 
-    transition-all duration-300 ease-in-out transform hover:bg-[#013366] hover:scale-105"
->
-    Send Message
-</button>
-
+                            <button 
+                                type="submit" 
+                                className="w-full bg-[#01497C] text-[#FFFFFF] rounded-md py-2 text-[12px] md:text-[14px] 
+                                transition-all duration-300 ease-in-out transform hover:bg-[#013366] hover:scale-105"
+                            >
+                                Send Message
+                            </button>
                         </div>
                     </form>
                 </div>

@@ -77,8 +77,8 @@ const Checkout = () => {
   );
 
   const handlePayWithPaystack = () => {
-    const publicKey = "pk_test_690bb0f22bd5050c3c8f6f7181d42a8f58632d97";
-    const email = userData.email || "uchemadunmerengwa@gmail.com";
+    const publicKey = "pk_test_b34e179f628c1e53a55bf8ecd6c02e21a0b38d0b";
+    const email = userData.email || "toetallytsa@gmail.com";
     const amountInKobo = (totalPrice + 5000) * 100;
     const currency = "NGN";
     const reference = `ref_${Math.floor(Math.random() * 1000000000)}`;
