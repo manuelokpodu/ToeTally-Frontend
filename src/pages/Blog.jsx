@@ -30,23 +30,23 @@ const Blog = () => {
 
       {/* large screen */}
       <div
-        className="hidden md:block p-36 text-center text-white"
+        className="hidden md:block p-24 text-center text-white"
         style={{
           backgroundImage: `url(${blogBigHero})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
-        <h1 className="font-family-3 text-8xl">BLOG</h1>
-        <div className="mt-4">
+        <h1 className="font-family-3 text-[80px]">BLOG</h1>
+        <div className="mt-2">
           <Link
             to="/"
-            className="text-white text-2xl font-family-2 no-underline"
+            className="text-white text-xl font-family-2 no-underline"
           >
             Home
           </Link>
-          <span className="font-family-2 text-2xl"> /</span>
-          <span className="font-family-2 text-2xl"> Blog</span>
+          <span className="font-family-2 text-xl"> /</span>
+          <span className="font-family-2 text-xl"> Blog</span>
         </div>
       </div>
       <div className="lg:px-16 mt-16 mb-12 md:px-3 hidden md:block">

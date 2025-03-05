@@ -67,10 +67,10 @@ const ContactForm = () => {
         <div className="px-3">
             {alert && <Alert message={alert.message} type={alert.type} onClose={() => setAlert(null)} />}
 
-            <div className="flex flex-col md:flex-row md:px-5 font-family-2">
+            <div className="flex flex-col md:flex-row lg:px-16 font-family-2">
                 <div className="py-6 md:my-auto md:w-3/6">
                     <h1 className="font-bold">Reach Out To Us</h1>
-                    <p className="md:w-4/6 lg:w-3/6">
+                    <p className="md:w-4/6 lg:w-4/6 xl:w-3/6">
                         Reach out to us for any queries or support. Our team is here to help you with your shopping experience and ensure your satisfaction.
                     </p>
                     <div className="font-medium">

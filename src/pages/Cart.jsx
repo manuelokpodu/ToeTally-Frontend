@@ -50,8 +50,6 @@ const Cart = () => {
     fetchCart();
   }, [fetchCart]);
 
-
-
   const updateQuantity = (productId, newQuantity) => {
     if (newQuantity < 1) {
       removeItem(productId);
@@ -114,7 +112,7 @@ const Cart = () => {
   return (
     <>
       <div style={{ backgroundColor: "#EBEBEB" }}>
-        <div className="px-16 py-4 lg:flex gap-3 hidden">
+        <div className="px-16 py-3 lg:flex gap-3 hidden">
           <Link
             to="/"
             className="text-customLightGray font-semibold text-xl font-family-2 no-underline"
@@ -126,30 +124,44 @@ const Cart = () => {
           </span>
           <span className="font-semibold font-family-2 text-xl">Cart</span>
         </div>
+
+        <div className="px-3 py-2 flex gap-3 lg:hidden">
+          <Link
+            to="/"
+            className="text-customLightGray font-semibold text-sm font-family-2 no-underline"
+          >
+            Home
+          </Link>
+          <span className="font-semibold text-customLightGray font-family-1 text-sm">
+            /
+          </span>
+          <span className="font-semibold font-family-2 text-sm">Cart</span>
+        </div>
       </div>
 
-      <h1 className="py-3 lg:px-16 md:px-3 font-family-3 lg:text-5xl md:text-3xl text-xl text-black">
+      <h1 className="py-3 lg:px-16 md:px-3 font-family-3 lg:text-5xl md:text-3xl text-black hidden md:block">
         Your Cart
       </h1>
-
+      <h1 className="py-3 md:hidden block font-family-3 px-3 text-2xl text-black">
+        Your Cart
+      </h1>
       {loading ? (
-        <Spinner animation="border" className="lg:mx-16"/>
+        <Spinner animation="border" className="lg:mx-16" />
       ) : cartData.length === 0 ? (
         <div className="text-center py-5">
           <h2 className="font-family-3 text-2xl">Your cart is empty</h2>
-          <button 
-  className="mt-3 bg-[#01497C] text-white px-4 py-2 rounded" 
-  onClick={() => navigate("/shop")}
->
-  Shop Now
-</button>
-
+          <button
+            className="mt-3 bg-[#01497C] text-white px-4 py-2 rounded"
+            onClick={() => navigate("/shop")}
+          >
+            Shop Now
+          </button>
         </div>
       ) : (
         <div className="lg:w-11/12 mx-auto">
-          <div className="flex flex-col gap-3 lg:flex-row  md:justify-between">
+          <div className="flex flex-col gap-3 lg:flex-row md:justify-between">
             <div className="w-full lg:w-100">
-              <div className="border rounded-3 p-4">
+              <div className="border mx-3 lg:mx-0 rounded-3 p-4">
                 {cartData.map((item, index) => (
                   <div key={item.product._id} className="pb-3">
                     <div className="d-flex flex-column flex-md-row gap-3">
@@ -212,51 +224,51 @@ const Cart = () => {
 
             {/* Order Summary Section */}
             <div className="w-full xl:w-4/5 lg:w-3/5 px-2">
-              <div className="border rounded-4 p-3">
-                <h1 className="font-family-3 text-3xl md:text-4xl">
+              <div className="lg:border rounded-4 p-3">
+                <h1 className="font-family-3 text-3xl xl:text-4xl">
                   Order Summary
                 </h1>
 
-                <div className="d-flex justify-content-between font-family-2 text-lg md:text-xl">
+                <div className="d-flex justify-content-between font-family-2 text-lg xl:text-xl">
                   <p className="text-gray-400">Subtotal</p>
                   {formatCurrency(totalPrice)}
                 </div>
 
-                <div className="d-flex justify-content-between font-family-2 text-lg md:text-xl text-red-500">
+                <div className="d-flex justify-content-between font-family-2 text-lg xl:text-xl text-red-500">
                   <p className="text-gray-400">Discount (20%)</p>-
                   {formatCurrency(totalPrice * 0.2)}
                 </div>
 
-                <div className="d-flex justify-content-between font-family-2 text-lg md:text-xl">
+                <div className="d-flex justify-content-between font-family-2 text-lg xl:text-xl">
                   <p className="text-gray-400">Delivery Fee</p>
                   {formatCurrency(5000)}
                 </div>
 
                 <hr />
 
-                <div className="d-flex justify-content-between font-family-2 text-xl md:text-2xl">
+                <div className="d-flex justify-content-between font-family-2 text-xl xl:text-2xl">
                   <p>Total</p>
                   {formatCurrency(totalPrice - totalPrice * 0.2 + 5000)}
                 </div>
 
                 {/* Promo Code Input */}
-                <div className="flex flex-col md:flex-row items-center justify-between w-full mt-3">
-                  <div className="flex w-full md:w-4/6 bg-[#F0F0F0] rounded-[50px] py-2 px-4">
-                    <img src="/tag.svg" className="hidden md:block" />
+                <div className="flex  gap-3 md:flex-row items-center justify-between w-full mt-3">
+                  <div className="flex w-5/6 bg-[#F0F0F0] rounded-3 py-2 px-2">
+                    <img src="/tag.svg" className="mx-1"/>
                     <input
                       type="text"
                       placeholder="Add promo code"
-                      className="bg-[#F0F0F0] w-full text-center md:text-left outline-none"
+                      className="bg-[#F0F0F0] w-full  outline-none font-family-2"
                     />
                   </div>
-                  <button className="bg-[#01497C] text-white px-4 py-2 rounded-[50px] w-full md:w-auto md:mt-0">
+                  <button className="bg-[#01497C] text-white px-4 py-2 rounded-3 w-auto md:mt-0">
                     Apply
                   </button>
                 </div>
 
                 {/* Checkout Button */}
                 <button
-                  className="font-family-2 bg-[#01497C] text-white rounded-[50px] w-full p-3 mt-3 flex justify-center gap-3"
+                  className="font-family-2 bg-[#01497C] text-white rounded-3 w-full p-3 mt-3 flex justify-center gap-3"
                   onClick={() => navigate("/checkout")}
                 >
                   Go to Checkout <img src="/arrow1.svg" />

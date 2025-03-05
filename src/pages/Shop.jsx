@@ -366,15 +366,15 @@ const Shop = () => {
                             {formatCurrency(item.price)}
                           </Card.Text>
                           <button
-                            className="font-family-2 rounded-1 py-2 xl:px-4 lg:px-2 md:px-4 xl:text-lg lg:text-xs"
+                            className="font-family-2 rounded-1 py-2 xl:px-4 lg:px-3 md:px-4 xl:text-lg lg:text-xs"
                             style={{
                               backgroundColor: "#01497C",
                               color: "white",
                             }}
                             onMouseOver={(e) => {
                               e.target.style.backgroundColor = "white";
-                              e.target.style.color = "#01497C";
-                              e.target.style.border = "1px solid #01497C";
+                              e.target.style.color = "black";
+                              e.target.style.border = "1px solid black";
                             }}
                             onMouseOut={(e) => {
                               e.target.style.backgroundColor = "#01497C";
@@ -693,15 +693,14 @@ const Shop = () => {
                       }}
                       onMouseOver={(e) => {
                         e.target.style.backgroundColor = "white";
-                        e.target.style.color = "#01497C";
-                        e.target.style.border = "1px solid #01497C";
+                        e.target.style.color = "black";
+                        e.target.style.border = "1px solid black";
                       }}
                       onMouseOut={(e) => {
                         e.target.style.backgroundColor = "#01497C";
                         e.target.style.color = "white";
                         e.target.style.border = "";
                       }}
-                      onClick={() => handleClick(item._id || item.id)}
                       onClick={() => handleClick(item._id || item.id)}
                     >
                       Buy Now

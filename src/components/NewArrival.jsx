@@ -38,7 +38,7 @@ const NewArrival = () => {
 
   return (
     <>
-      <div className="mt-24 d-none d-lg-block pl-16">
+      <div className="xl:mt-24 lg:mt-20 d-none d-lg-block pl-16">
         <h1 className="font-family-3 text-5xl text-black">NEW ARRIVALS</h1>
         <h2 className="font-family-4 text-4xl">Fresh Looks, New Moves.</h2>
         {loading && <Spinner animation="border" />}

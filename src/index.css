@@ -170,15 +170,27 @@ body {
   box-shadow: none !important;
 }
 
-@media (min-width: 640px) and (max-width: 1024px) {
+@media (min-width: 640px) and (max-width: 2000px) {
   .fast h2 {
-    text-align: left;
+    text-align: left !important;
+  
   }
   .fast p {
-    text-align: left;
+    text-align: left !important;
     width: 100%;
   }
 }
+
+@media (max-width: 639px) {
+  .fast h2 {
+    text-align: center;
+  }
+  .fast p {
+    text-align: center;
+    width: 100%;
+  }
+}
+
 
 @keyframes moveLeft {
   from {

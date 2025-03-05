@@ -1,8 +1,15 @@
 import MapComponent from "../map/MapComponent";
 import Subscribe from "../Subscribe";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const FindUs = () => {
+  const navigate = useNavigate();
+
+  const handleGetInTouch = () => {
+    navigate("/contact-us");
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       <div className="space-y-10 md:px-3 lg:px-16">
@@ -15,16 +22,17 @@ const FindUs = () => {
                 Find Our Outlets Today
               </h1>
               <p className="font-font-family-2 font-medium">
-                Thank you for visiting our page! If you have any questions, need further
-                assistance, or would like to learn more about our [services/products],
-                please don't hesitate to contact us. We'd love to hear from you!
+                Thank you for visiting our page! If you have any questions, need
+                further assistance, or would like to learn more about our
+                [services/products], please don't hesitate to contact us. We'd
+                love to hear from you!
               </p>
-              <Link to="/contact-us">
-  <button className="responsive-button px-4 -mt-1 py-2 bg-[#01497C] text-white rounded-md font-font-family-2">
-    Get In Touch
-  </button>
-</Link>
-
+              <button
+                className="responsive-button px-4 -mt-1 py-2 bg-[#01497C] text-white rounded-md font-font-family-2"
+                onClick={handleGetInTouch}
+              >
+                Get In Touch
+              </button>
             </div>
           </div>
 
