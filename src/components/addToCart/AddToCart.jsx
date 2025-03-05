@@ -103,7 +103,7 @@ const AddToCart = () => {
         />
       )}
 
-      <div className="bg-[#EBEBEB] w-full mt-3 md:px-4 lg:px-14">
+      <div className="bg-[#EBEBEB] w-full md:px-4 lg:px-14">
         <div className="flex font-font-family-2  font-bold gap-2 2xl:container px-3  mx-auto py-4">
           <Link
             to="/"
