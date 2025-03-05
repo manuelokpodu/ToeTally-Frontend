@@ -1,6 +1,6 @@
 import { Blog, Cart, Checkout, Home, Shop } from "../pages";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Login from "../components/auth/LogIn";
 import SignUp from "../components/auth/SignUp";
 import AddToCart from "../components/addToCart/AddToCart";
@@ -12,6 +12,19 @@ import { Loader } from "../components";
 const RootLayout = lazy(() => import("../layouts/RootLayout"));
 
 export default function AppRoutes() {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const handleLoading = () => {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    };
+
+    handleLoading();
+  }, []);
+
   const routes = [
     {
       path: "/",
@@ -43,11 +56,18 @@ export default function AppRoutes() {
 
   const router = createBrowserRouter(routes);
   return (
-    <RouterProvider
-      router={router}
-      onNavigate={() => window.scrollTo(0, 0)}
-    />
+    <div>
+      {loading && <Loader />}
+      <RouterProvider
+        router={router}
+        onNavigate={() => {
+          setLoading(true);
+          setTimeout(() => {
+            setLoading(false);
+          }, 2000);
+          window.scrollTo(0, 0);
+        }}
+      />
+    </div>
   );
-  
-  
 }
