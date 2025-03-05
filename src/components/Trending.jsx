@@ -47,7 +47,7 @@ const Trending = () => {
         TRENDING
       </h1>
       <div
-        className="flex transition-transform duration-1000 ease-in-out"
+        className="md:flex hidden transition-transform duration-1000 ease-in-out"
         style={{ transform: `translateX(-${(currentIndex / images.length) * 200}%)`}}
       >
         {images.map((slide, index) => (
@@ -75,24 +75,43 @@ const Trending = () => {
                   color: "#01497C",
                   border: "1px solid #01497C",
                 }}
-                className="font-family-2 rounded-2 w-48 p-2 d-none d-md-block"
+                className="font-family-2 rounded-2 w-48 p-2"
               />
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* small */}
+      <div
+        className="flex md:hidden transition-transform duration-1000 ease-in-out"
+        style={{ transform: `translateX(-${(currentIndex / images.length) * 400}%)`}}
+      >
+        {images.map((slide, index) => (
+          <div key={index} className="relative w-full flex-shrink-0">
+            <img
+              src={slide.src}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute flex flex-column bottom-5 left-5 p-2 text-white z-10">
+              <span className="font-family-2 text-base font-normal">{slide.title}</span>
+              <span className="font-family-2 text-xl font-bold">{slide.subtitle}</span>
               <ActionButton
                 variant="none"
                 size="md"
                 text="Shop Now"
                 onClick={() => navigate("/shop", { scrollToTop: true })}
                 style={{
-                  backgroundColor: "black",
+                  backgroundColor: "#01497C",
                   fontFamily: "Alexandria variable",
                   color: "white",
                 }}
                 hoverStyle={{
                   backgroundColor: "white",
-                  color: "black",
-                  border: "1px solid black",
+                  color: "#01497C",
+                  border: "1px solid #01497C",
                 }}
-                className="font-family-2 rounded-5 w-40 p-2 d-block d-md-none"
+                className="font-family-2 rounded-3 w-32 p-1 mt-2"
               />
             </div>
           </div>

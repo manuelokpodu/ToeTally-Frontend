@@ -1,4 +1,4 @@
-import { Button, Dropdown, Image, Modal } from "react-bootstrap";
+import { Dropdown, Image } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { logo } from "../assets";
 import { navItems } from "../utils";
@@ -10,11 +10,17 @@ import { useEffect } from "react";
 import axios from "axios";
 import { MdLogout } from "react-icons/md";
 import ActionButton from "./ActionButton";
+import { FaTimes } from "react-icons/fa";
+import { ClipLoader } from "react-spinners";
+
 
 const Nav = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [logoutLoading, setLogoutLoading] = useState(false);
+
+
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -55,11 +61,19 @@ const Nav = () => {
   };
 
   const handleConfirmLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    setUser(null);
-    window.location.href = "/";
+    setLogoutLoading(true);
+    setTimeout(() => {
+      localStorage.removeItem("token");
+      localStorage.removeItem("userId");
+      setUser(null);
+      setLogoutLoading(false);
+      setTimeout(() => {
+        setShowLogoutModal(false);
+      }, 100);
+    }, 2000);
   };
+  
+
 
   if (loading) {
     return null;
@@ -132,28 +146,8 @@ const Nav = () => {
                         </span>
                       </div>
                     </Dropdown.Item>
-                    <Modal
-                      show={showLogoutModal}
-                      onHide={() => setShowLogoutModal(false)}
-                    >
-                      <Modal.Header closeButton>
-                        <Modal.Title>Confirm Logout</Modal.Title>
-                      </Modal.Header>
-                      <Modal.Body>Are you sure you want to log out?</Modal.Body>
-                      <Modal.Footer>
-                        <Button
-                          variant="secondary"
-                          onClick={() => setShowLogoutModal(false)}
-                        >
-                          Cancel
-                        </Button>
-                        <Button variant="danger" onClick={handleConfirmLogout}>
-                          Logout
-                        </Button>
-                      </Modal.Footer>
-                    </Modal>
                     <Dropdown.Item
-                      href="#/action-2"
+                      href="#/logout"
                       onClick={handleLogout}
                       className="d-flex align-items-center gap-2 logout-button"
                     >
@@ -171,6 +165,46 @@ const Nav = () => {
                 </Dropdown>
               </div>
             )}
+            {showLogoutModal  && (
+              <div className="fixed inset-0 flex items-center justify-center bg-black/25 backdrop-blur-sm z-50">
+                <div className="relative flex flex-col gap-4 py-12 w-2/5 mx-auto bg-white rounded-4 shadow-lg p-6 text-center">
+                  <button
+                    onClick={() => setShowLogoutModal(false)}
+                    className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
+                  >
+                    <FaTimes size={20} />
+                  </button>
+                  <h1 className="text-xl font-bold font-family-2">
+                    Confirm Logout
+                  </h1>
+                  <h1 className="-mt-4 lg:text-lg md:text-base font-family-2">
+                    Are you sure to logout of this account ?
+                  </h1>
+                  <div className="flex gap-4 justify-content-center">
+                    <button
+                      onClick={() => setShowLogoutModal(false)}
+                      disabled={logoutLoading}
+                      className="bg-[#01497C] lg:py-3 md:py-2 rounded-lg text-white w-36 font-family-2"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      onClick={handleConfirmLogout}
+                      disabled={logoutLoading}
+                      type="button"
+                      className="bg-[#DC3545] lg:py-3 md:py-2 rounded-lg text-white w-36 font-family-2"
+                    >
+                      {logoutLoading ? (
+                        <ClipLoader color="white" size="20px" />
+                      ) : (
+                        "Proceed"
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
             {!user && (
               <>
                 <NavLink to="/login">
@@ -184,9 +218,9 @@ const Nav = () => {
                       color: "black",
                     }}
                     hoverStyle={{
-                      backgroundColor: "#01497C",
+                      backgroundColor: "white",
                       fontFamily: "Alexandria variable",
-                      color: "white",
+                      color: "#01497C",
                     }}
                     className="font-family-2 rounded-3 p-2"
                   />
@@ -197,16 +231,17 @@ const Nav = () => {
                     size="md"
                     text="Sign Up"
                     style={{
-                      backgroundColor: "white",
-                      fontFamily: "Alexandria variable",
-                      color: "black",
-                    }}
-                    hoverStyle={{
                       backgroundColor: "#01497C",
                       fontFamily: "Alexandria variable",
                       color: "white",
                     }}
-                    className="font-family-2 rounded-3 p-2"
+                    hoverStyle={{
+                      backgroundColor: "white",
+                      fontFamily: "Alexandria variable",
+                      color: "#01497C",
+                      border: "1px solid #01497C",
+                    }}
+                    className="font-family-2 rounded-3 p-2 w-32"
                   />
                 </NavLink>
               </>

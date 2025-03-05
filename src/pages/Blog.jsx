@@ -49,30 +49,27 @@ const Blog = () => {
           <span className="font-family-2 text-2xl"> Blog</span>
         </div>
       </div>
-      <div className="lg:px-16 mt-16 md:px-3 hidden md:block">
-        <h1 className="font-family-2 text-5xl font-medium md:hidden block">
-          Recent Blogs
-        </h1>
-        <div className="d-grid grid-cols-1 md:grid-cols-2 lg:gap-24 md:gap-8 mt-4">
+      <div className="lg:px-16 mt-16 mb-12 md:px-3 hidden md:block">
+        <div className="d-grid grid-cols-1 md:grid-cols-2 justify-content-between lg:gap-16 md:gap-8 mt-4">
           {blogItems.map((item) => (
             <div key={item.id}>
               <Image src={item.image} className="mx-auto w-100 rounded-3" />
               <div className="py-3 pr-3">
-                <p className="font-family-2 text-[#01497C] lg:text-2xl md:text-xl font-medium">
+                <p className="font-family-2 text-[#01497C] xl:text-2xl lg:text-xl md:text-lg font-medium">
                   {item.category}
                 </p>
-                <h3 className="font-family-2 lg:text-2xl md:text-xl font-medium">
+                <h3 className="font-family-2 xl:text-2xl lg:text-xl md:text-lg font-medium">
                   {item.title}
                 </h3>
-                <p className="font-family-2 lg:text-xl md:text-xl">
+                <p className="font-family-2 xl:text-xl lg:text-lg md:text-base">
                   {item.text}
                 </p>
                 <div className="d-flex justify-content-between">
-                  <span className="d-flex align-items-center gap-2 font-family-2 lg:text-2xl md:text-base">
+                  <span className="d-flex align-items-center gap-2 font-family-2 xl:text-xl  lg:text-base md:text-sm">
                     <FaRegCalendarDays />
                     {item.date}
                   </span>
-                  <span className="d-flex align-items-center gap-2 font-family-2 lg:text-2xl md:text-base">
+                  <span className="d-flex align-items-center gap-2 font-family-2 xl:text-xl lg:text-base md:text-sm">
                     <FaRegClock />5 mins read
                   </span>
                 </div>
@@ -80,114 +77,44 @@ const Blog = () => {
             </div>
           ))}
         </div>
-        <div className="p-3 border-2 lg:mt-36 md:my-14 rounded-4">
-          <h1 className="font-family-2 font-medium text-5xl md:text-4xl">
-            Popular Tags
-          </h1>
-          <div className="d-flex  mt-8 gap-8 md:flex-wrap">
-            <p className="font-family-2 font-medium text-4xl md:text-3xl p-3 rounded-5 bg-[#F5F5F5]">
-              Fashion
-            </p>
-            <p className="font-family-2 font-medium text-4xl md:text-3xl p-3 rounded-5 bg-[#F5F5F5] ">
-              Style
-            </p>
-            <p className="font-family-2 font-medium text-4xl md:text-3xl p-3 rounded-5 bg-[#F5F5F5] ">
-              Trends
-            </p>
-            <p className="font-family-2 font-medium text-4xl md:text-3xl p-3 rounded-5 bg-[#F5F5F5] ">
-              Sustainable
-            </p>
-            <p className="font-family-2 font-medium text-4xl md:text-3xl p-3 rounded-5 bg-[#F5F5F5] ">
-              Care
-            </p>
-            <p className="font-family-2 font-medium text-4xl md:text-3xl p-3 rounded-5 bg-[#F5F5F5] ">
-              Guide
-            </p>
-            <p className="font-family-2 font-medium text-4xl md:text-3xl p-3 rounded-5 bg-[#F5F5F5] ">
-              Summer
-            </p>
-            <p className="font-family-2 font-medium text-4xl md:text-3xl p-3 rounded-5 bg-[#F5F5F5] ">
-              Winter
-            </p>
-          </div>
-        </div>
       </div>
 
       {/*small screen*/}
-      <div className="px-3 mt-8 block md:hidden">
-        <p className="font-family-2 text-sm py-2 text-center">
-          At Toetally, we believe shopping is more than just a transaction—it's
-          an experience. Our blog is here to help you make the most out of your
-          shopping journey with helpful tips, product spotlights, industry
-          trends, and exclusive updates on our latest collections and offers.
-        </p>
-        <h1 className="font-family-2 font-medium text-2xl">Recent Blogs</h1>
-        <div className="d-grid grid-cols-1 gap-16 mt-4">
+      <div className="px-3 mt-8 mb-8 block md:hidden">
+        <div className="d-grid grid-cols-1 gap-10 mt-4">
           {blogItems.map((item) => (
             <div
               key={item.id}
-              className="border-2 border-[#01497C] p-2 rounded-3"
             >
-              <Image src={item.image} className="mx-auto blogImg" />
-              <div className="p-2">
+              <Image src={item.image} className="mx-auto blogImg rounded-3" />
                 <h4 className="font-family-2 text-[#01497C] text-lg font-medium">
                   {item.category}
                 </h4>
-                <h3 className="font-family-2 text-lg font-medium">
+                <h3 className="font-family-2 text-base font-medium">
                   {item.title}
                 </h3>
-                <p className="font-family-2 text-base">{item.text}</p>
+                <p className="font-family-2 text-sm">{item.text}</p>
                 <div className="d-flex justify-content-between">
-                  <span className="d-flex align-items-center gap-2 font-family-2 text-sm">
+                  <span className="d-flex align-items-center gap-2 font-family-2 text-xs">
                     <FaRegCalendarDays />
                     {item.date}
                   </span>
-                  <span className="d-flex align-items-center gap-2 font-family-2 text-sm">
+                  <span className="d-flex align-items-center gap-2 font-family-2 text-xs">
                     <FaRegClock />5 mins read
                   </span>
                 </div>
                 <ActionButton
                   variant="none"
-                  size="md"
+                  size="sm"
                   text="Read More"
                   style={{
                     backgroundColor: "#01497C",
                     fontFamily: "Alexandria variable",
                   }}
-                  className="font-family-2 rounded-5 mt-3 text-white"
-                />
-              </div>
+                  className="font-family-2 rounded-5 mt-2 text-white"
+                />       
             </div>
           ))}
-        </div>
-        <div className="p-3 border-2 my-12 rounded-4">
-          <h1 className="font-family-2 font-medium text-2xl">Popular Tags</h1>
-          <div className="d-flex flex-wrap mt-8 gap-2">
-            <p className="font-family-2 font-medium text-xl p-2 rounded-5 bg-[#F5F5F5]">
-              Fashion
-            </p>
-            <p className="font-family-2 font-medium text-xl p-2 rounded-5 bg-[#F5F5F5] ">
-              Style
-            </p>
-            <p className="font-family-2 font-medium text-xl p-2 rounded-5 bg-[#F5F5F5] ">
-              Trends
-            </p>
-            <p className="font-family-2 font-medium text-xl p-2 rounded-5 bg-[#F5F5F5] ">
-              Sustainable
-            </p>
-            <p className="font-family-2 font-medium text-xl p-2 rounded-5 bg-[#F5F5F5] ">
-              Care
-            </p>
-            <p className="font-family-2 font-medium text-xl p-2 rounded-5 bg-[#F5F5F5] ">
-              Guide
-            </p>
-            <p className="font-family-2 font-medium text-xl p-2 rounded-5 bg-[#F5F5F5] ">
-              Summer
-            </p>
-            <p className="font-family-2 font-medium text-xl p-2 rounded-5 bg-[#F5F5F5] ">
-              Winter
-            </p>
-          </div>
         </div>
       </div>
 

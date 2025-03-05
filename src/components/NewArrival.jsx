@@ -50,10 +50,10 @@ const NewArrival = () => {
             products.slice(0, 7).map((item) => (
               <Card
                 key={item._id || item.id}
-                className="flex-shrink-0 border-0 pb-3 hover-brightness"
+                className="flex-shrink-0 border-0 pb-2 hover-brightness"
                 style={{
                   width: "22rem",
-                  minHeight: "30rem",
+                  minHeight: "27rem",
                   backgroundColor: "#B5B5B51A",
                 }}
               >
@@ -117,7 +117,7 @@ const NewArrival = () => {
         <h2 className="font-family-4 text-2xl">Fresh Looks, New Moves.</h2>
         {loading && <Spinner animation="border" />}
         {error && <p className="text-danger">{error}</p>}
-        <div className="mt-2 d-flex gap-2 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
+        <div className="mt-2 d-flex gap-4 align-items-center text-sm font-family-2 overflow-x-auto overflow-y-hidden hide-scrollbar">
           {!loading &&
             !error &&
             products.slice(0, 7).map((item) => (
@@ -159,7 +159,7 @@ const NewArrival = () => {
                       size="sm"
                       text="Buy Now"
                       style={{
-                        backgroundColor: "black",
+                        backgroundColor: "#01497C",
                         fontFamily: "Alexandria variable",
                         color: "white",
                       }}
