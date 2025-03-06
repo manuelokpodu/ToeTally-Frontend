@@ -103,16 +103,31 @@ const AddToCart = () => {
         />
       )}
 
-      <div className="bg-[#EBEBEB] w-full mt-3 md:px-4 lg:px-14">
-        <div className="flex font-font-family-2  font-bold gap-2 2xl:container px-3  mx-auto py-4">
+<div style={{ backgroundColor: "#EBEBEB" }}>
+        <div className="px-16 py-3 lg:flex gap-3 hidden">
           <Link
             to="/"
-            className="text-[#00000073] font-bold no-underline text-[16px]"
+            className="text-customLightGray font-semibold text-xl font-family-2 no-underline"
           >
             Home
           </Link>
-          <h4 className="text-[#00000073] text-[12px] mt-[3px] px-2">/</h4>
-          <h4 className="text-[16px] font-bold">Back</h4>
+          <span className="font-semibold text-customLightGray font-family-1 text-xl">
+            /
+          </span>
+          <span className="font-semibold font-family-2 text-xl">Back</span>
+        </div>
+
+        <div className="px-3 py-2 flex gap-3 lg:hidden">
+          <Link
+            to="/"
+            className="text-customLightGray font-semibold text-sm font-family-2 no-underline"
+          >
+            Home
+          </Link>
+          <span className="font-semibold text-customLightGray font-family-1 text-sm">
+            /
+          </span>
+          <span className="font-semibold font-family-2 text-sm">Back</span>
         </div>
       </div>
 
@@ -238,8 +253,8 @@ const AddToCart = () => {
             />
           </div>
           <div className="fast">
-            <h2 className="text-[25px] mt-2 text-start font-bold">Fast & Free Shipping</h2>
-            <p className="text-[15px] sm:mt-2 w-4/5 md:w-5/6 text-start">
+            <h2 className="text-[25px] mt-2 font-bold">Fast & Free Shipping</h2>
+            <p className="text-[15px] sm:mt-2 w-4/5 md:w-5/6 ">
               Every single order ships for free. No extra credit needed.
             </p>
           </div>
@@ -254,16 +269,16 @@ const AddToCart = () => {
             />
           </div>
           <div className="fast">
-            <h2 className="text-[25px] mt-2 font-bold text-start">
+            <h2 className="text-[25px] mt-2 font-bold">
               30 Days Returns Policy
             </h2>
-            <p className="text-[15px] text-start sm:mt-2 w-4/5 md:w-5/6">
+            <p className="text-[15px] sm:mt-2 w-4/5 md:w-5/6">
               Product returns are accepted within 30 days.
             </p>
           </div>
         </div>
 
-        <div className="md:flex md:gap-3 items-center justify-center text-center md:text-left">
+        <div className="md:flex md:gap-3 items-center justify-center">
           <div>
             <img
               src="/bef3.svg"
@@ -272,8 +287,8 @@ const AddToCart = () => {
             />
           </div>
           <div className="fast">
-            <h2 className="text-[25px] mt-2 font-bold text-start">Top Quality Products</h2>
-            <p className="text-[15px] sm:mt-2 w-4/5 md:w-5/6 text-start">
+            <h2 className="text-[25px] mt-2 font-bold">Top Quality Products</h2>
+            <p className="text-[15px] sm:mt-2 w-4/5 md:w-5/6">
               We always provide high quality shoes.
             </p>
           </div>

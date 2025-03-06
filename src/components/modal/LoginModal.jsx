@@ -14,7 +14,7 @@ const LoginModal = ({ onClose }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
       {/* Modal container */}
-      <div className="relative flex flex-col gap-4 py-12 w-4/5 md:w-3/5 mx-auto bg-white rounded-lg shadow-lg p-6 text-center">
+      <div className="relative flex flex-col gap-4 py-12 w-4/5 md:w-3/5 mx-auto bg-white rounded-4 shadow-lg p-6 text-center">
         
         {/* Close Button */}
         <button 
@@ -29,13 +29,13 @@ const LoginModal = ({ onClose }) => {
           <img src="/tick.svg" alt="tick icon" className="w-full scale-100" />
         </div>
 
-        <h1 className="text-xl font-bold">Welcome Back</h1>
-        <p className="-mt-4">You are already logged in</p>
+        <h1 className="text-lg md:text-2xl font-family-2 font-bold">Welcome Back</h1>
+        <p className="-mt-4 font-family-2 text-base md:text-xl">You are already logged in</p>
 
         {/* Continue Button */}
         <button 
           onClick={handleClose}
-          className="bg-[#01497C] py-3 rounded-lg text-white w-full"
+          className="bg-[#01497C] py-3 rounded-lg text-white w-4/5 mx-auto text-lg font-family-2"
         >
           Continue
         </button>

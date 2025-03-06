@@ -10,6 +10,7 @@ import Drawer from "./Drawer";
 import BrandCarousel from "./BrandCarousel";
 import Subscribe from "./Subscribe";
 
+
 export {
   Nav,
   Loader,
@@ -21,5 +22,5 @@ export {
   OfferForYou,
   Drawer,
   BrandCarousel,
-  Subscribe
+  Subscribe,
 };
